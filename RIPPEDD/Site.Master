@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="RIPPEDD.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>R.I.P.P.E.D</title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+    <asp:ContentPlaceHolder runat="server" ID="Stylesheets">
+        <link href="Content/Site.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+
+        <header>
+            <div class="site-title">
+
+                <asp:LinkButton ID="WelcomePage" runat="server" ForeColor="White" OnClick="WelcomePage_Click">Welcome to R.I.P.P.E.D</asp:LinkButton>
+
+                &nbsp;&nbsp;
+
+                <asp:LinkButton ID="LogoutButton" runat="server" ForeColor="White" OnClick="LogoutButton_Click">Logout</asp:LinkButton>
+            </div>
+        </header>
+
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
+            <asp:Panel ID="Panel3" runat="server" Height="22px">
+            </asp:Panel>
+        </asp:ContentPlaceHolder>
+        <div id="body">
+            <asp:Panel ID="Panel1" runat="server" CssClass="panel-background">
+                <asp:Panel ID="Panel2" runat="server" CssClass="panel-parent">
+
+
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent">
+                    </asp:ContentPlaceHolder>
+
+
+                </asp:Panel>
+            </asp:Panel>
+
+            <footer>
+                <p>R.I.P.P.E.D Associates, Not an entity / T 555.555.5555 / RIPPED@notValidEmail.com / © All Rights Reserved "not really"</p>
+            </footer>
+    </form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+D:\Projects C#\RIPPEDD\RIPPEDD\bin\RIPPEDD.dll
+D:\Projects C#\RIPPEDD\RIPPEDD\bin\RIPPEDD.pdb
+D:\Projects C#\RIPPEDD\RIPPEDD\obj\Debug\RIPPEDD.dll
+D:\Projects C#\RIPPEDD\RIPPEDD\obj\Debug\RIPPEDD.pdb
+D:\Projects C#\RIPPEDD\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
