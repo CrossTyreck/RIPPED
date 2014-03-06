@@ -11,13 +11,14 @@ namespace RIPPEDD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblIncorrectLogin.Visible = false;
         }
 
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
             Response.Redirect("Welcome.aspx");
             //HELLO
+          
         }
 
 

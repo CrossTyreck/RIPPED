@@ -22,7 +22,7 @@
             <br />
             &nbsp;
             <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_OnClick" Text="Login" Width="74px" />
-            &nbsp;<asp:Label ID="Label1" runat="server" ForeColor="Red" Text="Incorrect username or password."></asp:Label>
+            &nbsp;<asp:Label ID="lblIncorrectLogin" runat="server" ForeColor="Red" Text="Incorrect username or password."></asp:Label>
         </asp:Panel>
 
     </div>
