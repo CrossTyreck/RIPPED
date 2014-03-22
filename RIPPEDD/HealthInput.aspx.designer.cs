@@ -256,13 +256,13 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View HealthIndicators;
         
         /// <summary>
-        /// CouchPotatoe control.
+        /// CouchPotato control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View CouchPotatoe;
+        protected global::System.Web.UI.WebControls.View CouchPotato;
         
         /// <summary>
         /// btnSubmitResults control.

@@ -19,11 +19,12 @@ namespace RIPPEDD
             {
                 foreach (View view in WorkoutChoices.Views)
                 {
-
                     ddlWorkoutChoices.Items.Add(view.ID.ToString());
                 }
             }
 
+
+            WorkoutChoices_SetView(sender, e);
         }
 
         protected void WorkoutChoices_SetView(object sender, EventArgs e)

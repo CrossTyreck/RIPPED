@@ -60,8 +60,10 @@
                      <br />
                 </asp:View>
                  <asp:View ID="WorkActivities" runat="server"></asp:View>
+                <%-- activities at work : computer use, exercise, etc --%>
                  <asp:View ID="HealthIndicators" runat="server"></asp:View>
-                 <asp:View ID="CouchPotatoe" runat="server"></asp:View>
+                            <%-- bmi, heart rate, etc --%>
+                 <asp:View ID="CouchPotato" runat="server"></asp:View>
             </asp:MultiView>
         </p>
     <p>
