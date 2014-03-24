@@ -67,22 +67,22 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View CardioWorkout;
         
         /// <summary>
-        /// lblRoadRunning0 control.
+        /// lblRoadRunning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRoadRunning0;
+        protected global::System.Web.UI.WebControls.Label lblRoadRunning;
         
         /// <summary>
-        /// txtRoadRunning0 control.
+        /// txtRoadRunning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRoadRunning0;
+        protected global::System.Web.UI.WebControls.TextBox txtRoadRunning;
         
         /// <summary>
         /// lblTreadmill control.
@@ -184,13 +184,13 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View StrengthWorkout;
         
         /// <summary>
-        /// lblClimbing0 control.
+        /// lblClimbing control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClimbing0;
+        protected global::System.Web.UI.WebControls.Label lblClimbing;
         
         /// <summary>
         /// txtClimbing control.
