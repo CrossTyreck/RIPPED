@@ -74,6 +74,7 @@
     <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DatabaseGateway.cs" />
     <Compile Include="Health Input\HealthInputSessionVariables.cs" />
     <Compile Include="HealthInput.aspx.cs">
       <DependentUpon>HealthInput.aspx</DependentUpon>
@@ -110,6 +111,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -128,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
+    <None Include="Properties\PublishProfiles\RIPPED - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\RIPPED - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

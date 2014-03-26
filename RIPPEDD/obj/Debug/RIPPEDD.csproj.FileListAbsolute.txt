@@ -3,8 +3,8 @@ D:\Projects C#\RIPPEDD\RIPPEDD\bin\RIPPEDD.pdb
 D:\Projects C#\RIPPEDD\RIPPEDD\obj\Debug\RIPPEDD.dll
 D:\Projects C#\RIPPEDD\RIPPEDD\obj\Debug\RIPPEDD.pdb
 D:\Projects C#\RIPPEDD\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
-C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\bin\RIPPEDD.dll
-C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\bin\RIPPEDD.pdb
-C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
-C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\obj\Debug\RIPPEDD.dll
-C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\obj\Debug\RIPPEDD.pdb
+D:\Projects C#\RIPPED.git\trunk\RIPPEDD\bin\RIPPEDD.dll
+D:\Projects C#\RIPPED.git\trunk\RIPPEDD\bin\RIPPEDD.pdb
+D:\Projects C#\RIPPED.git\trunk\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
+D:\Projects C#\RIPPED.git\trunk\RIPPEDD\obj\Debug\RIPPEDD.dll
+D:\Projects C#\RIPPED.git\trunk\RIPPEDD\obj\Debug\RIPPEDD.pdb

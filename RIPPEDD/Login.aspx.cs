@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RIPPEDD.Controllers;
 
 namespace RIPPEDD
 {
@@ -16,6 +17,7 @@ namespace RIPPEDD
 
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
+            DatabaseGateway dbObject = new DatabaseGateway();
             Response.Redirect("Welcome.aspx");
             //HELLO
           
