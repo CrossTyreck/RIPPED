@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Globalization;
 using RIPPEDD.Health_Input;
 using RIPPEDD.Controllers;
+using RIPPEDD.Entities;
 
 namespace RIPPEDD
 {
@@ -19,6 +20,9 @@ namespace RIPPEDD
         {
             base.OnInit(e);
             WorkoutChoices_Initialize();
+
+          //Needs to be in the login function
+            int userID = ((SessionData)Session["UserData"])._loginID;
         }
 
 

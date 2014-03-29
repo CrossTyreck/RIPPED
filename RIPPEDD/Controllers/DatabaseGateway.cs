@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using Ripped.Entities;
+using RIPPEDD.Entities;
 
 
 namespace RIPPEDD.Controllers
@@ -65,7 +65,7 @@ namespace RIPPEDD.Controllers
             { databaseConnection.Close(); }
         }
 
-        public String InsertData(String table, Dictionary<String, String> inputData, int loginID = )
+        public String InsertData(String table, Dictionary<String, String> inputData, int loginID)
         {
             SqlCommand insertData = null;
 

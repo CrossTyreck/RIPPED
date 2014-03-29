@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RIPPEDD.Controllers;
+using RIPPEDD.Entities;
 
 namespace RIPPEDD
 {
     public partial class Login : System.Web.UI.Page
     {
+        SessionData userData = new SessionData();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblIncorrectLogin.Visible = false;
@@ -20,6 +23,8 @@ namespace RIPPEDD
             DatabaseGateway dbObject = new DatabaseGateway();
             Response.Redirect("Welcome.aspx");
             //HELLO
+
+            Session["User_Data"] = userData; 
           
         }
 
