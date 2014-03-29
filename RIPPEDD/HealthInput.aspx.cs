@@ -112,7 +112,7 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
-                        string script = "alert(\"Warning: One of your inputs is not a numeric value\");";
+                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
@@ -123,26 +123,93 @@ namespace RIPPEDD
                     break;
 
                 case "StrengthWorkout":
+
+                    if (controller.inputStrengthWorkout(txtClimbing.Text, txtBoxing.Text, txtPushups.Text, txtSitups.Text, txtWorkoutRoutine.Text))
+                    {
+                        //Input is valid
+                        string script = "alert(\"Success!\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+                    else
+                    {
+                        //Input invalid
+                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+
                     System.Diagnostics.Debug.WriteLine("3");
                     break;
 
                 case "WorkActivities":
+
+                    if (controller.inputWorkActivities(txtComputerTime.Text, txtBreaksPerHour.Text, txtLunchTime.Text, txtWorkTime.Text, txtMeetingTime.Text))
+                    {
+                        //Input is valid
+                        string script = "alert(\"Success!\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+                    else
+                    {
+                        //Input invalid
+                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+
                     System.Diagnostics.Debug.WriteLine("4");
                     break;
 
 
                 case "HealthIndicators":
+                   
+                    if (controller.inputHealthIndicators(txtWeight.Text, txtBMI.Text, txtSittingHeartRate.Text, txtWorkingHeartRate.Text, txtHeight.Text, txtSleep.Text))
+                    {
+                        //Input is valid
+                        string script = "alert(\"Success!\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+                    else
+                    {
+                        //Input invalid
+                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+
+
                     System.Diagnostics.Debug.WriteLine("5");
                     break;
 
                 case "CouchPotato":
+
+                    if (controller.inputCouchPotato(txtComputerTimeHome.Text, txtTelevision.Text, txtChores.Text))
+                    {
+                        //Input is valid
+                        string script = "alert(\"Success!\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+                    else
+                    {
+                        //Input invalid
+                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+
                     System.Diagnostics.Debug.WriteLine("6");
                     break;
 
                 case "Injuries":
+
+                    controller.inputInjury(imageMapClick, txtInjuryReport.Text);
+
                     System.Diagnostics.Debug.WriteLine("7");
                     break;
-
 
             }
 
