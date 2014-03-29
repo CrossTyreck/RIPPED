@@ -7,6 +7,11 @@
     <div>
         Welcome to RIPPED!<br />
         <br />
+        <asp:Label ID="lblRegister" runat="server" Text="New? Great! Please register for access. "></asp:Label>
+        <br />
+        <asp:Button ID="btnRegister" runat="server" OnClick="Button1_Click" Text="Register" />
+        <br />
+        <br />
         Please login.<br />
         <br />
         <asp:Panel ID="pnlLogin" runat="server" Height="185px" Width="472px">
