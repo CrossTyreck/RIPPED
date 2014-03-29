@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace RIPPEDD.Controllers
 {
-    public class HealthInputController
+    public class HealthInputController : DatabaseGateway
     {
-
-        public void testConnection()
-        {
-
-        }
       
-
         ///<summary>
         /// Function: to test whether or not the string inputs are either empty or numeric
         /// If alphabetical or non-numeric characters exist, send false. The webpage will then

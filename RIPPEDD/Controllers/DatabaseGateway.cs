@@ -23,7 +23,7 @@ namespace RIPPEDD.Controllers
 
         public DatabaseGateway()
         {
-         
+
         }
 
         public SqlConnection GetDBConnection()
@@ -64,5 +64,79 @@ namespace RIPPEDD.Controllers
             { databaseConnection.Close(); }
         }
 
+        public String InsertData(String table, Dictionary<String, String> inputData)
+        {
+            SqlCommand insertData = null;
+
+            try
+            {
+                string sSql = CreateSqlQuery("INSERT", table, inputData);
+                insertData = new SqlCommand(sSql, GetDBConnection());
+                insertData.Connection.Open();
+                int rows = insertData.ExecuteNonQuery();
+            }
+
+            catch (SqlException e)
+            { return e.Message; }
+            catch (Exception e)
+            { return e.Message; }
+
+            finally
+            {
+                if (insertData.Connection.State == ConnectionState.Open)
+                { insertData.Connection.Close(); }
+            }
+
+            return "Data Inserted correctly";
+        }
+
+        //private String CreateInsertSqlParameters(Dictionary<String, String> inputData)
+        //{
+        //    string sSql = null;
+        //    foreach (KeyValuePair<String,String> pair in inputData)
+        //    {
+        //        sSql = (sSql == null? "" : sSql + ", ") + pair.Value;
+        //    }
+        //    return sSql == null ? "" : "VALUES (" + sSql + ")";
+
+        //}
+
+
+        /// <summary>
+        ///  Creates a string used to query the database. 
+        /// </summary>
+        /// <param name="sSqlFunct">SQL Command such as UPDATE or INSERT</param>
+        /// <param name="table"></param>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        private String CreateSqlQuery(String sSqlFunct, String table, Dictionary<String, String> inputData)
+        {
+            string sSql = null;
+
+            switch (sSqlFunct)
+            {
+                case "UPDATE":
+                    foreach (KeyValuePair<String, String> pair in inputData)
+                    {
+                        sSql = (sSql == null ? "" : sSql + ", ") + pair.Key + " = '" + pair.Value + "'";
+                    }
+                    sSql = sSql == null ? null : sSqlFunct + " " + table + " SET " + sSql;
+                    break;
+
+                case "INSERT":
+                    string sValue = null;
+                    foreach (KeyValuePair<String, String> pair in inputData)
+                    {
+                        sSql = (sSql == null ? "" : sSql + ", ") + pair.Key;
+                        sValue = (sValue == null ? "" : sValue + ", ") + "'" + pair.Value + "'";
+                    }
+                    sSql = (sSql == null || sValue == null) ? null : sSqlFunct + " INTO " + table + " (" + sSql + ") VALUES (" + sValue + ")";
+                    break;
+                default:
+                    return "ERROR";
+            }
+            if (sSql == null) throw new Exception("While creating " + sSqlFunct + " function. The statement return null");
+            return sSql;
+        }
     }
 }

@@ -12,8 +12,9 @@ namespace RIPPEDD
 {
     public partial class HealthInput : System.Web.UI.Page
     {
+        HealthInputController dbObject = new HealthInputController();
         private string imageMapClick = "";
-        
+
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -73,7 +74,7 @@ namespace RIPPEDD
             //http://stackoverflow.com/questions/13362904/convert-control-to-textbox-and-assign-it-a-value
             //foreach (TextBox txtBox in this.Controls)
             //{
-             
+
             //    if (txtBox.Visible && txtBox.Text.Length > 0)
             //    {
             //        float dControl;
@@ -161,7 +162,7 @@ namespace RIPPEDD
 
 
                 case "HealthIndicators":
-                   
+
                     if (controller.inputHealthIndicators(txtWeight.Text, txtBMI.Text, txtSittingHeartRate.Text, txtWorkingHeartRate.Text, txtHeight.Text, txtSleep.Text))
                     {
                         //Input is valid
@@ -203,9 +204,9 @@ namespace RIPPEDD
 
                 case "Injuries":
 
-                   
-                    if(controller.inputInjury(imageMapClick, txtInjuryReport.Text))
-                     {
+
+                    if (controller.inputInjury(imageMapClick, txtInjuryReport.Text))
+                    {
                         //Input is valid
                         string script = "alert(\"Success!\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
@@ -228,6 +229,7 @@ namespace RIPPEDD
             //Response.Redirect("HealthInputReport.aspx");
             controller = null;
             GC.Collect();
+
         }
 
 

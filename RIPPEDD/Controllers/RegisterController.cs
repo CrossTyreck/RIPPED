@@ -31,7 +31,7 @@ namespace RIPPEDD
         /// <returns></returns>
         public String InsertNewUser(String first_name, String last_name, String username, String password, String securityQuestion, String securityAnswer)
         {
-            SqlConnection dbConn = this.GetDBConnection();
+            SqlConnection dbConn = GetDBConnection();
             SqlCommand insertNewUser = new SqlCommand("INSERT INTO tblLogin (user_type," +
                                                         " username, password, first_name, last_name," +
                                                         " security_question, security_answer) " + Environment.NewLine +
@@ -40,14 +40,18 @@ namespace RIPPEDD
                                                            dbConn);
             dbConn.Open();
 
+            SqlDataReader reader = new SqlDataReader();
+
             try
-            { SqlDataReader reader = insertNewUser.ExecuteReader(System.Data.CommandBehavior.SequentialAccess); }
+            { reader = insertNewUser.ExecuteReader(System.Data.CommandBehavior.SequentialAccess); }
             catch (SqlException e)
             { return e.Message; }
 
             finally
-            { dbConn.Close(); }
-
+            {
+                reader.Close();
+                dbConn.Close();
+            }
             return "Data Inserted Successfully";
         }
 
