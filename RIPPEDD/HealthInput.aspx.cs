@@ -62,12 +62,9 @@ namespace RIPPEDD
         protected void SetInjury(object sender, ImageMapEventArgs e)
         {
 
-           /* if (dictInjury.ContainsKey(e.PostBackValue))
-            {
-                dictInjury[e.PostBackValue] = 1;
-            }*/
+            imageMapClick = e.PostBackValue;
 
-            
+            System.Diagnostics.Debug.WriteLine(e.PostBackValue);
 
         }
 
@@ -206,8 +203,22 @@ namespace RIPPEDD
 
                 case "Injuries":
 
+                   
+                    if(controller.inputInjury(imageMapClick, txtInjuryReport.Text))
+                     {
+                        //Input is valid
+                        string script = "alert(\"Success!\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+                    else
+                    {
+                        //Input invalid
+                        string script = "alert(\"Warning: You need to click on a valid body part before entering your concerns.\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
 
-                    controller.inputInjury(imageMapClick, txtInjuryReport.Text);
 
                     System.Diagnostics.Debug.WriteLine("7");
                     break;

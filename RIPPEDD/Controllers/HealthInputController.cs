@@ -12,6 +12,8 @@ namespace RIPPEDD.Controllers
         {
 
         }
+      
+
         ///<summary>
         /// Function: to test whether or not the string inputs are either empty or numeric
         /// If alphabetical or non-numeric characters exist, send false. The webpage will then
@@ -116,7 +118,12 @@ namespace RIPPEDD.Controllers
 
         public bool inputInjury(string bodyPart, string injury)
         {
-            
+            if (injury.Equals(""))
+            {
+                return false;
+            }
+
+            //DATABASE HERE
 
             return true;
         }
