@@ -79,6 +79,7 @@
     <Compile Include="Controllers\DatabaseGateway.cs" />
     <Compile Include="Entities\SessionData.cs" />
     <Compile Include="Controllers\HealthInputController.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Health Input\HealthInputSessionVariables.cs" />
     <Compile Include="HealthInput.aspx.cs">
       <DependentUpon>HealthInput.aspx</DependentUpon>

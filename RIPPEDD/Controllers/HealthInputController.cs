@@ -9,7 +9,7 @@ namespace RIPPEDD.Controllers
 {
     public class HealthInputController : DatabaseGateway
     {
-      
+
         ///<summary>
         /// Function: to test whether or not the string inputs are either empty or numeric
         /// If alphabetical or non-numeric characters exist, send false. The webpage will then
@@ -18,21 +18,21 @@ namespace RIPPEDD.Controllers
         /// <summary>
         public bool inputCardioWorkout(string roadRunning, string treadmill, string cycling, string swimming, string walking, string rowing)
         {
-            string[] testing = {roadRunning, treadmill, cycling, swimming, walking, rowing };
+            string[] testing = { roadRunning, treadmill, cycling, swimming, walking, rowing };
             double numTest = 0;
 
             for (int i = 0; i < testing.Length; ++i)
             {
                 //If the string at the index i is not a numeric string
-                if( !(Double.TryParse(testing[i], out numTest)) )
+                if (!(Double.TryParse(testing[i], out numTest)))
                 {
-                     return false;
+                    return false;
                 }
             }
-           
+
 
             //DATABASE OBJECT CALLS HERE
-            
+
             return true;
         }
 
@@ -44,7 +44,7 @@ namespace RIPPEDD.Controllers
             for (int i = 0; i < testing.Length; ++i)
             {
                 //If the string at the index i is not a numeric string
-                if ( !(Double.TryParse(testing[i], out numTest)))
+                if (!(Double.TryParse(testing[i], out numTest)))
                 {
                     return false;
                 }
@@ -70,7 +70,7 @@ namespace RIPPEDD.Controllers
             }
 
             //DATABASE OBJECT CALLS HERE
-            
+
             return true;
         }
 
@@ -108,7 +108,7 @@ namespace RIPPEDD.Controllers
             }
 
             //DATABASE OBJECT CALLS HERE
-            
+
             return true;
         }
 
@@ -124,6 +124,28 @@ namespace RIPPEDD.Controllers
             return true;
         }
 
+        public int GetActivityID(string activity)
+        {
+            SqlCommand getActivityID = new SqlCommand("SELECT act_id FROM tblActivities WHERE activity = " + activity, GetDBConnection());
+            SqlDataReader reader = new SqlDataReader();
+            try
+            {
+                reader = getActivityID.ExecuteReader(System.Data.CommandBehavior.SingleResult);
+                if (reader.Read())
+                {
+                    return reader.GetInt32(0);
+                }
 
+            }
+            catch (SqlException e)
+            { return -1; }
+            finally
+            {
+                if (getActivityID.Connection.State == ConnectionState.Open)
+                {
+                    getActivityID.Connection.Close();
+                }
+            }
+        }
     }
 }

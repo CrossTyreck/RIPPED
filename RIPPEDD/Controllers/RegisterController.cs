@@ -10,10 +10,10 @@ namespace RIPPEDD
 {
     public class RegisterController : DatabaseGateway
     {
+       
 
         public RegisterController()
         {
-
 
         }
 
@@ -53,6 +53,13 @@ namespace RIPPEDD
                 dbConn.Close();
             }
             return "Data Inserted Successfully";
+        }
+
+        public Dictionary<Enum, String> CreateDict()
+        {
+            return new Dictionary<Enum, string>();
+
+
         }
 
     }
