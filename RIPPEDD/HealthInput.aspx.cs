@@ -11,6 +11,15 @@ namespace RIPPEDD
 {
     public partial class HealthInput : System.Web.UI.Page
     {
+        private string imageMapClick = "";
+        
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            WorkoutChoices_Initialize();
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblSubmissionInfo.Visible = false;
@@ -24,7 +33,17 @@ namespace RIPPEDD
             }
 
 
-            WorkoutChoices_SetView(sender, e);
+        }
+
+        protected void WorkoutChoices_Initialize()
+        {
+            foreach (View view in WorkoutChoices.Views)
+            {
+                if (view.ID.ToString().Equals("Welcome"))
+                {
+                    WorkoutChoices.SetActiveView(view);
+                }
+            }
         }
 
         protected void WorkoutChoices_SetView(object sender, EventArgs e)
@@ -36,6 +55,18 @@ namespace RIPPEDD
                     WorkoutChoices.SetActiveView(view);
                 }
             }
+
+        }
+
+        protected void SetInjury(object sender, ImageMapEventArgs e)
+        {
+
+           /* if (dictInjury.ContainsKey(e.PostBackValue))
+            {
+                dictInjury[e.PostBackValue] = 1;
+            }*/
+
+            
 
         }
 
@@ -56,6 +87,7 @@ namespace RIPPEDD
 
             Response.Redirect("HealthInputReport.aspx");
         }
+
 
     }
 }

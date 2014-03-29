@@ -66,6 +66,7 @@
     <Content Include="Images\2DFastLine.png" />
     <Content Include="Images\2DRadarArea.png" />
     <Content Include="Images\3DPie2.png" />
+    <Content Include="Images\Baby1.png" />
     <Content Include="Images\hurt-hs.jpg" />
     <Content Include="Images\panel.jpg" />
     <Content Include="InvalidLogin.aspx" />
@@ -75,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DatabaseGateway.cs" />
+    <Compile Include="Controllers\HeathInputController.cs" />
     <Compile Include="Health Input\HealthInputSessionVariables.cs" />
     <Compile Include="HealthInput.aspx.cs">
       <DependentUpon>HealthInput.aspx</DependentUpon>
