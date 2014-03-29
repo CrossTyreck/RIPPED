@@ -206,6 +206,7 @@ namespace RIPPEDD
 
                 case "Injuries":
 
+
                     controller.inputInjury(imageMapClick, txtInjuryReport.Text);
 
                     System.Diagnostics.Debug.WriteLine("7");

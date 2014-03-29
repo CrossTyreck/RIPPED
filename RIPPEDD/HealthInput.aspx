@@ -180,7 +180,7 @@
                  <asp:View ID="Injuries" runat="server">
 
 
-                <center> <asp:ImageMap ID="ImageMap2" runat="server" HotSpotMode="PostBack" ImageUrl="~/Images/hurt-hs.jpg" OnClick="SetInjury">
+                <center> <asp:ImageMap ID="imgBodyDiagram" runat="server" HotSpotMode="PostBack" ImageUrl="~/Images/hurt-hs.jpg" OnClick="SetInjury">
             <asp:RectangleHotSpot AlternateText="Head" Bottom="53" HotSpotMode="PostBack" Left="68" PostBackValue="1" Right="93" Top="27" />
             <asp:RectangleHotSpot AlternateText="Right Shoulder" Bottom="110" HotSpotMode="PostBack" Left="62" PostBackValue="Right Shoulder" Right="86" Top="87" />
             <asp:RectangleHotSpot AlternateText="Right Elbow" Bottom="182" HotSpotMode="PostBack" Left="32" PostBackValue="Right Elbow" Right="54" Top="159" />
