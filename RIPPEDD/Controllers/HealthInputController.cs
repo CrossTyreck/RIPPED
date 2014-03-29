@@ -5,7 +5,7 @@ using System.Web;
 
 namespace RIPPEDD.Controllers
 {
-    public class HeathInputController
+    public class HealthInputController
     {
 
         public void testConnection()
