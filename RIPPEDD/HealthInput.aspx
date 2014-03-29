@@ -65,17 +65,29 @@
                 </asp:View>
                  <asp:View ID="StrengthWorkout" runat="server">
                      <br />
+
                      &nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblClimbing" runat="server" Text="Climbing: "></asp:Label>
+                     <asp:Label ID="lblClimbing" runat="server" Text="Climbing (minutes): "></asp:Label>
                      <asp:TextBox ID="txtClimbing" runat="server" Width="118px"></asp:TextBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblFreeWeights" runat="server" Text="Free Weights: "></asp:Label>
-                     <asp:TextBox ID="txtFreeWeights" runat="server" Width="118px"></asp:TextBox>
+                      <asp:Label ID="lblBoxing" runat="server" Text="Boxing (minutes): "></asp:Label>
+                     <asp:TextBox ID="txtBoxing" runat="server" Width="118px"></asp:TextBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblBoxing" runat="server" Text="Boxing: "></asp:Label>
-                     <asp:TextBox ID="txtBoxing" runat="server" Width="118px"></asp:TextBox>
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                 <asp:Label ID="lblPushups" runat="server" Text="# of pushups: "></asp:Label>
+                     <asp:TextBox ID="txtPushups" runat="server" Width="118px"></asp:TextBox>
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
+                   <asp:Label ID="lblSitups" runat="server" Text="# of situps: "></asp:Label>
+                     <asp:TextBox ID="txtSitups" runat="server" Width="118px"></asp:TextBox>
+
+                     <br /><br />
+
+                     <center>
+
+                         <asp:TextBox ID="txtWorkoutRoutine" runat="server" Text="Describe your workout routine here (workouts, # of reps, weights, etc)." TextMode="multiline" Height="223px" Width="558px"></asp:TextBox>
+                     </center>
                      
                          <br />
                 </asp:View>
@@ -111,11 +123,58 @@
                  <asp:View ID="HealthIndicators" runat="server">
 
                      <%-- bmi, heart rate, etc --%>
+                     <br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:Label ID="lblWeight" runat="server" Text="Current Weight (in lbs): "></asp:Label>
+                     <asp:TextBox ID="txtWeight" runat="server" Width="118px"></asp:TextBox>                 
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <asp:Label ID="lblBMI" runat="server" Text="Body Mass Index (BMI): "></asp:Label>
+                     <asp:TextBox ID="txtBMI" runat="server" Width="118px"></asp:TextBox>
+
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <br /> <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                     <asp:Label ID="lblSittingHeartRate" runat="server" Text="Sitting Heart Rate(beats per minute): "></asp:Label>
+                      <asp:TextBox ID="txtSittingHeartRate" runat="server" Width="118px"></asp:TextBox>     
+                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblWorkingHeartRate" runat="server" Text="Working Heart Rate(beats per minute): "></asp:Label>
+                     <asp:TextBox ID="txtWorkingHeartRate" runat="server" Width="118px"></asp:TextBox>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                     <asp:Label ID="lblHeight"  runat="server" Text="Current Height (inches): "></asp:Label>
+                     <asp:TextBox ID="txtHeight" runat="server" Width="118px" ></asp:TextBox>
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                     <asp:Label ID="lblSleep" runat="server" Text="Sleep amount (hours): "></asp:Label>
+                     <asp:TextBox ID="txtSleep" runat="server" Width="118px"></asp:TextBox>
+                     <br />
+
                  </asp:View>
                             
                  <asp:View ID="CouchPotato" runat="server">
 
                      <%-- home activities --%>
+
+                     <br />
+
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:Label ID="lblComputerTimeHome" runat="server" Text="Computer Use Time(hours): "></asp:Label>
+                     <asp:TextBox ID="txtComputerTimeHome" runat="server" Width="118px"></asp:TextBox>
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:Label ID="lblTelevision" runat="server" Text="Television time (hours): "></asp:Label>
+                     <asp:TextBox ID="txtTelevision" runat="server" Width="118px"></asp:TextBox>
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <br />
+                     <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:Label ID="lblChores" runat="server" Text="Chores time (hours): "></asp:Label>
+                     <asp:TextBox ID="txtChores" runat="server" Width="118px"></asp:TextBox>
+
+                 
+                     <br />
+
                  </asp:View>
 
                  <asp:View ID="Injuries" runat="server">

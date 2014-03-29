@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
 using RIPPEDD.Health_Input;
+using RIPPEDD.Controllers;
 
 namespace RIPPEDD
 {
@@ -85,7 +86,69 @@ namespace RIPPEDD
             //    }
             //}
 
-            Response.Redirect("HealthInputReport.aspx");
+            System.Diagnostics.Debug.WriteLine("Click test");
+            //System.Diagnostics.Debug.WriteLine(WorkoutChoices.GetActiveView().ToString());
+
+            // string current = WorkoutChoices.GetActiveView().ID.ToString();
+
+            HealthInputController controller = new HealthInputController();
+
+            switch (WorkoutChoices.GetActiveView().ID.ToString())
+            {
+
+                case "Welcome":
+                    System.Diagnostics.Debug.WriteLine("1");
+                    break;
+
+                case "CardioWorkout":
+
+                    if (controller.inputCardioWorkout(txtRoadRunning.Text, txtTreadmill.Text, txtCycling.Text, txtSwimming.Text, txtWalking.Text, txtRowing.Text))
+                    {
+                        //Input is valid
+                        string script = "alert(\"Success!\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+                    else
+                    {
+                        //Input invalid
+                        string script = "alert(\"Warning: One of your inputs is not a numeric value\");";
+                        ScriptManager.RegisterStartupScript(this, GetType(),
+                                              "ServerControlScript", script, true);
+                    }
+
+
+
+                    System.Diagnostics.Debug.WriteLine("2");
+                    break;
+
+                case "StrengthWorkout":
+                    System.Diagnostics.Debug.WriteLine("3");
+                    break;
+
+                case "WorkActivities":
+                    System.Diagnostics.Debug.WriteLine("4");
+                    break;
+
+
+                case "HealthIndicators":
+                    System.Diagnostics.Debug.WriteLine("5");
+                    break;
+
+                case "CouchPotato":
+                    System.Diagnostics.Debug.WriteLine("6");
+                    break;
+
+                case "Injuries":
+                    System.Diagnostics.Debug.WriteLine("7");
+                    break;
+
+
+            }
+
+            //Response.Redirect("HealthInputReport.aspx");
+            controller = null;
+            GC.Collect();
         }
 
 

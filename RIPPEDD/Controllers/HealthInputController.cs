@@ -23,5 +23,10 @@ namespace RIPPEDD.Controllers
         {
             return true;
         }
+
+        public bool inputWorkActivities(string computerTime, string breaksPerHour, string lunchTime, string workTime, string meetingTime)
+        {
+            return true;
+        }
     }
 }
