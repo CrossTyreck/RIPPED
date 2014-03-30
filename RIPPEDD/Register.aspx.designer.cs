@@ -13,6 +13,15 @@ namespace RIPPEDD {
     public partial class Register {
         
         /// <summary>
+        /// txtbxDataInserted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbxDataInserted;
+        
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxFirstName;
-        
-        /// <summary>
-        /// lblReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReq;
         
         /// <summary>
         /// lblLastName control.
@@ -58,15 +58,6 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtbxLastName;
         
         /// <summary>
-        /// lblReq0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReq0;
-        
-        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -83,15 +74,6 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxUsername;
-        
-        /// <summary>
-        /// lblReq1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReq1;
         
         /// <summary>
         /// lblPassword control.
@@ -112,15 +94,6 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtbxPassword;
         
         /// <summary>
-        /// lblReq2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReq2;
-        
-        /// <summary>
         /// lblSecurityQuestion control.
         /// </summary>
         /// <remarks>
@@ -137,15 +110,6 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxSecurityQuestion;
-        
-        /// <summary>
-        /// lblReq3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReq3;
         
         /// <summary>
         /// lblSecurityAnswer control.
@@ -166,15 +130,6 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtSecurityAnswer;
         
         /// <summary>
-        /// lblReq4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReq4;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
@@ -182,14 +137,5 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// lblDataInserted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataInserted;
     }
 }

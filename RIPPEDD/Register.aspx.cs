@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RIPPEDD.Controllers;
+using RIPPEDD.Entities;
 
 namespace RIPPEDD
 {
@@ -19,18 +20,27 @@ namespace RIPPEDD
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Dictionary<Enum, String> dictTblLoginUser = new Dictionary<Enum, String>();
-           
+            User newUser = new User(txtbxUsername.Text, txtbxPassword.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxSecurityQuestion.Text, txtSecurityAnswer.Text);
+            String info;
 
-            //lblDataInserted.Text = dbObject.InsertData("tblLogin", 
+            if (dbObject.InsertNewUser(newUser, out info))
+            {
+                Response.Redirect("Login.aspx?reg=1");
+            }
+            else
+            {
+                string script = "alert(\"" + info + "\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                      "ServerControlScript", script, true);
+            }
         }
 
-        
-        
+
+
     }
 }

@@ -5,12 +5,11 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
     <div>
-        Welcome to RIPPED!<br />
-        <br />
         <asp:Label ID="lblRegister" runat="server" Text="New? Great! Please register for access. "></asp:Label>
         <br />
         <asp:Button ID="btnRegister" runat="server" OnClick="Button1_Click" Text="Register" />
         <br />
+        <asp:Label ID="lblRegistered" runat="server" ForeColor="Green" Text="Thanks for registering!" Visible="False"></asp:Label>
         <br />
         Please login.<br />
         <br />
@@ -27,8 +26,7 @@
             <br />
             &nbsp;
             <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_OnClick" Text="Login" Width="74px" />
-            &nbsp;<asp:Label ID="lblIncorrectLogin" runat="server" ForeColor="Red" Text="Incorrect username or password."></asp:Label>
-        </asp:Panel>
+            &nbsp;</asp:Panel>
 
     </div>
 </asp:Content>

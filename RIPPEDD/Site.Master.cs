@@ -21,6 +21,7 @@ namespace RIPPEDD
 
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
+            Session.Clear();
             Response.Redirect("Login.aspx");
         }
     }

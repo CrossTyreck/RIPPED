@@ -5,6 +5,8 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using RIPPEDD.Entities;
+using System.Data.Sql;
+using System.Web.UI;
 
 
 namespace RIPPEDD.Controllers
@@ -33,42 +35,38 @@ namespace RIPPEDD.Controllers
 
         }
 
-        /// <summary>
-        /// Used only to verify the connection by passing data to a data reader. Also serves as a generic
-        /// layout for connection code. 
-        /// </summary>
-        private void testConnection()
+        public int SelectUser(String table, Dictionary<String, String> inputData, out User user)
         {
-            SqlCommand command = new SqlCommand("Select * From tblUsers", databaseConnection);
-
-            databaseConnection.Open();
-
+            SqlCommand selectData = null;
+            user = null;
+             SqlDataReader reader = null;
             try
             {
-                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
-
-                if (reader.HasRows)
+                string sSql = CreateSqlQuery("SELECT *", table, inputData);
+                selectData = new SqlCommand(sSql, GetDBConnection());
+                selectData.Connection.Open();
+                reader = selectData.ExecuteReader(CommandBehavior.SingleRow);
+                
+                if (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("{0}\t{1}\t{2}\t{3}", reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3));
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No rows found.");
+                   user = new User(reader.GetString(2), null, reader.GetString(4), reader.GetString(5));
+                   return reader.GetInt32(0);
                 }
             }
-            catch (SqlException eSql)
-            { Console.WriteLine(eSql.Message); }
-            finally
-            { databaseConnection.Close(); }
+
+            catch (SqlException e)
+            { return e.ErrorCode; }
+            catch (Exception e)
+            { return e.HResult; }
+
+            return -1;
         }
 
-        public String InsertData(String table, Dictionary<String, String> inputData, int loginID)
+        //public String SelectData(String table, 
+        public String InsertData(String table, Dictionary<String, String> inputData)
         {
             SqlCommand insertData = null;
-
+          
             try
             {
                 string sSql = CreateSqlQuery("INSERT", table, inputData);
@@ -81,12 +79,6 @@ namespace RIPPEDD.Controllers
             { return e.Message; }
             catch (Exception e)
             { return e.Message; }
-
-            finally
-            {
-                if (insertData.Connection.State == ConnectionState.Open)
-                { insertData.Connection.Close(); }
-            }
 
             return "Data Inserted correctly";
         }
@@ -107,14 +99,14 @@ namespace RIPPEDD.Controllers
         ///  Creates a string used to query the database. 
         /// </summary>
         /// <param name="sSqlFunct">SQL Command such as UPDATE or INSERT</param>
-        /// <param name="table"></param>
-        /// <param name="inputData"></param>
-        /// <returns></returns>
+        /// <param name="table">Table you are querying</param>
+        /// <param name="inputData">Data manipulated</param>
+        /// <returns>Returns the Query</returns>
         private String CreateSqlQuery(String sSqlFunct, String table, Dictionary<String, String> inputData)
         {
             string sSql = null;
-
-            switch (sSqlFunct)
+           
+            switch (sSqlFunct.Contains(' ') ? sSqlFunct.Substring(0, sSqlFunct.IndexOf(' ')) : sSqlFunct)
             {
                 case "UPDATE":
                     foreach (KeyValuePair<String, String> pair in inputData)
@@ -133,11 +125,30 @@ namespace RIPPEDD.Controllers
                     }
                     sSql = (sSql == null || sValue == null) ? null : sSqlFunct + " INTO " + table + " (" + sSql + ") VALUES (" + sValue + ")";
                     break;
+
+                case "SELECT":
+                    foreach(KeyValuePair<String,String> pair in inputData)
+                    {
+                        sSql = (sSql == null ? "" : sSql + " AND ") + pair.Key + " = '" + pair.Value + "'";
+                    }
+                    sSql = sSqlFunct + " FROM " + table + (sSql == null ? "" : " WHERE " + sSql); 
+                    
+                    break;
                 default:
                     return "ERROR";
             }
             if (sSql == null) throw new Exception("While creating " + sSqlFunct + " function. The statement return null");
             return sSql;
         }
+
+        //private SqlDataReader SelectData()
+        //{
+        //    SqlCommand selectData = new SqlCommand(CreateSelect(), GetDBConnection());
+        //    SqlDataReader reader = new SqlDataReader();
+
+           
+        
+
+        //}
     }
 }

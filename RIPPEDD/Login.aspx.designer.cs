@@ -31,6 +31,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.Button btnRegister;
         
         /// <summary>
+        /// lblRegistered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegistered;
+        
+        /// <summary>
         /// pnlLogin control.
         /// </summary>
         /// <remarks>
@@ -83,14 +92,5 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
-        
-        /// <summary>
-        /// lblIncorrectLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIncorrectLogin;
     }
 }

@@ -5,41 +5,42 @@ using System.Web;
 using RIPPEDD.Controllers;
 using System.Data;
 using System.Data.SqlClient;
+using RIPPEDD.Entities;
 
 namespace RIPPEDD
 {
-    public class LoginController
+    public class LoginController : DatabaseGateway
     {
-        private DatabaseGateway dbObject; 
-
-        public void testConnection()
+        public bool LoginAuthentication(User user, out int id, out User retUser, out String info)
         {
-            dbObject = new DatabaseGateway();
-            SqlConnection loginConnection = dbObject.GetDBConnection();
-            SqlCommand command = new SqlCommand("Select * From tblUsers", loginConnection);
+            List<String> errors;
 
-            loginConnection.Open();
-
-            try
+            if (user.ValidateLogin(out errors))
             {
-                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
+                info = "Welcome.aspx";
+                if ((id = SelectUser("tblUser", user.CreateDict(), out retUser)) < 0)
+                {
+                    info = "Incorrect username and/or password";
+                    return false;
+                }
 
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("{0}\t{1}\t{2}\t{3}", reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3));
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No rows found.");
-                }
+                return true;
             }
-            catch (SqlException eSql)
-            { Console.WriteLine(eSql.Message); }
-            finally
-            { loginConnection.Close(); }
+            else
+            {
+                info = "There are the following errors:";
+                foreach (String error in errors)
+                {
+                    info += "\\n" + error;
+                }
+                retUser = null;
+                id = -1;
+                return false;
+            }
+
         }
+
+
+
     }
 }

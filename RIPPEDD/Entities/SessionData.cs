@@ -8,7 +8,6 @@ namespace RIPPEDD.Entities
     public class SessionData
     {
         public int _loginID { get; set; }
-        public int _userType { get; set; }
-
+        public User _user { get; set; }
     }
 }

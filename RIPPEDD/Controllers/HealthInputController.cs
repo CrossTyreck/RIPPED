@@ -127,7 +127,7 @@ namespace RIPPEDD.Controllers
         public int GetActivityID(string activity)
         {
             SqlCommand getActivityID = new SqlCommand("SELECT act_id FROM tblActivities WHERE activity = " + activity, GetDBConnection());
-            SqlDataReader reader = new SqlDataReader();
+            SqlDataReader reader = null;
             try
             {
                 reader = getActivityID.ExecuteReader(System.Data.CommandBehavior.SingleResult);
@@ -138,7 +138,7 @@ namespace RIPPEDD.Controllers
 
             }
             catch (SqlException e)
-            { return -1; }
+            { return e.ErrorCode; }
             finally
             {
                 if (getActivityID.Connection.State == ConnectionState.Open)
@@ -146,6 +146,8 @@ namespace RIPPEDD.Controllers
                     getActivityID.Connection.Close();
                 }
             }
+            //nothing was returned
+            return 0;
         }
     }
 }

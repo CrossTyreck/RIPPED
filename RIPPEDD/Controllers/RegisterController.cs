@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using RIPPEDD.Controllers;
 using System.Data.SqlClient;
+using RIPPEDD.Entities;
 
 
 namespace RIPPEDD
 {
     public class RegisterController : DatabaseGateway
     {
-       
+
 
         public RegisterController()
         {
@@ -29,38 +30,24 @@ namespace RIPPEDD
         /// <param name="securityQuestion"></param>
         /// <param name="securityAnswer"></param>
         /// <returns></returns>
-        public String InsertNewUser(String first_name, String last_name, String username, String password, String securityQuestion, String securityAnswer)
+        public bool InsertNewUser(User user, out String info)
         {
-            SqlConnection dbConn = GetDBConnection();
-            SqlCommand insertNewUser = new SqlCommand("INSERT INTO tblLogin (user_type," +
-                                                        " username, password, first_name, last_name," +
-                                                        " security_question, security_answer) " + Environment.NewLine +
-                                                        "VALUES ('general user', @username, @password," +
-                                                        " @firstName, @lastName, @securityQuestion, @securityAnswer)",
-                                                           dbConn);
-            dbConn.Open();
-
-            SqlDataReader reader = new SqlDataReader();
-
-            try
-            { reader = insertNewUser.ExecuteReader(System.Data.CommandBehavior.SequentialAccess); }
-            catch (SqlException e)
-            { return e.Message; }
-
-            finally
+            List<String> errors = null;
+            if (user.ValidateRegister(out errors))
             {
-                reader.Close();
-                dbConn.Close();
+                info = InsertData("tblUser", user.CreateDict());
+                return true;
             }
-            return "Data Inserted Successfully";
+            else
+            {
+                info = "There are the following errors:";
+                foreach (String error in errors)
+                {
+                    info += "\\n" + error;
+                }
+                return false;
+            }
+
         }
-
-        public Dictionary<Enum, String> CreateDict()
-        {
-            return new Dictionary<Enum, string>();
-
-
-        }
-
     }
 }

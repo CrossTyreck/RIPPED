@@ -6,44 +6,38 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:TextBox ID="txtbxDataInserted" runat="server" BorderStyle="None" ForeColor="Red" ReadOnly="True" TextMode="MultiLine" Visible="False" Width="786px"></asp:TextBox>
     <br />
     <asp:Label ID="lblFirstName" runat="server" Text="First Name: "></asp:Label>
     <br />
     <asp:TextBox ID="txtbxFirstName" runat="server" style="margin-top: 0px"></asp:TextBox>
-    <asp:Label ID="lblReq" runat="server" ForeColor="Red" Text="[Required]" Visible="False"></asp:Label>
     <br />
     <br />
     <asp:Label ID="lblLastName" runat="server" Text="Last Name: "></asp:Label>
     <br />
     <asp:TextBox ID="txtbxLastName" runat="server" style="margin-top: 0px"></asp:TextBox>
-    <asp:Label ID="lblReq0" runat="server" ForeColor="Red" Text="[Required]" Visible="False"></asp:Label>
     <br />
     <br />
     <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
     <br />
-    <asp:TextBox ID="txtbxUsername" runat="server" OnTextChanged="TextBox3_TextChanged" style="margin-top: 0px"></asp:TextBox>
-    <asp:Label ID="lblReq1" runat="server" ForeColor="Red" Text="[Required]" Visible="False"></asp:Label>
+    <asp:TextBox ID="txtbxUsername" runat="server" style="margin-top: 0px"></asp:TextBox>
     <br />
     <br />
     <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
     <br />
     <asp:TextBox ID="txtbxPassword" runat="server" style="margin-top: 0px" TextMode="Password"></asp:TextBox>
-    <asp:Label ID="lblReq2" runat="server" ForeColor="Red" Text="[Required]" Visible="False"></asp:Label>
     <br />
     <br />
     <asp:Label ID="lblSecurityQuestion" runat="server" Text="Security Question:"></asp:Label>
     <br />
     <asp:TextBox ID="txtbxSecurityQuestion" runat="server" style="margin-top: 0px"></asp:TextBox>
-    <asp:Label ID="lblReq3" runat="server" ForeColor="Red" Text="[Required]" Visible="False"></asp:Label>
     <br />
     <br />
     <asp:Label ID="lblSecurityAnswer" runat="server" Text="Security Answer:"></asp:Label>
     <br />
-    <asp:TextBox ID="txtSecurityAnswer" runat="server" OnTextChanged="TextBox6_TextChanged" style="margin-top: 0px"></asp:TextBox>
-    <asp:Label ID="lblReq4" runat="server" ForeColor="Red" Text="[Required]" Visible="False"></asp:Label>
+    <asp:TextBox ID="txtSecurityAnswer" runat="server" style="margin-top: 0px"></asp:TextBox>
     <br />
     <br />
     <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
-    <asp:Label ID="lblDataInserted" runat="server" ForeColor="Green" Text="Data Inserted" Visible="False"></asp:Label>
     <br />
 </asp:Content>

@@ -15,17 +15,39 @@ namespace RIPPEDD
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblIncorrectLogin.Visible = false;
+            if ((Request.QueryString["reg"] == null ? '0' : '1') == '1')
+            {
+                lblRegister.Visible = false;
+                btnRegister.Visible = false;
+                lblRegistered.Visible = true;
+            }
         }
 
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
-            DatabaseGateway dbObject = new DatabaseGateway();
-            Response.Redirect("Welcome.aspx");
+            LoginController dbObject = new LoginController();
+            User user = new User(txtUserName.Text, txtPassword.Text);
+            User retUser;
+            int id;
+            String info;
+            if (dbObject.LoginAuthentication(user, out id, out retUser, out info))
+            {
+                userData._loginID = id;
+                userData._user = retUser;
+                Session["User_Data"] = userData;
+                Response.Redirect(info);
+            }
+            else
+            {
+                string script = "alert(\"" + info + "\");";
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                                      "ServerControlScript", script, true);
+            }
+          
             //HELLO
 
-            Session["User_Data"] = userData; 
-          
+           
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
