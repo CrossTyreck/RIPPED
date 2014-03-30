@@ -15,6 +15,7 @@ namespace RIPPEDD
     {
         HealthInputController dbObject = new HealthInputController();
         private string imageMapClick = "";
+        private int userID;
 
         protected override void OnInit(EventArgs e)
         {
@@ -22,7 +23,9 @@ namespace RIPPEDD
             WorkoutChoices_Initialize();
 
           //Needs to be in the login function
-            int userID = ((SessionData)Session["UserData"])._loginID;
+            
+             userID = ((SessionData)Session["User_Data"])._loginID;
+            
         }
 
 
