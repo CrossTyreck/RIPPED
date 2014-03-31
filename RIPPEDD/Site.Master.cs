@@ -9,17 +9,23 @@ namespace RIPPEDD
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session.Count == 0)
+                lnkLogoutButton.Visible = false;
 
         }
 
-        protected void WelcomePage_Click(object sender, EventArgs e)
+        protected void lnkWelcomePage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Welcome.aspx");
+            if (Session.Count == 0)
+                Response.Redirect("Login.aspx");
+            else
+                Response.Redirect("Welcome.aspx");
         }
 
-        protected void LogoutButton_Click(object sender, EventArgs e)
+        protected void lnkLogoutButton_Click(object sender, EventArgs e)
         {
             Session.Clear();
             Response.Redirect("Login.aspx");

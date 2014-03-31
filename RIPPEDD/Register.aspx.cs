@@ -9,23 +9,20 @@ using RIPPEDD.Entities;
 
 namespace RIPPEDD
 {
-    enum LoginFields
-    {
-        user_type, username, password, first_name, last_name, security_question, security_answer
-    }
 
     public partial class Register : System.Web.UI.Page
     {
-        RegisterController dbObject = new RegisterController();
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        public RegisterController dbObject = new RegisterController();
+        public User newUser; 
+        /// <summary>
+        /// Insert user information into the database to create a login for that user. 
+        /// Displays an error if any fields are not filled in.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            User newUser = new User(txtbxUsername.Text, txtbxPassword.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxSecurityQuestion.Text, txtSecurityAnswer.Text);
+            newUser = new User(txtbxUsername.Text, txtbxPassword.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxSecurityQuestion.Text, txtSecurityAnswer.Text);
             String info;
 
             if (dbObject.InsertNewUser(newUser, out info))
@@ -39,8 +36,5 @@ namespace RIPPEDD
                                       "ServerControlScript", script, true);
             }
         }
-
-
-
     }
 }

@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -69,7 +70,6 @@
     <Content Include="Images\Baby1.png" />
     <Content Include="Images\hurt-hs.jpg" />
     <Content Include="Images\panel.jpg" />
-    <Content Include="InvalidLogin.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
@@ -80,7 +80,6 @@
     <Compile Include="Entities\SessionData.cs" />
     <Compile Include="Controllers\HealthInputController.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Health Input\HealthInputSessionVariables.cs" />
     <Compile Include="HealthInput.aspx.cs">
       <DependentUpon>HealthInput.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -101,13 +100,6 @@
     </Compile>
     <Compile Include="HealthProfessionals.aspx.designer.cs">
       <DependentUpon>HealthProfessionals.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InvalidLogin.aspx.cs">
-      <DependentUpon>InvalidLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InvalidLogin.aspx.designer.cs">
-      <DependentUpon>InvalidLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -152,6 +144,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

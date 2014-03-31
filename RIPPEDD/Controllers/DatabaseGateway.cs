@@ -21,20 +21,25 @@ namespace RIPPEDD.Controllers
         private string connectiontrust = "Trusted_Connection=False;";
         private string encryption = "Encrypt=True;";
         private string timeout = "Connection Timeout=" + "30" + ";";
-
         private SqlConnection databaseConnection;
 
-        public DatabaseGateway()
-        {
-
-        }
-
+        /// <summary>
+        /// Create a connection to the database
+        /// </summary>
+        /// <returns></returns>
         public SqlConnection GetDBConnection()
         {
             return databaseConnection = new SqlConnection(server + database + user + password + connectiontrust + encryption + timeout);
 
         }
 
+        /// <summary>
+        /// Allows you to retrieve all the user information from the database for a particular user
+        /// </summary>
+        /// <param name="table">tblUser</param>
+        /// <param name="inputData"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public int SelectUser(String table, Dictionary<String, String> inputData, out User user)
         {
             SqlCommand selectData = null;
@@ -62,7 +67,12 @@ namespace RIPPEDD.Controllers
             return -1;
         }
 
-        //public String SelectData(String table, 
+        /// <summary>
+        /// Queries the database to insert data. 
+        /// </summary>
+        /// <param name="table">The table should the insert occurr in.</param>
+        /// <param name="inputData">The data to be inserted into the database.</param>
+        /// <returns>A message displaying whether the insert occurred or an error happened.</returns>
         public String InsertData(String table, Dictionary<String, String> inputData)
         {
             SqlCommand insertData = null;
@@ -82,18 +92,6 @@ namespace RIPPEDD.Controllers
 
             return "Data Inserted correctly";
         }
-
-        //private String CreateInsertSqlParameters(Dictionary<String, String> inputData)
-        //{
-        //    string sSql = null;
-        //    foreach (KeyValuePair<String,String> pair in inputData)
-        //    {
-        //        sSql = (sSql == null? "" : sSql + ", ") + pair.Value;
-        //    }
-        //    return sSql == null ? "" : "VALUES (" + sSql + ")";
-
-        //}
-
 
         /// <summary>
         ///  Creates a string used to query the database. 
@@ -140,15 +138,5 @@ namespace RIPPEDD.Controllers
             if (sSql == null) throw new Exception("While creating " + sSqlFunct + " function. The statement return null");
             return sSql;
         }
-
-        //private SqlDataReader SelectData()
-        //{
-        //    SqlCommand selectData = new SqlCommand(CreateSelect(), GetDBConnection());
-        //    SqlDataReader reader = new SqlDataReader();
-
-           
-        
-
-        //}
     }
 }

@@ -11,10 +11,12 @@ namespace RIPPEDD
 {
     public partial class Login : System.Web.UI.Page
     {
-        SessionData userData = new SessionData();
+        public SessionData userData = new SessionData();
+        public LoginController dbObject = new LoginController();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtUserName.Focus();
             if ((Request.QueryString["reg"] == null ? '0' : '1') == '1')
             {
                 lblRegister.Visible = false;
@@ -23,9 +25,13 @@ namespace RIPPEDD
             }
         }
 
+        /// <summary>
+        /// Allow authenticated user to access the site. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
-            LoginController dbObject = new LoginController();
             User user = new User(txtUserName.Text, txtPassword.Text);
             User retUser;
             int id;
@@ -43,14 +49,15 @@ namespace RIPPEDD
                 ScriptManager.RegisterStartupScript(this, GetType(),
                                       "ServerControlScript", script, true);
             }
-          
-            //HELLO
-
-           
-
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Send user to Registration page so they can create a login 
+        /// and become a user. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnRegister_OnClick(object sender, EventArgs e)
         {
             Response.Redirect("Register.aspx");
         }

@@ -7,10 +7,6 @@ namespace RIPPEDD.Entities
 {
     public class User
     {
-        //enum user_type
-        //{
-        //    general_user, doctor
-        //}
         public string user_type { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
@@ -18,9 +14,7 @@ namespace RIPPEDD.Entities
         public string pass_word { get; set; }
         public string security_question { get; set; }
         public string security_answer { get; set; }
-
         private Dictionary<String, String> userData;
-
 
         /// <summary>
         /// Creates the User object by assigning the values from the Register page
@@ -44,6 +38,11 @@ namespace RIPPEDD.Entities
 
         }
 
+        /// <summary>
+        /// Creates an ordered list to use for querying userdata
+        /// out of the database. 
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<String, String> CreateDict()
         {
             List<string> dummy;
@@ -52,6 +51,12 @@ namespace RIPPEDD.Entities
             return userData;
         }
 
+        /// <summary>
+        /// Verifies the user inputted data into the registration screen
+        /// before trying to add the user to the database. 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
         public bool ValidateRegister(out List<String> info)
         {
             if (userData != null) userData.Clear();
@@ -88,6 +93,12 @@ namespace RIPPEDD.Entities
 
         }
 
+        /// <summary>
+        /// Verifies the user inputted data into all fields
+        /// before trying to verify their credentials. 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
         public bool ValidateLogin(out List<String> info)
         {
             if (userData != null) userData.Clear();
@@ -107,7 +118,5 @@ namespace RIPPEDD.Entities
             return info.Count == 0;
 
         }
-
-
     }
 }

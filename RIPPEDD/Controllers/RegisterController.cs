@@ -7,16 +7,10 @@ using System.Data.SqlClient;
 using RIPPEDD.Entities;
 
 
-namespace RIPPEDD
+namespace RIPPEDD.Controllers
 {
     public class RegisterController : DatabaseGateway
     {
-
-
-        public RegisterController()
-        {
-
-        }
 
         /// <summary>
         /// Insert a new user into the database. 

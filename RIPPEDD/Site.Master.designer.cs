@@ -31,22 +31,22 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Stylesheets;
         
         /// <summary>
-        /// WelcomePage control.
+        /// lnkWelcomePage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton WelcomePage;
+        protected global::System.Web.UI.WebControls.LinkButton lnkWelcomePage;
         
         /// <summary>
-        /// LogoutButton control.
+        /// lnkLogoutButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LogoutButton;
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogoutButton;
         
         /// <summary>
         /// FeaturedContent control.
@@ -58,31 +58,31 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder FeaturedContent;
         
         /// <summary>
-        /// Panel3 control.
+        /// pnlFeaturedContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel3;
+        protected global::System.Web.UI.WebControls.Panel pnlFeaturedContent;
         
         /// <summary>
-        /// Panel1 control.
+        /// pnlMainPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel pnlMainPanel;
         
         /// <summary>
-        /// Panel2 control.
+        /// pnlMainContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel pnlMainContent;
         
         /// <summary>
         /// MainContent control.
