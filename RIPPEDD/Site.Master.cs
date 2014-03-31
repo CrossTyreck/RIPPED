@@ -13,7 +13,7 @@ namespace RIPPEDD
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session.Count == 0)
-                lnkLogoutButton.Visible = false;
+                lnkLogoutButton.Visible = false; 
 
         }
 

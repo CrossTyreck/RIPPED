@@ -101,6 +101,7 @@
     <Compile Include="HealthProfessionals.aspx.designer.cs">
       <DependentUpon>HealthProfessionals.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Health_Input\HealthInputSessionVariables.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
