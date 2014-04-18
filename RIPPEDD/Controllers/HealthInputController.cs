@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
+using RIPPEDD.Health_Input;
+using RIPPEDD.Controllers;
+using RIPPEDD.Entities;
+
 
 namespace RIPPEDD.Controllers
 {
@@ -16,6 +21,21 @@ namespace RIPPEDD.Controllers
         /// take care to send an error message to the user prompting them to input again
         /// If the input is valid, open a new database connection to place the strings into the table
         /// <summary>
+        /// 
+
+        private int loginID;
+
+        public HealthInputController()
+        {
+        }
+
+        public HealthInputController(int loginID)
+        {
+            //base();
+
+            this.loginID = loginID;
+
+        }
         public bool inputCardioWorkout(string roadRunning, string treadmill, string cycling, string swimming, string walking, string rowing)
         {
             string[] testing = { roadRunning, treadmill, cycling, swimming, walking, rowing };
@@ -31,7 +51,8 @@ namespace RIPPEDD.Controllers
             }
 
 
-            //DATABASE OBJECT CALLS HERE
+            //insert into database, beginning at activityID 1
+            insertHealth(testing, 1);
 
             return true;
         }
@@ -50,7 +71,35 @@ namespace RIPPEDD.Controllers
                 }
             }
 
-            //DATABASE OBJECT CALLS HERE
+            //Insert into database, beginning at activityID 7
+            insertHealth(testing, 7);
+
+            //Insert Workout Description
+
+            SqlConnection d = GetDBConnection();
+            SqlCommand c = null;
+
+            try
+            {
+                c = new SqlCommand("INSERT INTO tblHealthData (tblLoginID, activityID, activity_data, activity_date, activity_description)"
+                                                  + "VALUES (" + loginID + ", " + 11 + ", 0, CURRENT_TIMESTAMP, @workout)"
+                                                   , d);
+                c.Parameters.AddWithValue("@workout", workout);
+                c.Connection.Open();
+
+                SqlDataReader reader = c.ExecuteReader(System.Data.CommandBehavior.Default);
+
+            }
+            catch (SqlException e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (c.Connection.State == ConnectionState.Open)
+                { c.Connection.Close(); }
+            }
+
 
             return true;
         }
@@ -69,11 +118,13 @@ namespace RIPPEDD.Controllers
                 }
             }
 
-            //DATABASE OBJECT CALLS HERE
+            //this section begins at activityID 12
+            insertHealth(testing, 12);
 
             return true;
         }
 
+        
         public bool inputHealthIndicators(string weight, string bodyMassIndex, string sittingHeartRate, string workingHeartRate, string height, string sleep)
         {
             string[] testing = { weight, bodyMassIndex, sittingHeartRate, workingHeartRate, height, sleep };
@@ -88,7 +139,8 @@ namespace RIPPEDD.Controllers
                 }
             }
 
-            //DATABASE OBJECT CALLS HERE
+            //Insert into database, beginning at activity id 17
+            insertHealth(testing, 17);
 
             return true;
         }
@@ -107,7 +159,8 @@ namespace RIPPEDD.Controllers
                 }
             }
 
-            //DATABASE OBJECT CALLS HERE
+            //insert into database, beginning at activityID 23
+            insertHealth(testing, 23);
 
             return true;
         }
@@ -126,10 +179,12 @@ namespace RIPPEDD.Controllers
 
         public int GetActivityID(string activity)
         {
-            SqlCommand getActivityID = new SqlCommand("SELECT act_id FROM tblActivities WHERE activity = " + activity, GetDBConnection());
+            SqlConnection database = GetDBConnection();
+            SqlCommand getActivityID = new SqlCommand("SELECT act_id FROM tblActivities WHERE activity = " + activity, database);
             SqlDataReader reader = null;
             try
             {
+                getActivityID.Connection.Open();
                 reader = getActivityID.ExecuteReader(System.Data.CommandBehavior.SingleResult);
                 if (reader.Read())
                 {
@@ -149,5 +204,40 @@ namespace RIPPEDD.Controllers
             //nothing was returned
             return 0;
         }
+
+        private bool insertHealth(string[] testing, int beginningID)
+        {
+            for (int i = 0; i < testing.Length; ++i)
+            {
+
+                SqlConnection database = GetDBConnection();
+                SqlCommand command = null;
+
+                try
+                {
+                    command = new SqlCommand("INSERT INTO tblHealthData (tblLoginID, activityID, activity_data, activity_date)"
+                                                      + "VALUES (" + loginID + ", " + (i + beginningID) + ", " + testing[i] + ", CURRENT_TIMESTAMP)"
+                                                       , database);
+                    command.Connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
+
+                }
+                catch (SqlException e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                    return false;
+                }
+                finally
+                {
+                    if (command.Connection.State == ConnectionState.Open)
+                    { command.Connection.Close(); }
+                }
+            }
+
+
+            return true;
+        }
+
     }
 }

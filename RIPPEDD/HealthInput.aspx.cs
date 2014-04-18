@@ -96,7 +96,7 @@ namespace RIPPEDD
 
             // string current = WorkoutChoices.GetActiveView().ID.ToString();
 
-            HealthInputController controller = new HealthInputController();
+            HealthInputController controller = new HealthInputController(userID);
 
             switch (WorkoutChoices.GetActiveView().ID.ToString())
             {
