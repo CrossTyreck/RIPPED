@@ -172,9 +172,88 @@ namespace RIPPEDD.Controllers
                 return false;
             }
 
-            //DATABASE HERE
+            SqlConnection database = GetDBConnection();
+            SqlCommand command = null;
+
+            try
+            {
+                command = new SqlCommand("INSERT INTO tblInjuryData (tblLoginID, injury_location, injury_comment, injury_date)"
+                                                  + "VALUES (" + loginID + ", " + getInjuryID(bodyPart) + ", @injury, CURRENT_TIMESTAMP)"
+                                                   , database);
+
+               
+                command.Parameters.AddWithValue("@injury", injury);
+                command.Connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
+
+            }
+            catch (SqlException e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                if (command.Connection.State == ConnectionState.Open)
+                { command.Connection.Close(); }
+            }
 
             return true;
+        }
+
+        public int getInjuryID(string bodyPart)
+        {
+            int result = 0;
+
+            System.Diagnostics.Debug.WriteLine("Injury: " + bodyPart);
+            switch (bodyPart)
+            {
+                case "Head": result = 1;
+                    break;
+                case "Right Shoulder": result = 2;
+                    break;
+                case "Right Elbow": result = 3;
+                    break;
+                case "Right Hand": result = 4;
+                    break;
+                case "Right Knee": result = 5;
+                    break;
+                case "Right Foot": result = 6;
+                    break;
+                case "Abdomen": result = 7;
+                    break;
+                case "Left Shoulder": result = 8;
+                    break;
+                case "Left Elbow": result = 9;
+                    break;
+                case "Left Knee": result = 10;
+                    break;
+                case "Left Foot": result = 11;
+                    break;
+                case "Neck": result = 12;
+                    break;
+                case "Left Shoulder Blade": result = 13;
+                    break;
+                case "Left Forearm": result = 14;
+                    break;
+                case "Lumbar": result = 15;
+                    break;
+                case "Thoracic": result = 16;
+                    break;
+                case "Left Heel": result = 17;
+                    break;
+                case "Right Heel": result = 18;
+                    break;
+                case "Right Shoulder Blade": result = 19;
+                    break;
+                case "Right Forearm": result = 20;
+                    break;
+                case "Left Hand": result = 21;
+                    break;
+            }
+
+            return result;
         }
 
         public int GetActivityID(string activity)

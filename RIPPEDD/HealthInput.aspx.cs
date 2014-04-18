@@ -14,7 +14,8 @@ namespace RIPPEDD
     public partial class HealthInput : System.Web.UI.Page
     {
         HealthInputController dbObject = new HealthInputController();
-        private string imageMapClick = "";
+        private static string imageMapClick;
+   
         private int userID;
 
         protected override void OnInit(EventArgs e)
@@ -72,7 +73,9 @@ namespace RIPPEDD
 
             imageMapClick = e.PostBackValue;
 
-            System.Diagnostics.Debug.WriteLine(e.PostBackValue);
+
+
+            System.Diagnostics.Debug.WriteLine(imageMapClick);
 
         }
 
@@ -212,6 +215,7 @@ namespace RIPPEDD
                 case "Injuries":
 
 
+                    System.Diagnostics.Debug.WriteLine("Injury1: " + imageMapClick);
                     if (controller.inputInjury(imageMapClick, txtInjuryReport.Text))
                     {
                         //Input is valid
