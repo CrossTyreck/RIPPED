@@ -41,9 +41,6 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -139,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
-    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\RIPPED - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\RIPPED - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
