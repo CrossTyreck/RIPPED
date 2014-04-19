@@ -6,10 +6,6 @@
 
 <asp:Content ContentPlaceHolderID="FeaturedContent" ID="FeaturedContent" runat="server" >
     <div class="menubar">
-     
-
-
-   
   </div>
 
       <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -24,8 +20,8 @@
     <script type="text/javascript">
         function initialize() {
             var mapOptions = {
-                center: new google.maps.LatLng(33.422412, -111.933304),
-                zoom: 15,
+                center: new google.maps.LatLng(35.673343, 139.710388),
+                zoom: 13,
                 //mapTypeId: google.maps.MapTypeId.SATELLITE
 
             };
@@ -39,18 +35,42 @@
 
 </asp:Content>
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
-
+    <div>
+         <asp:Label ID="lblHealthBox" runat="server" Text="Enter following information to search for a health care provider!"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="lblHealthCareType" runat="server" Text="Select the type of provider: "></asp:Label>
+        <asp:DropDownList ID="dropDownListHealthCareType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dropDownListHC_SelectedIndexChanged">
+            <asp:ListItem Text ="" />
+            <asp:ListItem Text ="General Practitioner" />
+            <asp:ListItem Text ="Sports Medicine" />
+            <asp:ListItem Text ="Family Doctor" />
+            <asp:ListItem Text ="Brain Surgeon" />
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="lblCity" runat="server" Text="City: "></asp:Label>
+        <asp:TextBox ID="txtBoxCity" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblState" runat="server" Text="State: "></asp:Label>
+        <asp:TextBox ID="txtBoxState" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblZip" runat="server" Text="Zip code: "></asp:Label>
+        <asp:TextBox ID="txtBoxZip" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_OnClick" Text="Submit" />
+        <br />
+        <br />
+    </div>
+    
+    
     <div class="auto-style1">
      <center>
-
          <div id="map-canvas"/>
      </center>  
 
         
     </div>
 
-
-       
 
    </asp:Content>
 
