@@ -12,23 +12,29 @@ using RIPPEDD.Entities;
 
 namespace RIPPEDD.Controllers
 {
+    ///<summary>
+    /// Function: to test whether or not the string inputs are either empty or numeric
+    /// If alphabetical or non-numeric characters exist, send false. The webpage will then
+    /// take care to send an error message to the user prompting them to input again
+    /// If the input is valid, open a new database connection to place the strings into the table
+    /// <summary>
+    /// 
     public class HealthInputController : DatabaseGateway
     {
 
-        ///<summary>
-        /// Function: to test whether or not the string inputs are either empty or numeric
-        /// If alphabetical or non-numeric characters exist, send false. The webpage will then
-        /// take care to send an error message to the user prompting them to input again
-        /// If the input is valid, open a new database connection to place the strings into the table
-        /// <summary>
-        /// 
+        
 
         private int loginID;
 
         public HealthInputController()
         {
+            loginID = 0;
         }
 
+        /// <summary>
+        /// Intantiates the Database object controller with a loginID from the website
+        /// </summary>
+        /// <param name="loginID"></param>
         public HealthInputController(int loginID)
         {
             //base();
@@ -41,7 +47,7 @@ namespace RIPPEDD.Controllers
             string[] testing = { roadRunning, treadmill, cycling, swimming, walking, rowing };
             double numTest = 0;
             bool result = true;
-            bool parseTest = true;
+            bool parseTest = false;
             message = "";
             
 
@@ -53,52 +59,53 @@ namespace RIPPEDD.Controllers
                 {
                     switch (i)
                     {
-                        case 0: message = "Non-numeric value at textbox Road Running";
+                        case 0: message += "Non-numeric value at textbox Road Running.\\n";
                             break;
-                        case 1: message = "Non-numeric value at textbox Treadmill";
+                        case 1: message += "Non-numeric value at textbox Treadmill.\\n";
                             break;
-                        case 2: message = "Non-numeric value at textbox Cycling";
+                        case 2: message += "Non-numeric value at textbox Cycling.\\n";
                             break;
-                        case 3: message = "Non-numeric value at textbox Swimming";
+                        case 3: message += "Non-numeric value at textbox Swimming.\\n";
                             break;
-                        case 4: message = "Non-numeric value at textbox Walking";
+                        case 4: message += "Non-numeric value at textbox Walking.\\n";
                             break;
-                        case 5: message = "Non-numeric value at textbox Rowing";
+                        case 5: message += "Non-numeric value at textbox Rowing.\\n";
                             break;
                        
                     }
 
                 
                     result = false;
-                    break;
+                    //break;
                 }
 
                 if(numTest < 0)
                 {
                      switch (i)
                     {
-                        case 0: message = "Negative value at textbox Road Running";
+                        case 0: message += "Negative value at textbox Road Running.\\n";
                             break;
-                        case 1: message = "Negative value at textbox Treadmill";
+                        case 1: message += "Negative value at textbox Treadmill.\\n";
                             break;
-                        case 2: message = "Negative value at textbox Cycling";
+                        case 2: message += "Negative value at textbox Cycling.\\n";
                             break;
-                        case 3: message = "Negative value at textbox Swimming";
+                        case 3: message += "Negative value at textbox Swimming.\\n";
                             break;
-                        case 4: message = "Negative value at textbox Walking";
+                        case 4: message += "Negative value at textbox Walking.\\n";
                             break;
-                        case 5: message = "Negative value at textbox Rowing";
+                        case 5: message += "Negative value at textbox Rowing.\\n";
                             break;
                        
                     }
 
                 
                     result = false;
-                    break;
+                    //break;
                 }
                 
             }
 
+           // System.Diagnostics.Debug.WriteLine(message);
             //test
             //insert into database, beginning at activityID 1
             if (result == true)
@@ -116,66 +123,97 @@ namespace RIPPEDD.Controllers
             string[] testing = { climbing, boxing, pushups, situps };
             double numTest = 0;
             bool result = true;
+            bool parseTest = false;
             message = "";
 
             for (int i = 0; i < testing.Length; ++i)
             {
                 //If the string at the index i is not a numeric string
-                if (!(Double.TryParse(testing[i], out numTest)))
+                parseTest = !(Double.TryParse(testing[i], out numTest));
+                if (parseTest)
                 {
                     switch (i)
                     {
-                        case 0: message = "Non-numeric value at textbox Climbing";
+                        case 0: message += "Non-numeric value at textbox Climbing.\\n";
                             break;
-                        case 1: message = "Non-numeric value at textbox Boxing";
+                        case 1: message += "Non-numeric value at textbox Boxing.\\n";
                             break;
-                        case 2: message = "Non-numeric value at textbox Pushups";
+                        case 2: message += "Non-numeric value at textbox Pushups.\\n";
                             break;
-                        case 3: message = "Non-numeric value at textbox Situps";
+                        case 3: message += "Non-numeric value at textbox Situps.\\n";
                             break;
-                        case 4: message = "Non-numeric value at textbox Workout";
+                        case 4: message += "Non-numeric value at textbox Workout.\\n";
                             break;
                      
                     }
 
                     result = false;
-                    break;
+                    //break;
                 }
+
+                if(numTest < 0)
+                {
+                    switch (i)
+                    {
+                        case 0: message += "Negative value at textbox Climbing.\\n";
+                            break;
+                        case 1: message += "Negative value at textbox Boxing.\\n";
+                            break;
+                        case 2: message += "Negative value at textbox Pushups.\\n";
+                            break;
+                        case 3: message += "Negative value at textbox Situps.\\n";
+                            break;
+                        case 4: message += "Negatve value at textbox Workout.\\n";
+                            break;
+                     
+                    }
+
+                    result = false;
+                    //break;
+                }
+
+
             }
+
+            
+            
 
 
             if (result == true)
             {
 
-                
                 //Insert into database, beginning at activityID 7
                 insertHealth(testing, 7);
 
                 //Insert Workout Description
 
-                SqlConnection d = GetDBConnection();
-                SqlCommand c = null;
-
-                try
+                if (!(workout == "" || workout == "Describe your workout routine here (workouts, # of reps, weights, etc)."))
                 {
-                    c = new SqlCommand("INSERT INTO tblHealthData (tblLoginID, activityID, activity_data, activity_date, activity_description)"
-                                                      + "VALUES (" + loginID + ", " + 11 + ", 0, CURRENT_TIMESTAMP, @workout)"
-                                                       , d);
-                    c.Parameters.AddWithValue("@workout", workout);
-                    c.Connection.Open();
+                    System.Diagnostics.Debug.WriteLine("Empty");
+                    SqlConnection d = GetDBConnection();
+                    SqlCommand c = null;
 
-                    SqlDataReader reader = c.ExecuteReader(System.Data.CommandBehavior.Default);
+                    try
+                    {
+                        c = new SqlCommand("INSERT INTO tblHealthData (tblLoginID, activityID, activity_data, activity_date, activity_description)"
+                                                          + "VALUES (" + loginID + ", " + 11 + ", 0, CURRENT_TIMESTAMP, @workout)"
+                                                           , d);
+                        c.Parameters.AddWithValue("@workout", workout);
+                        c.Connection.Open();
 
-                }
-                catch (SqlException e)
-                {
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                finally
-                {
-                    if (c.Connection.State == ConnectionState.Open)
-                    { c.Connection.Close(); }
+                        SqlDataReader reader = c.ExecuteReader(System.Data.CommandBehavior.Default);
 
+                    }
+                    catch (SqlException e)
+                    {
+                        System.Diagnostics.Debug.WriteLine(e.Message);
+                    }
+                    finally
+                    {
+                        if (c.Connection.State == ConnectionState.Open)
+                        { c.Connection.Close(); }
+
+                    }
                 }
                 message = "Success";
             }
@@ -188,41 +226,69 @@ namespace RIPPEDD.Controllers
             string[] testing = { computerTime, breaksPerHour, lunchTime, workTime, meetingTime };
             double numTest = 0;
             bool result = true;
+            bool parseTest = false;
             message = "";
 
             for (int i = 0; i < testing.Length; ++i)
             {
                 //If the string at the index i is not a numeric string
-                if (!(Double.TryParse(testing[i], out numTest)))
+                System.Diagnostics.Debug.WriteLine((result) ? "true" : "false");
+                parseTest = !(Double.TryParse(testing[i], out numTest));
+                if (parseTest)
                 {
                     switch (i)
                     {
-                        case 0: message = "Non-numeric value at textbox Computer Time";
+                        case 0: message += "Non-numeric value at textbox Computer Time\\n";
                             break;
-                        case 1: message = "Non-numeric value at textbox Breaks Per Hour";
+                        case 1: message += "Non-numeric value at textbox Breaks Per Hour\\n";
                             break;
-                        case 2: message = "Non-numeric value at textbox Lunch Time";
+                        case 2: message += "Non-numeric value at textbox Lunch Time\\n";
                             break;
-                        case 3: message = "Non-numeric value at textbox Work Time";
+                        case 3: message += "Non-numeric value at textbox Work Time\\n";
                             break;
-                        case 4: message = "Non-numeric value at textbox Meeting Time";
+                        case 4: message += "Non-numeric value at textbox Meeting Time\\n";
                             break;
 
                     }
 
                     
                     result = false;
-                    break;
+                    //break;
+                }
+
+                if(numTest < 0)
+                {
+                    switch (i)
+                    {
+                        case 0: message += "Negative value at textbox Computer Time\\n";
+                            break;
+                        case 1: message += "Negative value at textbox Breaks Per Hour\\n";
+                            break;
+                        case 2: message += "Negative value at textbox Lunch Time\\n";
+                            break;
+                        case 3: message += "Negative value at textbox Work Time\\n";
+                            break;
+                        case 4: message += "Negative value at textbox Meeting Time\\n";
+                            break;
+
+                    }
+
+                    result = false;
+                    //break;
                 }
             }
 
             //this section begins at activityID 12
-            insertHealth(testing, 12);
+            System.Diagnostics.Debug.WriteLine((result) ? "true" : "false");
 
             if (result == true)
+            {
+                insertHealth(testing, 12);
                 message = "Success";
+            }
+                
             
-            return true;
+            return result;
         }
 
 
@@ -231,41 +297,70 @@ namespace RIPPEDD.Controllers
             string[] testing = { weight, bodyMassIndex, sittingHeartRate, workingHeartRate, height, sleep };
             double numTest = 0;
             bool result = true;
+            bool parseTest = false;
             message = "";
 
             for (int i = 0; i < testing.Length; ++i)
             {
                 //If the string at the index i is not a numeric string
-                if (!(Double.TryParse(testing[i], out numTest)))
+                parseTest = !(Double.TryParse(testing[i], out numTest));
+                if (parseTest)
                 {
                     switch (i)
                     {
-                        case 0: message = "Non-numeric value at textbox Weight";
+                        case 0: message += "Non-numeric value at textbox Weight\\n";
                             break;
-                        case 1: message = "Non-numeric value at textbox BMI";
+                        case 1: message += "Non-numeric value at textbox BMI\\n";
                             break;
-                        case 2: message = "Non-numeric value at textbox Sitting Heart Rate";
+                        case 2: message += "Non-numeric value at textbox Sitting Heart Rate\\n";
                             break;
-                        case 3: message = "Non-numeric value at textbox Working Heart Rate";
+                        case 3: message += "Non-numeric value at textbox Working Heart Rate\\n";
                             break;
-                        case 4: message = "Non-numeric value at textbox Height";
+                        case 4: message += "Non-numeric value at textbox Height\\n";
                             break;
-                        case 5: message = "Non-numeric value at textbox Sleep";
+                        case 5: message += "Non-numeric value at textbox Sleep\\n";
                             break;
 
                     }
 
                
                     result = false;
-                    break;
+                   // break;
+                }
+
+                if (numTest < 0)
+                {
+                    switch (i)
+                    {
+                        case 0: message += "Negative value at textbox Weight\\n";
+                            break;
+                        case 1: message += "Negative value at textbox BMI\\n";
+                            break;
+                        case 2: message += "Negative value at textbox Sitting Heart Rate\\n";
+                            break;
+                        case 3: message += "Negative value at textbox Working Heart Rate\\n";
+                            break;
+                        case 4: message += "Negative value at textbox Height\\n";
+                            break;
+                        case 5: message += "Negative value at textbox Sleep\\n";
+                            break;
+
+                    }
+
+                    result = false;
+                    //break;
                 }
             }
 
             //Insert into database, beginning at activity id 17
-            insertHealth(testing, 17);
+            
 
             if (result == true)
+            {
+                insertHealth(testing, 17);
                 message = "Success";
+            }
+                
             return result;
         }
 
@@ -283,26 +378,45 @@ namespace RIPPEDD.Controllers
                 {
                     switch (i)
                     {
-                        case 0: message = "Non-numeric value at textbox Computer Time";
+                        case 0: message += "Non-numeric value at textbox Computer Time\\n";
                             break;
-                        case 1: message = "Non-numeric value at textbox Television Time";
+                        case 1: message += "Non-numeric value at textbox Television Time\\n";
                             break;
-                        case 2: message = "Non-numeric value at textbox Chores Time";
+                        case 2: message += "Non-numeric value at textbox Chores Time\\n";
                             break;
 
                     }
 
-                   
                     result = false;
-                    break;
+                    //break;
+                }
+
+                if (numTest < 0)
+                {
+                    switch (i)
+                    {
+                        case 0: message += "Negative value at textbox Computer Time\\n";
+                            break;
+                        case 1: message += "Negative value at textbox Television Time\\n";
+                            break;
+                        case 2: message += "Negative value at textbox Chores Time\\n";
+                            break;
+
+                    }
+                    result = false;
+                    //break;
                 }
             }
 
             //insert into database, beginning at activityID 23
-            insertHealth(testing, 23);
+           
 
             if (result == true)
+            {
+                insertHealth(testing, 23);
                 message = "Success";
+            }
+                
             return result;
         }
 

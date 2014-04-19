@@ -123,6 +123,8 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
+                        System.Diagnostics.Debug.WriteLine(message);
+
                         string script = "alert(\""+ message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
@@ -135,7 +137,8 @@ namespace RIPPEDD
 
                 case "StrengthWorkout":
 
-                    if (controller.inputStrengthWorkout(txtClimbing.Text, txtBoxing.Text, txtPushups.Text, txtSitups.Text, txtWorkoutRoutine.Text, out message))
+                    callPassed = controller.inputStrengthWorkout(txtClimbing.Text, txtBoxing.Text, txtPushups.Text, txtSitups.Text, txtWorkoutRoutine.Text, out message);
+                    if (callPassed)
                     {
                         //Input is valid
                         string script = "alert(\"Success!\");";
@@ -145,7 +148,9 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
-                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        System.Diagnostics.Debug.WriteLine(message);
+
+                        string script = "alert(\"" + message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
@@ -155,7 +160,8 @@ namespace RIPPEDD
 
                 case "WorkActivities":
 
-                    if (controller.inputWorkActivities(txtComputerTime.Text, txtBreaksPerHour.Text, txtLunchTime.Text, txtWorkTime.Text, txtMeetingTime.Text, out message))
+                    callPassed = controller.inputWorkActivities(txtComputerTime.Text, txtBreaksPerHour.Text, txtLunchTime.Text, txtWorkTime.Text, txtMeetingTime.Text, out message);
+                    if (callPassed)
                     {
                         //Input is valid
                         string script = "alert(\"Success!\");";
@@ -165,7 +171,9 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
-                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        System.Diagnostics.Debug.WriteLine(message);
+
+                        string script = "alert(\"" + message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
@@ -176,7 +184,8 @@ namespace RIPPEDD
 
                 case "HealthIndicators":
 
-                    if (controller.inputHealthIndicators(txtWeight.Text, txtBMI.Text, txtSittingHeartRate.Text, txtWorkingHeartRate.Text, txtHeight.Text, txtSleep.Text, out message))
+                    callPassed = controller.inputHealthIndicators(txtWeight.Text, txtBMI.Text, txtSittingHeartRate.Text, txtWorkingHeartRate.Text, txtHeight.Text, txtSleep.Text, out message);
+                    if (callPassed)
                     {
                         //Input is valid
                         string script = "alert(\"Success!\");";
@@ -186,7 +195,9 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
-                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        System.Diagnostics.Debug.WriteLine(message);
+
+                        string script = "alert(\"" + message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
@@ -197,7 +208,8 @@ namespace RIPPEDD
 
                 case "CouchPotato":
 
-                    if (controller.inputCouchPotato(txtComputerTimeHome.Text, txtTelevision.Text, txtChores.Text, out message))
+                    callPassed = controller.inputCouchPotato(txtComputerTimeHome.Text, txtTelevision.Text, txtChores.Text, out message);
+                    if (callPassed)
                     {
                         //Input is valid
                         string script = "alert(\"Success!\");";
@@ -207,7 +219,9 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
-                        string script = "alert(\"Warning: One of your inputs is not a numeric value or a field is empty (put a 0 in the box)\");";
+                        System.Diagnostics.Debug.WriteLine(message);
+
+                        string script = "alert(\"" + message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
