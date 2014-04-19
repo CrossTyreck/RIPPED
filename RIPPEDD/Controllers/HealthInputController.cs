@@ -16,7 +16,7 @@ namespace RIPPEDD.Controllers
     {
 
         ///<summary>
-        /// Function: to test whether or not the string inputs are either empty or numeric
+        /// Function: to  test whether or not the string inputs are either empty or numeric
         /// If alphabetical or non-numeric characters exist, send false. The webpage will then
         /// take care to send an error message to the user prompting them to input again
         /// If the input is valid, open a new database connection to place the strings into the table
