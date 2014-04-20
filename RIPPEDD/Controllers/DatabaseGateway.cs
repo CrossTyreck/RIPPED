@@ -100,7 +100,7 @@ namespace RIPPEDD.Controllers
         /// <param name="table">Table you are querying</param>
         /// <param name="inputData">Data manipulated</param>
         /// <returns>Returns the Query</returns>
-        private String CreateSqlQuery(String sSqlFunct, String table, Dictionary<String, String> inputData)
+        protected String CreateSqlQuery(String sSqlFunct, String table, Dictionary<String, String> inputData)
         {
             string sSql = null;
            
@@ -135,7 +135,7 @@ namespace RIPPEDD.Controllers
                 default:
                     return "ERROR";
             }
-            if (sSql == null) throw new Exception("While creating " + sSqlFunct + " function. The statement return null");
+            if (sSql == null) throw new Exception("While creating " + sSqlFunct + " function. The statement returned null");
             return sSql;
         }
     }
