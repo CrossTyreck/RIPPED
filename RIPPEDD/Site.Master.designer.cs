@@ -13,15 +13,6 @@ namespace RIPPEDD {
     public partial class Site1 {
         
         /// <summary>
-        /// HeadContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-        
-        /// <summary>
         /// Stylesheets control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Stylesheets;
+        
+        /// <summary>
+        /// HeadContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
         /// lnkWelcomePage control.

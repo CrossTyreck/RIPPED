@@ -4,40 +4,41 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>R.I.P.P.E.D</title>
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+    <title>R.I.P.P.E.D.D</title>
+
     <asp:ContentPlaceHolder runat="server" ID="Stylesheets">
         <link href="Content/Site.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
-
-        <header>
-            <div class="site-title">
-
-                <asp:LinkButton ID="lnkWelcomePage" runat="server" ForeColor="White" OnClick="lnkWelcomePage_Click">Welcome to R.I.P.P.E.D</asp:LinkButton>
-
-                &nbsp;&nbsp;
-
+        <div style="white-space: nowrap; overflow: auto">
+            <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+                <header>
+                    <div class="site-title">
+                        <asp:LinkButton ID="lnkWelcomePage" runat="server" ForeColor="White" OnClick="lnkWelcomePage_Click">Welcome to R.I.P.P.E.D</asp:LinkButton>
+                        &nbsp;&nbsp;
                
+                        <asp:LinkButton ID="lnkLogoutButton" runat="server" ForeColor="White" OnClick="lnkLogoutButton_Click">Logout</asp:LinkButton>
+                    </div>
+                </header>
+            </asp:ContentPlaceHolder>
+        </div>
 
-                <asp:LinkButton ID="lnkLogoutButton" runat="server" ForeColor="White" OnClick="lnkLogoutButton_Click">Logout</asp:LinkButton>
-            </div>
-        </header>
-
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent">
-            <asp:Panel ID="pnlFeaturedContent" runat="server" Height="22px">
-            </asp:Panel>
-        </asp:ContentPlaceHolder>
+        <div style="white-space: nowrap; overflow: auto">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent">
+                <asp:Panel ID="pnlFeaturedContent" runat="server" Height="22px">
+                </asp:Panel>
+            </asp:ContentPlaceHolder>
+        </div>
         <div id="body">
             <asp:Panel ID="pnlMainPanel" runat="server" CssClass="panel-background">
                 <asp:Panel ID="pnlMainContent" runat="server" CssClass="panel-parent">
 
-
-                    <asp:ContentPlaceHolder runat="server" ID="MainContent">
-                    </asp:ContentPlaceHolder>
-
+                    <div style="white-space: nowrap; overflow: auto">
+                        <asp:ContentPlaceHolder runat="server" ID="MainContent">
+                        </asp:ContentPlaceHolder>
+                    </div>
 
                 </asp:Panel>
             </asp:Panel>

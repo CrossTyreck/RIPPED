@@ -85,6 +85,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View CardioWorkout;
         
         /// <summary>
+        /// pnlRoadRunning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlRoadRunning;
+        
+        /// <summary>
         /// lblRoadRunning control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,33 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRoadRunning;
+        
+        /// <summary>
+        /// lblRoadRunningDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoadRunningDescription;
+        
+        /// <summary>
+        /// txtRoadRunningDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRoadRunningDescription;
+        
+        /// <summary>
+        /// pnlTreadmill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlTreadmill;
         
         /// <summary>
         /// lblTreadmill control.
