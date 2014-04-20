@@ -209,8 +209,37 @@
 
             <asp:View ID="Injuries" runat="server">
 
-
-                <center> <asp:ImageMap ID="imgBodyDiagram" runat="server" HotSpotMode="PostBack" ImageUrl="~/Images/hurt-hs.jpg" OnClick="SetInjury">
+                <asp:Panel ID="Panel3" CssClass="healthInputDataLarge" runat="server">
+               
+                    
+                    
+                     <asp:Panel ID="Panel2" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblInjury0" runat="server" Text="Right Shoulder"></asp:Label>
+            <br />
+            &nbsp;&nbsp;
+            <asp:TextBox ID="TextBox1" runat="server" Height="67px" TextMode="MultiLine" Width="183px">It hurts alot when I rotate it around in front of me.</asp:TextBox>
+            <br />
+            <asp:Label ID="lblInjury1" runat="server" Text="Neck"></asp:Label>
+            <br />
+            &nbsp;&nbsp;
+            <asp:TextBox ID="TextBox2" runat="server" Height="67px" TextMode="MultiLine" Width="183px">I think I have wiplash from a fender bender.</asp:TextBox>
+            <br />
+            <asp:Label ID="lblInjury" runat="server" Text="Lumbar"></asp:Label>
+            <br />
+            &nbsp;&nbsp;
+            <asp:TextBox ID="TextBox3" runat="server" Height="67px" TextMode="MultiLine" Width="183px">My work requires that I sit down all day. My lower back has begun to hurt.</asp:TextBox>
+        </asp:Panel>
+                    
+                    
+                    
+                    
+                    
+                    
+                     <asp:ImageMap ID="imgBodyDiagram" runat="server" HotSpotMode="PostBack" ImageUrl="~/Images/hurt-hs.jpg" OnClick="SetInjury">
             <asp:RectangleHotSpot AlternateText="Head" Bottom="53" HotSpotMode="PostBack" Left="68" PostBackValue="Head" Right="93" Top="27" />
             <asp:RectangleHotSpot AlternateText="Right Shoulder" Bottom="110" HotSpotMode="PostBack" Left="62" PostBackValue="Right Shoulder" Right="86" Top="87" />
             <asp:RectangleHotSpot AlternateText="Right Elbow" Bottom="182" HotSpotMode="PostBack" Left="32" PostBackValue="Right Elbow" Right="54" Top="159" />
@@ -238,7 +267,10 @@
                       <asp:TextBox ID="txtInjuryReport" Text="Click on a body part above, and then write your concerns here!" runat="server" Height="77px" Width="525px"
                           TextMode="multiline"></asp:TextBox>
 
-                  </center>
+                    </asp:Panel>
+
+
+
             </asp:View>
         </asp:MultiView>
         </p>

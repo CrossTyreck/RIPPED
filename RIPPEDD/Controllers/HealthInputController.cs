@@ -23,7 +23,7 @@ namespace RIPPEDD.Controllers
     {
 
         
-
+        //Session ID instance variable
         private int loginID;
 
         public HealthInputController()
@@ -37,11 +37,12 @@ namespace RIPPEDD.Controllers
         /// <param name="loginID"></param>
         public HealthInputController(int loginID)
         {
-            //base();
+            
 
             this.loginID = loginID;
 
         }
+
         public bool inputCardioWorkout(string roadRunning, string treadmill, string cycling, string swimming, string walking, string rowing, out string message)
         {
             string[] testing = { roadRunning, treadmill, cycling, swimming, walking, rowing };

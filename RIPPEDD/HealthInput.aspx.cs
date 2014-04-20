@@ -13,7 +13,7 @@ namespace RIPPEDD
 {
     public partial class HealthInput : System.Web.UI.Page
     {
-        HealthInputController dbObject = new HealthInputController();
+        //HealthInputController dbObject = new HealthInputController();
         private static string imageMapClick;
    
         private int userID;
@@ -241,7 +241,8 @@ namespace RIPPEDD
 
 
                     System.Diagnostics.Debug.WriteLine("Injury1: " + imageMapClick);
-                    if (controller.inputInjury(imageMapClick, txtInjuryReport.Text, out message))
+                    callPassed = controller.inputInjury(imageMapClick, txtInjuryReport.Text, out message);
+                    if (callPassed)
                     {
                         //Input is valid
                         string script = "alert(\"Success!\");";
@@ -251,7 +252,9 @@ namespace RIPPEDD
                     else
                     {
                         //Input invalid
-                        string script = "alert(\"Warning: You need to click on a valid body part before entering your concerns.\");";
+                        System.Diagnostics.Debug.WriteLine(message);
+
+                        string script = "alert(\"" + message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                               "ServerControlScript", script, true);
                     }
@@ -271,3 +274,38 @@ namespace RIPPEDD
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
