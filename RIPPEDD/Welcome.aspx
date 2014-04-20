@@ -24,7 +24,7 @@
         <br />
         <asp:Label ID="Label1" runat="server" BorderColor="#FF9933" BorderStyle="Groove" Font-Bold="True" Font-Size="X-Large" style="text-align: center" Text="Review your health stats"></asp:Label>
         <br />
-       <asp:CHART id="NumberOfActivitesByDate" runat="server" Palette="BrightPastel" BackColor="#D3DFF0" ImageType="Png" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)" Width="412px" Height="296px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" BorderWidth="2" BorderColor="26, 59, 105">
+       <asp:CHART id="NumberOfActivitesByDate" runat="server" Palette="BrightPastel" BackColor="#D3DFF0" ImageType="Png" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)" Width="753px" Height="477px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" BorderWidth="2" BorderColor="26, 59, 105">
 							<titles>
 								<asp:Title ShadowColor="32, 0, 0, 0" Font="Trebuchet MS, 14.25pt, style=Bold" ShadowOffset="3" Text="Number of Activities by Date" ForeColor="26, 59, 105"></asp:Title>
 							</titles>

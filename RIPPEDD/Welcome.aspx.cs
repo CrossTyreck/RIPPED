@@ -20,7 +20,16 @@ namespace RIPPEDD
             NumberOfActivitesByDate.Series["Series1"].YValueMembers = "# of Activities";
             NumberOfActivitesByDate.Series["Series1"].XValueMember = "# of Weeks";
 
-            NumberOfActivitesByDate.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1);
+
+            try
+            {
+                NumberOfActivitesByDate.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1);
+            }
+            catch (NullReferenceException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Response.Redirect("Login.aspx");
+            }
             NumberOfActivitesByDate.DataBind();
 
         }
