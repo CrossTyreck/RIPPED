@@ -72,7 +72,10 @@
     <Content Include="Images\panel.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="TempImages\DummyForFolderUpload.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
