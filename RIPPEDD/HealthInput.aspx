@@ -4,6 +4,7 @@
 
 <asp:Content ContentPlaceHolderID="FeaturedContent" ID="FeaturedContent" runat="server">
     <div class="menubar">
+        `
         <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Center">
             <br />
             <asp:Label ID="Label1" runat="server" Text="Welcome to the Health Input Page. Please select an activity. Enter data for today." Font-Size="X-Large"></asp:Label>
@@ -35,6 +36,8 @@
 
             <asp:View ID="CardioWorkout" runat="server">
                 <br />
+                <center> 
+
                 <asp:Panel ID="pnlRoadRunning" CssClass="healthInputData" runat="server">
                     <div style="padding-bottom: 5px">
                         <div>
@@ -66,20 +69,62 @@
                         </div>
                     </div>
                 </asp:Panel>
-                <asp:Label ID="lblCycling" runat="server" Text="Cycling(miles): "></asp:Label>
-                &nbsp;<asp:TextBox ID="txtCycling" runat="server"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblSwimming" runat="server" Text="Swimming(# of 25y laps): "></asp:Label>
-                <asp:TextBox ID="txtSwimming" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblWalking" runat="server" Text="Walking(miles): "></asp:Label>
-                <asp:TextBox ID="txtWalking" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblRowing" runat="server" Text="Rowing(miles): "></asp:Label>
-                <asp:TextBox ID="txtRowing" runat="server" Width="118px"></asp:TextBox>
+
+
+                <asp:Panel ID="pnlCycling" CssClass="healthInputData" runat="server">
+                    <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblCycling" runat="server" Text="Cycling(miles): "></asp:Label>
+                        </div>
+                         <div> 
+                             <asp:TextBox ID="txtCycling" runat="server"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
+
+                <asp:Panel ID="pnlSwimming" CssClass="healthInputData" runat="server">
+                     <div style="padding-bottom: 5px">
+                        <div>
+                         <asp:Label ID="lblSwimming" runat="server" Text="Swimming(# of 25y laps): "></asp:Label>
+                        </div>
+                         <div> 
+                        <asp:TextBox ID="txtSwimming" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+
+                </asp:Panel>
+
+                <asp:Panel ID="pnlWalking" CssClass="healthInputData" runat="server">
+                    <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblWalking" runat="server" Text="Walking(miles): "></asp:Label>
+                        </div>
+                         <div> 
+                        <asp:TextBox ID="txtWalking" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+
+                </asp:Panel>
+
+                <asp:Panel ID="pnlRowing" CssClass="healthInputData" runat="server">
+
+                      <div style="padding-bottom: 5px">
+                        <div>
+                           <asp:Label ID="lblRowing" runat="server" Text="Rowing(miles): "></asp:Label>
+                        </div>
+                         <div> 
+                       <asp:TextBox ID="txtRowing" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+
+
+
+                </asp:Panel>
+           
+                    
+                </center>
+                    
+                
 
                 <br />
                 <br />
@@ -87,30 +132,81 @@
             <asp:View ID="StrengthWorkout" runat="server">
                 <br />
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblClimbing" runat="server" Text="Climbing (minutes): "></asp:Label>
-                <asp:TextBox ID="txtClimbing" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:Label ID="lblBoxing" runat="server" Text="Boxing (minutes): "></asp:Label>
-                <asp:TextBox ID="txtBoxing" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    
-                 <asp:Label ID="lblPushups" runat="server" Text="# of pushups: "></asp:Label>
-                <asp:TextBox ID="txtPushups" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     
-                   <asp:Label ID="lblSitups" runat="server" Text="# of situps: "></asp:Label>
-                <asp:TextBox ID="txtSitups" runat="server" Width="118px"></asp:TextBox>
+<%--                PANEL TEMPLATE
+                <asp:Panel ID="pnl" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            LABEL
+                        </div>
+                         <div> 
+                            TEXTBOX
+                         </div>
+                    </div>
+                </asp:Panel>
+--%>
 
-                <br />
-                <br />
+                <asp:Panel ID="pnlClimbing" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblClimbing" runat="server" Text="Climbing (minutes): "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtClimbing" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
 
-                <center>
+                <asp:Panel ID="pnlBoxing" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblBoxing" runat="server" Text="Boxing (minutes): "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtBoxing" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
 
-                         <asp:TextBox ID="txtWorkoutRoutine" runat="server" Text="Describe your workout routine here (workouts, # of reps, weights, etc)." TextMode="multiline" Height="223px" Width="558px"></asp:TextBox>
-                     </center>
+                <asp:Panel ID="pnlPushups" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblPushups" runat="server" Text="# of pushups: "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtPushups" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
+
+
+                <asp:Panel ID="pnlSiptups" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblSitups" runat="server" Text="# of situps: "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtSitups" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
+                
+                
+                <asp:Panel ID="pnlWorkout" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblWorkoutRoutine" runat="server" Text="Workout Routine"></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtWorkoutRoutine" runat="server" 
+                                Text="Describe your workout routine here (workouts, # of reps, weights, etc)." 
+                                TextMode="multiline" Height="223px" Width="558px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>     
+                   
+                
+
+               
 
                 <br />
             </asp:View>
@@ -213,10 +309,10 @@
                
                     
                     
-                     <asp:Panel ID="Panel2" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
+                     <asp:Panel ID="pnlInjuryList" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
-            <br />
+         <%--   <br />
             <br />
             <asp:Label ID="lblInjury0" runat="server" Text="Right Shoulder"></asp:Label>
             <br />
@@ -232,7 +328,7 @@
             <br />
             &nbsp;&nbsp;
             <asp:TextBox ID="TextBox3" runat="server" Height="67px" TextMode="MultiLine" Width="183px">My work requires that I sit down all day. My lower back has begun to hurt.</asp:TextBox>
-        </asp:Panel>
+       --%> </asp:Panel>
                     
                     
                     

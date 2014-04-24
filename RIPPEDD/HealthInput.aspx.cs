@@ -9,12 +9,16 @@ using RIPPEDD.Health_Input;
 using RIPPEDD.Controllers;
 using RIPPEDD.Entities;
 
+
 namespace RIPPEDD
 {
     public partial class HealthInput : System.Web.UI.Page
     {
         //HealthInputController dbObject = new HealthInputController();
         private static string imageMapClick;
+        private static string[] injuryInputs;
+        private static int injuryCount = 0;
+        private Label lblTest;
    
         private int userID;
 
@@ -22,6 +26,15 @@ namespace RIPPEDD
         {
             base.OnInit(e);
             WorkoutChoices_Initialize();
+            injuryInputs = new string[21];
+           // injuryCount = 0;
+
+            /*for (int i = 0; i < injuryInputs.Length; ++i)
+            {
+                injuryInputs[i] = "";
+            }*/
+
+            
 
           //Needs to be in the login function
 
@@ -42,6 +55,8 @@ namespace RIPPEDD
         {
             lblSubmissionInfo.Visible = false;
 
+            System.Diagnostics.Debug.WriteLine("postback test");
+
             if (ddlWorkoutChoices.Items.Count < 1)
             {
                 foreach (View view in WorkoutChoices.Views)
@@ -49,6 +64,18 @@ namespace RIPPEDD
                     ddlWorkoutChoices.Items.Add(view.ID.ToString());
                 }
             }
+
+            //for (int i = 0; i < injuryCount; ++i)
+            //{
+                
+            //    Label lblTest = new Label();
+            //    lblTest.Width = 200;
+            //    lblTest.Height = 100;
+            //    lblTest.Attributes["runat"] = "server";
+            //   // lblTest.CssClass = .miniInjuryPanel;
+            //    lblTest.Text = injuryInputs[i];
+            //    Panel2.Controls.Add(lblTest);
+            //}
 
 
         }
@@ -81,9 +108,26 @@ namespace RIPPEDD
 
             imageMapClick = e.PostBackValue;
 
+            injuryInputs[injuryCount] = e.PostBackValue;
+            injuryCount++;
+            for (int i = 1; i <= injuryCount; i++)
+            {
+                lblTest = new Label();
+                // lblTest.Width = 200;
+                //lblTest.Height = 100;
+                lblTest.ID = "lblTest_" + i;
+                // lblTest.Attributes["runat"] = "server";
+
+                lblTest.Text = i.ToString();
+                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
+                this.pnlInjuryList.Controls.Add(lblTest);
+                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
 
 
-            System.Diagnostics.Debug.WriteLine(imageMapClick);
+                System.Diagnostics.Debug.WriteLine("Count: " + injuryCount);
+                System.Diagnostics.Debug.WriteLine(imageMapClick);
+            }
+           
 
         }
 
@@ -239,7 +283,7 @@ namespace RIPPEDD
 
                 case "Injuries":
 
-
+                    injuryCount = 0;
                     System.Diagnostics.Debug.WriteLine("Injury1: " + imageMapClick);
                     callPassed = controller.inputInjury(imageMapClick, txtInjuryReport.Text, out message);
                     if (callPassed)
