@@ -94,7 +94,7 @@ h5, h6 {
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 3%;
-    box-shadow: 0px 0px 20px 20px black;
+    box-shadow: 0px 0px 20px 0px #d3d3d3;
     border-radius: 4px;
     background-color: #ffffff;
     font-size: large;
