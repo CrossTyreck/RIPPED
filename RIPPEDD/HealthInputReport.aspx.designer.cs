@@ -22,13 +22,13 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.LinkButton ChangeDoctor;
         
         /// <summary>
-        /// SubmitReport control.
+        /// PrintReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton SubmitReport;
+        protected global::System.Web.UI.WebControls.LinkButton PrintReport;
         
         /// <summary>
         /// Label1 control.
@@ -38,6 +38,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// btnClick control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClick;
         
         /// <summary>
         /// Panel1 control.
@@ -130,12 +139,39 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// ImageMap2 control.
+        /// firstInjury control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageMap ImageMap2;
+        protected global::System.Web.UI.WebControls.TextBox firstInjury;
+        
+        /// <summary>
+        /// secondInjury control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox secondInjury;
+        
+        /// <summary>
+        /// thirdInjury control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox thirdInjury;
+        
+        /// <summary>
+        /// fourthInjury control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fourthInjury;
     }
 }

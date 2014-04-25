@@ -4,13 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 using RIPPEDD.Health_Input;
+using RIPPEDD.Controllers;
+using RIPPEDD.Entities;
+
 
 
 namespace RIPPEDD
 {
     public partial class HealthInputReport : System.Web.UI.Page
     {
+        private int userID;
+        HealthInputReportController dbObject = new HealthInputReportController();
+
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            //Needs to be in the login function
+
+            userID = ((SessionData)Session["User_Data"])._loginID;
+
+        }
 
         Dictionary<string, int> dictInjury = new Dictionary<string, int>();
 
@@ -53,14 +68,14 @@ namespace RIPPEDD
             }
         }
 
-        protected void SetInjury(object sender, ImageMapEventArgs e)
+        protected void btnTest_OnClick(object sender, EventArgs e)
         {
-
-            if (dictInjury.ContainsKey(e.PostBackValue))
-            {
-                dictInjury[e.PostBackValue] = 1;
-            }
-
+            HealthInputReportController controller = new HealthInputReportController(userID);
+            string[] injuries = controller.ReturnInjuries();
+            firstInjury.Text = injuries[0];
+            secondInjury.Text = injuries[1];
+            thirdInjury.Text = injuries[2];
+            fourthInjury.Text = injuries[3];
         }
 
         protected void ChangeDoctor_Click(object sender, EventArgs e)
@@ -68,7 +83,7 @@ namespace RIPPEDD
             Response.Redirect("HealthProfessionals.aspx");
         }
 
-        protected void SubmitReport_Click(object sender, EventArgs e)
+        protected void PrintReport_Click(object sender, EventArgs e)
         {
             Response.Redirect("Welcome.aspx");
         }
