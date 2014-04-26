@@ -44,7 +44,7 @@ namespace RIPPEDD
 
             HealthIndicators.ChartAreas["IndicatorsChartArea"].Area3DStyle.Enable3D = true;
             HealthIndicators.Series["IndicatorSeries1"].BorderWidth = 3;
-            HealthIndicators.Series["IndicatorSeries2"].BorderWidth = 3;
+   
 
         }
 
