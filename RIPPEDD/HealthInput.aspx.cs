@@ -130,7 +130,7 @@ namespace RIPPEDD
                     {
                         pnlInjuryList.Controls.Remove(o);
                         panelList.Remove(o);
-                        injuryCount--;
+                        //injuryCount--;
                         //this.Page_Load(sender, e);
                         break;
                     }
