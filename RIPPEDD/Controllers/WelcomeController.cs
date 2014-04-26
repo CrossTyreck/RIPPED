@@ -9,12 +9,12 @@ namespace RIPPEDD.Controllers
 {
     public class WelcomeController : DatabaseGateway
     {
-        enum TableType { Activity = 1, BMI = 2, SittingHeartRate = 3, WorkingHeartRate = 4 }
+        public enum TableType { Activity = 1, BMI = 2, SittingHeartRate = 3, WorkingHeartRate = 4 }
 
         DataTable TableData = new DataTable();
         Dictionary<String, String> WhereItems = new Dictionary<string, string>();
 
-        public DataTable GetData(int userId, int tableType)
+        public DataTable GetData(int userId, TableType tableType)
         {
             TableData = GetTableType(userId, tableType);
             SelectTableData(userId);
@@ -66,20 +66,20 @@ namespace RIPPEDD.Controllers
             return -1;
         }
 
-        private DataTable GetTableType(int userId, int tableType)
+        private DataTable GetTableType(int userId, TableType tableType)
         {
             DataTable Table = new DataTable();
 
             switch (tableType)
             {
-                case (int)TableType.Activity:
+                case TableType.Activity:
                     WhereItems.Clear();
                     Table.Columns.Add("# of Activities");
                     Table.Columns.Add("# of Weeks");
                     WhereItems.Add("tblLoginID", userId.ToString());
                     break;
 
-                case(int)TableType.BMI:
+                case TableType.BMI:
                     WhereItems.Clear();
                     Table.Columns.Add("Activity");
                     Table.Columns.Add("Value");
@@ -87,7 +87,7 @@ namespace RIPPEDD.Controllers
                     WhereItems.Add("tblLoginID", userId.ToString());
                     break;
 
-                case(int)TableType.SittingHeartRate:
+                case TableType.SittingHeartRate:
                     WhereItems.Clear();
                     Table.Columns.Add("Activity");
                     Table.Columns.Add("Value");
@@ -95,7 +95,7 @@ namespace RIPPEDD.Controllers
                     WhereItems.Add("tblLoginID", userId.ToString());
                     break;
 
-                case (int)TableType.WorkingHeartRate:
+                case TableType.WorkingHeartRate:
                     WhereItems.Clear();
                     Table.Columns.Add("Activity");
                     Table.Columns.Add("Value");

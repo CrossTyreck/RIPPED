@@ -22,12 +22,24 @@ namespace RIPPEDD
 
             try
             {
-                NumberOfActivitesByDate.DataSource = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, 1);
-                DataTable BMITable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, 2);
-                //DataTable SittingHRTable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, 3);
+                NumberOfActivitesByDate.DataSource = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.Activity);
+                DataTable BMITable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.BMI);
+                DataTable SittingHRTable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.SittingHeartRate);
+                DataTable WorkingHRTable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.WorkingHeartRate);
+                
                 foreach (DataRow row in BMITable.Rows)
                 {
                     HealthIndicators.Series["IndicatorSeries1"].Points.AddY(row[0]);
+                }
+
+                foreach (DataRow row in SittingHRTable.Rows)
+                {
+                    HRIndicator.Series["HRIndicatorSeries1"].Points.AddY(row[0]);
+                }
+
+                foreach (DataRow row in WorkingHRTable.Rows)
+                {
+                    HRIndicator.Series["HRIndicatorSeries2"].Points.AddY(row[0]);
                 }
                 //foreach (DataRow row in SittingHRTable.Rows)
                 //{

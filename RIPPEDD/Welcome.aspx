@@ -72,6 +72,32 @@
 								</asp:ChartArea>
 							</chartareas>
 						</asp:CHART>
+    <asp:CHART id="HRIndicator" runat="server" Palette="BrightPastel" BackColor="#FFB2B2" ImageType="Png" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)" Width="412px" Height="296px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" BorderWidth="2" BorderColor="181, 64, 1">
+		<titles>
+								<asp:Title ShadowColor="32, 0, 0, 0" Font="Trebuchet MS, 14.25pt, style=Bold" ShadowOffset="3" Text="Sitting VS Working Heart Rate" ForeColor="26, 59, 105"></asp:Title>
+							</titles>					
+        <legends>
+								<asp:Legend Enabled="False" IsTextAutoFit="False" Name="Default" BackColor="Transparent" Font="Trebuchet MS, 8.25pt, style=Bold"></asp:Legend>
+							</legends>
+							<borderskin SkinStyle="Emboss"></borderskin>
+							<series>
+								<asp:Series MarkerSize="8" BorderWidth="3" XValueType="Double" Name="HRIndicatorSeries1" ChartType="Line" MarkerStyle="Circle" ShadowColor="Black" BorderColor="180, 26, 59, 105" Color="220, 65, 140, 240" ShadowOffset="2" YValueType="Double"></asp:Series>
+                                <asp:Series MarkerSize="8" BorderWidth="3" XValueType="Double" Name="HRIndicatorSeries2" ChartType="Line" MarkerStyle="Diamond" ShadowColor="Black" BorderColor="180, 26, 59, 105" Color="220, 224, 64, 10" ShadowOffset="2" YValueType="Double"></asp:Series>
+							</series>
+							<chartareas>
+								<asp:ChartArea Name="HRIndicatorChartArea" BorderColor="64, 64, 64, 64" BorderDashStyle="Solid" BackSecondaryColor="White" BackColor="OldLace" ShadowColor="Transparent" BackGradientStyle="TopBottom">
+									<area3dstyle Rotation="25" Perspective="9" LightStyle="Realistic" Inclination="40" IsRightAngleAxes="False" WallWidth="3" IsClustered="False" />
+									<axisy LineColor="64, 64, 64, 64">
+										<LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+										<MajorGrid LineColor="64, 64, 64, 64" />
+									</axisy>
+									<axisx LineColor="64, 64, 64, 64">
+										<LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+										<MajorGrid LineColor="64, 64, 64, 64" />
+									</axisx>
+								</asp:ChartArea>
+							</chartareas>
+						</asp:CHART>
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
