@@ -76,6 +76,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.Button btnClick;
         
         /// <summary>
+        /// firstLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label firstLabel;
+        
+        /// <summary>
         /// firstInjury control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox firstInjury;
+        
+        /// <summary>
+        /// secondLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label secondLabel;
         
         /// <summary>
         /// secondInjury control.
@@ -94,6 +112,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox secondInjury;
         
         /// <summary>
+        /// thirdLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label thirdLabel;
+        
+        /// <summary>
         /// thirdInjury control.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox thirdInjury;
         
         /// <summary>
+        /// fourthLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fourthLabel;
+        
+        /// <summary>
         /// fourthInjury control.
         /// </summary>
         /// <remarks>
@@ -110,6 +146,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fourthInjury;
+        
+        /// <summary>
+        /// fifthLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fifthLabel;
         
         /// <summary>
         /// fifthInjury control.

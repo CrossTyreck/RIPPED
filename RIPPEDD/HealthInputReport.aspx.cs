@@ -94,11 +94,42 @@ namespace RIPPEDD
             System.Diagnostics.Debug.WriteLine("working");
             HealthInputReportController controller = new HealthInputReportController(userID);
             string[] injuries = controller.ReturnInjuries();
-            firstInjury.Text = injuries[0];
-            secondInjury.Text = injuries[1];
-            thirdInjury.Text = injuries[2];
-            fourthInjury.Text = injuries[3];
-            fifthInjury.Text = injuries[4];
+            firstLabel.Text = firsthalf(injuries[0]);
+            firstInjury.Text = lasthalf(injuries[0]);
+            secondLabel.Text = firsthalf(injuries[1]);
+            secondInjury.Text = lasthalf(injuries[1]);
+            thirdLabel.Text = firsthalf(injuries[2]);
+            thirdInjury.Text = lasthalf(injuries[2]);
+            fourthLabel.Text = firsthalf(injuries[3]);
+            fourthInjury.Text = lasthalf(injuries[3]);
+            fifthLabel.Text = firsthalf(injuries[4]);
+            fifthInjury.Text = lasthalf(injuries[4]);
+            
+            
+        }
+        public static string firsthalf(string s)
+        {
+            if (String.IsNullOrEmpty(s))
+                return "";
+            int at = s.IndexOf(":");
+            if (at > 0)
+            {
+                return s.Substring(0, at);
+            }
+            return "";
+
+        }
+        public static string lasthalf(string s)
+        {
+            if (String.IsNullOrEmpty(s))
+                return "";
+            int at = s.IndexOf(":");
+            if (at > 0)
+            {
+                return s.Substring(at+2);
+            }
+            return "";
+
         }
 
         protected void workoutSelect(object sender, EventArgs e)

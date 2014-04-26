@@ -40,16 +40,24 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnClick" runat="server" OnClick="btnTest_OnClick" Text="List Current Injuries" />
             <br />
+            <asp:Label ID="firstLabel" runat="server" Text=""></asp:Label>
             <br />
             <asp:TextBox ID="firstInjury" runat="server" Height="20px"></asp:TextBox>
             <br />
+            <asp:Label ID="secondLabel" runat="server" Text=""></asp:Label>
+            <br />
             <asp:TextBox ID="secondInjury" runat="server" Height="20px"></asp:TextBox>
-            &nbsp;&nbsp;
+            &nbsp;&nbsp;<br />&nbsp;
+            <asp:Label ID="thirdLabel" runat="server" Text=""></asp:Label>
             <br />
             <asp:TextBox ID="thirdInjury" runat="server" Height="20px"></asp:TextBox>
             <br />
+            <asp:Label ID="fourthLabel" runat="server" Text=""></asp:Label>
+            <br />
             <asp:TextBox ID="fourthInjury" runat="server" Height="20px"></asp:TextBox>
             &nbsp;&nbsp;
+            <br />
+            <asp:Label ID="fifthLabel" runat="server" Text=""></asp:Label>
             <br />
             <asp:TextBox ID="fifthInjury" runat="server" Height="20px"></asp:TextBox>
             <br />
