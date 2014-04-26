@@ -441,7 +441,7 @@
                     
                      <asp:Panel ID="pnlInjuryList" ScrollBars="Vertical" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Injury List(Doesn't work yet)" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
          </asp:Panel>
                     
                     
