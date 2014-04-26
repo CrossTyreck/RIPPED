@@ -44,7 +44,7 @@ namespace RIPPEDD.Controllers
                 while (reader.Read())
                 {
                     //dtTable.Rows.Add(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2));
-                    TableData.Rows.Add(reader.GetDouble(1), reader.GetDateTime(2));
+                    TableData.Rows.Add(reader.GetDouble(1), reader.GetDateTime(2).ToString("d"));
                 }
 
                 if (TableData.Rows.Count > 0)

@@ -17,14 +17,10 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
-    <div>
-      
-  
-
         <br />
-        <asp:Label ID="Label1" runat="server" BorderColor="#FF9933" BorderStyle="Groove" Font-Bold="True" Font-Size="X-Large" style="text-align: center" Text="Review your health stats"></asp:Label>
+        <asp:Label ID="lblHealthHeader" runat="server" BorderColor="#FF9933" BorderStyle="Groove" Font-Bold="True" Font-Size="X-Large" style="text-align: center" Text="Review your health stats"></asp:Label>
         <br />
-       <asp:CHART id="NumberOfActivitesByDate" runat="server" Palette="BrightPastel" BackColor="#D3DFF0" ImageType="Png" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)" Width="753px" Height="477px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" BorderWidth="2" BorderColor="26, 59, 105">
+       <asp:CHART id="NumberOfActivitesByDate" runat="server" Palette="BrightPastel" BackColor="#D3DFF0" ImageType="Png" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)" Width="412px" Height="296px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" BorderWidth="1" BorderColor="26, 59, 105">
 							<titles>
 								<asp:Title ShadowColor="32, 0, 0, 0" Font="Trebuchet MS, 14.25pt, style=Bold" ShadowOffset="3" Text="Number of Activities by Date" ForeColor="26, 59, 105"></asp:Title>
 							</titles>
@@ -33,13 +29,13 @@
 							</legends>
 							<borderskin SkinStyle="Emboss"></borderskin>
 							<series>
-								<asp:Series ChartArea="ChartArea1" Name="Series1" BorderColor="180, 26, 59, 105" Color="220, 65, 140, 240">
+								<asp:Series ChartArea="ActivitiesChartArea" Name="ActivitiesSeries1" BorderColor="180, 26, 59, 105" Color="220, 65, 140, 240">
 								
 								</asp:Series>
 							</series>
 							<chartareas>
-								<asp:ChartArea Name="ChartArea1" BorderColor="64, 64, 64, 64" BackSecondaryColor="Transparent" BackColor="64, 165, 191, 228" ShadowColor="Transparent" BackGradientStyle="TopBottom">
-									<area3dstyle Rotation="10" Perspective="10" Enable3D="True" Inclination="15" IsRightAngleAxes="False" WallWidth="0" IsClustered="False" />
+								<asp:ChartArea Name="ActivitiesChartArea" BorderColor="64, 64, 64, 64" BackSecondaryColor="Transparent" BackColor="64, 165, 191, 228" ShadowColor="Transparent" BackGradientStyle="TopBottom">
+									<area3dstyle Perspective="10" Enable3D="True" Inclination="15" IsRightAngleAxes="False" WallWidth="0" IsClustered="False" />
 									<axisy LineColor="64, 64, 64, 64">
 										<LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
 										<MajorGrid LineColor="64, 64, 64, 64" />

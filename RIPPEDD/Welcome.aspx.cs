@@ -17,8 +17,8 @@ namespace RIPPEDD
         protected void Page_Load(object sender, System.EventArgs e)
         {
 
-            NumberOfActivitesByDate.Series["Series1"].YValueMembers = "# of Activities";
-            NumberOfActivitesByDate.Series["Series1"].XValueMember = "# of Weeks";
+            NumberOfActivitesByDate.Series["ActivitiesSeries1"].YValueMembers = "# of Activities";
+            NumberOfActivitesByDate.Series["ActivitiesSeries1"].XValueMember = "# of Weeks";
 
 
             try
