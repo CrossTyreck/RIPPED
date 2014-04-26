@@ -141,5 +141,11 @@ namespace RIPPEDD.Controllers
             if (sSql == null) throw new Exception("While creating " + sSqlFunct + " function. The statement returned null");
             return sSql;
         }
+
+        public String OrderBy(string sql, string OrderBy)
+        {
+            return sql + " OrderBy " + OrderBy;
+
+        }
     }
 }

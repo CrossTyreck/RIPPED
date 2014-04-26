@@ -77,12 +77,12 @@
 								<asp:Title ShadowColor="32, 0, 0, 0" Font="Trebuchet MS, 14.25pt, style=Bold" ShadowOffset="3" Text="Sitting VS Working Heart Rate" ForeColor="26, 59, 105"></asp:Title>
 							</titles>					
         <legends>
-								<asp:Legend Enabled="False" IsTextAutoFit="False" Name="Default" BackColor="Transparent" Font="Trebuchet MS, 8.25pt, style=Bold"></asp:Legend>
+								<asp:Legend Enabled="True" IsTextAutoFit="False" Name="Default" BackColor="Transparent" Font="Trebuchet MS, 8.25pt, style=Bold"></asp:Legend>
 							</legends>
 							<borderskin SkinStyle="Emboss"></borderskin>
 							<series>
-								<asp:Series MarkerSize="8" BorderWidth="3" XValueType="Double" Name="HRIndicatorSeries1" ChartType="Line" MarkerStyle="Circle" ShadowColor="Black" BorderColor="180, 26, 59, 105" Color="220, 65, 140, 240" ShadowOffset="2" YValueType="Double"></asp:Series>
-                                <asp:Series MarkerSize="8" BorderWidth="3" XValueType="Double" Name="HRIndicatorSeries2" ChartType="Line" MarkerStyle="Diamond" ShadowColor="Black" BorderColor="180, 26, 59, 105" Color="220, 224, 64, 10" ShadowOffset="2" YValueType="Double"></asp:Series>
+								<asp:Series MarkerSize="8" BorderWidth="3" XValueType="Double" Name="Resting HR" ChartType="Line" MarkerStyle="Circle" ShadowColor="Black" BorderColor="180, 26, 59, 105" Color="220, 65, 140, 240" ShadowOffset="2" YValueType="Double"></asp:Series>
+                                <asp:Series MarkerSize="8" BorderWidth="3" XValueType="Double" Name="Working HR" ChartType="Line" MarkerStyle="Diamond" ShadowColor="Black" BorderColor="180, 26, 59, 105" Color="220, 224, 64, 10" ShadowOffset="2" YValueType="Double"></asp:Series>
 							</series>
 							<chartareas>
 								<asp:ChartArea Name="HRIndicatorChartArea" BorderColor="64, 64, 64, 64" BorderDashStyle="Solid" BackSecondaryColor="White" BackColor="OldLace" ShadowColor="Transparent" BackGradientStyle="TopBottom">

@@ -17,7 +17,7 @@ namespace RIPPEDD.Controllers
         public DataTable GetData(int userId, TableType tableType)
         {
             TableData = GetTableType(userId, tableType);
-            SelectTableData(userId);
+            SelectTableData(userId, "activity_date");
             return TableData;
         }
 
@@ -27,7 +27,7 @@ namespace RIPPEDD.Controllers
         /// <param name="id">Id for which you are requesting data for.</param>
         /// <param name="dtTable">Object responsible for containing the queried data</param>
         /// <returns>1 if the data table has objects, -1 if it does not, an error message if there is an error</returns>
-        public int SelectTableData(int id)
+        public int SelectTableData(int id, string orderby = "")
         {
             SqlCommand selectData = null;
             SqlDataReader reader = null;
@@ -35,14 +35,18 @@ namespace RIPPEDD.Controllers
             try
             {
                 string sSql = CreateSqlQuery("SELECT activityID, activity_data, activity_date", "tblHealthData", WhereItems);
+                if (orderby != "")
+                {
+                    OrderBy(sSql, orderby);
+                }
+
                 selectData = new SqlCommand(sSql, GetDBConnection());
                 selectData.Connection.Open();
                 reader = selectData.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    //dtTable.Rows.Add(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2));
-                    TableData.Rows.Add(reader.GetDouble(1), reader.GetDateTime(2).ToString("d"));
+                    TableData.Rows.Add(reader.GetDouble(1), reader.GetDateTime(2).ToString("dd MMM"));
                 }
 
                 if (TableData.Rows.Count > 0)

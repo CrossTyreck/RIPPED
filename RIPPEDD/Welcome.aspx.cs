@@ -16,9 +16,10 @@ namespace RIPPEDD
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
-
             NumberOfActivitesByDate.Series["ActivitiesSeries1"].YValueMembers = "# of Activities";
             NumberOfActivitesByDate.Series["ActivitiesSeries1"].XValueMember = "# of Weeks";
+            NumberOfActivitesByDate.ChartAreas["ActivitiesChartArea"].AxisX.LabelStyle.IsEndLabelVisible = true;
+         
 
             try
             {
@@ -26,20 +27,23 @@ namespace RIPPEDD
                 DataTable BMITable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.BMI);
                 DataTable SittingHRTable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.SittingHeartRate);
                 DataTable WorkingHRTable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, WelcomeController.TableType.WorkingHeartRate);
-                
+
+                HealthIndicators.Series["IndicatorSeries1"].IsValueShownAsLabel = true;
+
                 foreach (DataRow row in BMITable.Rows)
                 {
+                    
                     HealthIndicators.Series["IndicatorSeries1"].Points.AddY(row[0]);
                 }
 
                 foreach (DataRow row in SittingHRTable.Rows)
                 {
-                    HRIndicator.Series["HRIndicatorSeries1"].Points.AddY(row[0]);
+                    HRIndicator.Series["Resting HR"].Points.AddY(row[0]);
                 }
 
                 foreach (DataRow row in WorkingHRTable.Rows)
                 {
-                    HRIndicator.Series["HRIndicatorSeries2"].Points.AddY(row[0]);
+                    HRIndicator.Series["Working HR"].Points.AddY(row[0]);
                 }
                 //foreach (DataRow row in SittingHRTable.Rows)
                 //{
