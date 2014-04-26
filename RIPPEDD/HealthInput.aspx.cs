@@ -15,13 +15,13 @@ namespace RIPPEDD
 {
     public partial class HealthInput : System.Web.UI.Page
     {
-        //HealthInputController dbObject = new HealthInputController();
+       
         private static string imageMapClick;
-        private static string[] injuryInputs;
         private static int injuryCount = 0;
-        private Label lblTest;
         private InjuryMiniPanel pnlTest;
-        private ArrayList injurylist = new ArrayList();
+        private static ArrayList injurylist = new ArrayList();
+        private static ArrayList panelList = new ArrayList();
+        private static Dictionary<string, string> injuryComments = new Dictionary<string, string>();
    
         private int userID;
 
@@ -29,15 +29,6 @@ namespace RIPPEDD
         {
             base.OnInit(e);
             WorkoutChoices_Initialize();
-            injuryInputs = new string[21];
-           // injuryCount = 0;
-
-            /*for (int i = 0; i < injuryInputs.Length; ++i)
-            {
-                injuryInputs[i] = "";
-            }*/
-
-            
 
           //Needs to be in the login function
 
@@ -50,15 +41,8 @@ namespace RIPPEDD
                 System.Diagnostics.Debug.WriteLine(ex.Message);
                 Response.Redirect("Login.aspx");
             }
-            
-        }
 
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
             lblSubmissionInfo.Visible = false;
-
-            System.Diagnostics.Debug.WriteLine("postback test");
 
             if (ddlWorkoutChoices.Items.Count < 1)
             {
@@ -68,11 +52,35 @@ namespace RIPPEDD
                 }
             }
 
-            
+            this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
+            //Session["pnlInjuryList"] = pnlInjuryList;
+        }
 
-            
+     
 
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                System.Diagnostics.Debug.WriteLine("not postback");
+                
+            }
+            else
+            {
+                refreshList();
+                System.Diagnostics.Debug.WriteLine("postback");
+            }
+
+        }
+
+        private void refreshList()
+        {
+            //Session["pnlInjuryList"] = 
+            foreach (InjuryMiniPanel o in panelList)
+            {
+                pnlInjuryList.Controls.Add(o);
+            }
         }
 
         protected void WorkoutChoices_Initialize()
@@ -100,42 +108,36 @@ namespace RIPPEDD
 
         protected void SetInjury(object sender, ImageMapEventArgs e)
         {
-
+                
             imageMapClick = e.PostBackValue;
-            InjuryMiniPanel temp = new InjuryMiniPanel(injuryCount, imageMapClick);
-            injuryCount++;
-            injurylist.Add(temp);
-            foreach (InjuryMiniPanel o in injurylist)
+
+
+            if (!injurylist.Contains(imageMapClick))
             {
-                pnlInjuryList.Controls.Add(o);
+                injurylist.Add(imageMapClick);
+                pnlTest = new InjuryMiniPanel(injuryCount, imageMapClick);
+                pnlTest.ID = "pnlInjury_" + injuryCount;
+                panelList.Add(pnlTest);
+                injuryCount++;
+                //this.refreshList();
             }
-            
-            /*for (int i = 0; i < injurylist.Count; i++)
+            else
             {
-                lblTest = new Label();
-                // lblTest.Width = 200;
-                //lblTest.Height = 100;
-                lblTest.ID = "lblTest_" + i;
-                // lblTest.Attributes["runat"] = "server";
+                injurylist.Remove(imageMapClick);
+                foreach (InjuryMiniPanel o in panelList)
+                {
+                    if (o.Name.Equals(imageMapClick))
+                    {
+                        pnlInjuryList.Controls.Remove(o);
+                        panelList.Remove(o);
+                        injuryCount--;
+                        //this.Page_Load(sender, e);
+                        break;
+                    }
+                }
+            }
 
-                lblTest.Text = i.ToString();
-                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
-                this.pnlInjuryList.Controls.Add(lblTest);
-                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
-
-                pnlTest = new InjuryMiniPanel(i, injurylist);
-                pnlTest.ID = "pnlTest_" + i;
-
-                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
-                this.pnlInjuryList.Controls.Add(pnlTest);
-                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
-
-
-                System.Diagnostics.Debug.WriteLine("Count: " + injuryCount);
-                System.Diagnostics.Debug.WriteLine(imageMapClick);
-            }*/
-           
-
+            this.Page_Load(sender, e);
         }
 
         protected void btnSubmitResults_Click(object sender, EventArgs e)
@@ -290,15 +292,22 @@ namespace RIPPEDD
 
                 case "Injuries":
 
-                    injuryCount = 0;
-                    System.Diagnostics.Debug.WriteLine("Injury1: " + imageMapClick);
-                    callPassed = controller.inputInjury(imageMapClick, txtInjuryReport.Text, out message);
+                  
+                    foreach (InjuryMiniPanel o in panelList)
+                    {
+                        injuryComments.Add(o.Name, o.txtInjury.Text);
+                    }
+
+                    callPassed = controller.inputInjury(injuryComments, out message);
                     if (callPassed)
                     {
                         //Input is valid
                         string script = "alert(\"Success!\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
-                                              "ServerControlScript", script, true);
+                                                "ServerControlScript", script, true);
+                        pnlInjuryList.Controls.Clear();
+                        panelList.Clear();
+                        injurylist.Clear();
                     }
                     else
                     {
@@ -307,10 +316,11 @@ namespace RIPPEDD
 
                         string script = "alert(\"" + message + "\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
-                                              "ServerControlScript", script, true);
+                                                "ServerControlScript", script, true);
                     }
 
-
+                    injuryComments.Clear();
+                    refreshList();
                     System.Diagnostics.Debug.WriteLine("7");
                     break;
 

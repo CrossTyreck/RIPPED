@@ -439,14 +439,15 @@
                
                     
                     
-                     <asp:Panel ID="pnlInjuryList" ScrollBars="Vertical" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
+                     <asp:Panel ID="pnlInjuryList" ScrollBars="Vertical" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="472px">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Text="Injury List(Doesn't work yet)" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
          </asp:Panel>
                     
                     
-                    
-                    
+                    <br />
+                    <div id="imageMapDiv" style="margin-top: auto">
+
                     
                     
                      <asp:ImageMap ID="imgBodyDiagram" runat="server" HotSpotMode="PostBack" ImageUrl="~/Images/hurt-hs.jpg" OnClick="SetInjury">
@@ -472,10 +473,10 @@
             <asp:RectangleHotSpot AlternateText="Right Forearm" Bottom="184" HotSpotMode="PostBack" Left="486" PostBackValue="Right Forearm" Right="512" Top="158" />
             <asp:RectangleHotSpot AlternateText="Left Hand" Bottom="226" HotSpotMode="PostBack" Left="217" PostBackValue="Left Hand" Right="239" Top="201" />
         </asp:ImageMap>
-
+                    </div>
                       <br />
-                      <asp:TextBox ID="txtInjuryReport" Text="Click on a body part above, and then write your concerns here!" runat="server" Height="77px" Width="525px"
-                          TextMode="multiline"></asp:TextBox>
+                        <br />
+                    
 
                     </asp:Panel>
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections;
 using System.Globalization;
 using RIPPEDD.Health_Input;
 using RIPPEDD.Controllers;
@@ -421,48 +422,63 @@ namespace RIPPEDD.Controllers
             return result;
         }
 
-        public bool inputInjury(string bodyPart, string injury, out string message)
+        public bool inputInjury(Dictionary<string, string> panelList, out string message)
         {
-            bool result = true;
             message = "";
-
-            if (injury.Equals(""))
+            bool result = true;
+            foreach (KeyValuePair<string, string> o in panelList)
             {
-                message = "You need to click on the image map before input";
-                result = false;
+                if (o.Value.Equals(""))
+                {
+                    message += "Empty field! (at " + o.Key + ").\\n";
+                    result = false;
+                }
             }
 
-            SqlConnection database = GetDBConnection();
-            SqlCommand command = null;
-
-            try
-            {
-                command = new SqlCommand("INSERT INTO tblInjuryData (tblLoginID, injury_location, injury_comment, injury_date)"
-                                                  + "VALUES (" + loginID + ", " + getInjuryID(bodyPart) + ", @injury, CURRENT_TIMESTAMP)"
-                                                   , database);
-
-               
-                command.Parameters.AddWithValue("@injury", injury);
-                command.Connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
-
-            }
-            catch (SqlException e)
-            {
-                System.Diagnostics.Debug.WriteLine(e.Message);
-                message = e.Message;
-                result = false;
-            }
-            finally
-            {
-                if (command.Connection.State == ConnectionState.Open)
-                { command.Connection.Close(); }
-            }
             if (result == true)
-                message = "Success";
-            return true;
+            {
+                foreach (KeyValuePair<string, string> o in panelList)
+                {
+                    System.Diagnostics.Debug.WriteLine(o.Key + ":: " + o.Value);
+
+                    SqlConnection database = GetDBConnection();
+                    SqlCommand command = null;
+
+                    try
+                    {
+                        command = new SqlCommand("INSERT INTO tblInjuryData (tblLoginID, injury_location, injury_comment, injury_date)"
+                                                          + "VALUES (" + loginID + ", " + getInjuryID(o.Key) + ", @injury, CURRENT_TIMESTAMP)"
+                                                           , database);
+
+
+                        command.Parameters.AddWithValue("@injury", o.Value);
+                        command.Connection.Open();
+                        SqlDataReader reader;
+                        if(getInjuryID(o.Key) != 0)
+                            reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
+
+                    }
+                    catch (SqlException e)
+                    {
+                        System.Diagnostics.Debug.WriteLine(e.Message);
+                        message = e.Message;
+                        result = false;
+                        message = e.Message;
+                        return false;
+                    }
+                    finally
+                    {
+                        if (command.Connection.State == ConnectionState.Open)
+                        { command.Connection.Close(); }
+                    }
+
+                }
+                message = "Success!";
+            }
+
+            return result;
         }
+
 
         public static int getInjuryID(string bodyPart)
         {

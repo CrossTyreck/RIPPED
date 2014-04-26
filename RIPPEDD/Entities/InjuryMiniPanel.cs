@@ -10,22 +10,27 @@ namespace RIPPEDD.Entities
 {
     public class InjuryMiniPanel : Panel
     {
-        TextBox txtInjury;
-        Label lblInjury;
-        string name;
+        public TextBox txtInjury;
+        public Label lblInjury;
+        public string Name;
         
         
         public InjuryMiniPanel(int index, string bodypart)
         {
-            name = bodypart;
+            Name = bodypart;
 
             txtInjury = new TextBox();
+            txtInjury.TextMode = TextBoxMode.MultiLine;
+            txtInjury.Height = 50;
+            txtInjury.Width = 220;
+            txtInjury.ID = "txtInjury_" + index;
+            txtInjury.Style["resize"] = "none";
             lblInjury = new Label();
             lblInjury.Text = bodypart;
-            
-            this.Attributes["CssClass"] = "miniInjuryPanel";
+
+            this.CssClass = "injuryMiniPanel";
             this.Attributes["runat"] = "server";
-            this.ID = "pnlInjury_" + HealthInputController.getInjuryID(bodypart);
+            //this.ID = "pnlInjury_" + HealthInputController.getInjuryID(bodypart);
             
             
             this.Controls.Add(lblInjury);
@@ -33,6 +38,7 @@ namespace RIPPEDD.Entities
             this.Controls.Add(txtInjury);
 
         }
+
 
         public void updateID(int index)
         {

@@ -77,13 +77,21 @@ h5, h6 {
 /* main layout
 ----------------------------------------------------------*/
 
-.miniInjuryPanel {
+.imageMapDiv {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.injuryMiniPanel {
     
     text-align: left;
     margin-top: 10px;
+    margin-left: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-left: 3%;
     box-shadow: 0px 0px 20px 0px #a8a8a8;
+    border-radius: 4px;
     
 }
 
@@ -96,7 +104,7 @@ h5, h6 {
     margin-top: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 3%;
+    padding-left: 3%;   
     box-shadow: 0px 0px 20px 0px #a8a8a8;
     border-radius: 4px;
     background-color: #ffffff;
@@ -104,7 +112,7 @@ h5, h6 {
 }
 
 .healthInputDataLarge {
-    width: 1024px;
+    width: 925px;
     text-align: left;
     border: none;
     margin-right: auto;
@@ -137,12 +145,13 @@ h5, h6 {
 
 .healthInputDataRightMargin {
     float: right;
-    width: 600px;
+    height: 472px;
+    width: 280px;
     text-align: left;
     border: none;
     margin-left: 10px;
     margin-top: 10px;
-    margin-right: 50px;
+    margin-right: 25px;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 3%;
