@@ -292,35 +292,45 @@ namespace RIPPEDD
 
                 case "Injuries":
 
-                  
-                    foreach (InjuryMiniPanel o in panelList)
+                    if (panelList.Count == 0)
                     {
-                        injuryComments.Add(o.Name, o.txtInjury.Text);
-                    }
-
-                    callPassed = controller.inputInjury(injuryComments, out message);
-                    if (callPassed)
-                    {
-                        //Input is valid
-                        string script = "alert(\"Success!\");";
+                        string script = "alert(\"You have not clicked on any part!\");";
                         ScriptManager.RegisterStartupScript(this, GetType(),
                                                 "ServerControlScript", script, true);
-                        pnlInjuryList.Controls.Clear();
-                        panelList.Clear();
-                        injurylist.Clear();
                     }
                     else
                     {
-                        //Input invalid
-                        System.Diagnostics.Debug.WriteLine(message);
+                        foreach (InjuryMiniPanel o in panelList)
+                        {
+                            injuryComments.Add(o.Name, o.txtInjury.Text);
+                        }
 
-                        string script = "alert(\"" + message + "\");";
-                        ScriptManager.RegisterStartupScript(this, GetType(),
-                                                "ServerControlScript", script, true);
+                        callPassed = controller.inputInjury(injuryComments, out message);
+                        if (callPassed)
+                        {
+                            //Input is valid
+                            string script = "alert(\"Success!\");";
+                            ScriptManager.RegisterStartupScript(this, GetType(),
+                                                    "ServerControlScript", script, true);
+                            pnlInjuryList.Controls.Clear();
+                            panelList.Clear();
+                            injurylist.Clear();
+                        }
+                        else
+                        {
+                            //Input invalid
+                            System.Diagnostics.Debug.WriteLine(message);
+
+                            string script = "alert(\"" + message + "\");";
+                            ScriptManager.RegisterStartupScript(this, GetType(),
+                                                    "ServerControlScript", script, true);
+                        }
+
+                        
                     }
-
                     injuryComments.Clear();
                     refreshList();
+                   
                     System.Diagnostics.Debug.WriteLine("7");
                     break;
 
