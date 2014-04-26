@@ -41,6 +41,7 @@ namespace RIPPEDD
                 userData._loginID = id;
                 userData._user = retUser;
                 Session["User_Data"] = userData;
+                Session["Control_Increment"] = 0;
                 Response.Redirect(info);
             }
             else

@@ -17,7 +17,6 @@ namespace RIPPEDD
     {
        
         private static string imageMapClick;
-        private static int injuryCount = 0;
         private InjuryMiniPanel pnlTest;
         private static ArrayList injurylist = new ArrayList();
         private static ArrayList panelList = new ArrayList();
@@ -34,7 +33,7 @@ namespace RIPPEDD
 
             try
             {
-                userID = ((SessionData)Session["User_Data"])._loginID;
+                userID = ((SessionData)Session["User_Data"])._loginID;        
             }
             catch (NullReferenceException ex)
             {
@@ -53,7 +52,7 @@ namespace RIPPEDD
             }
 
             this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
-            //Session["pnlInjuryList"] = pnlInjuryList;
+         
         }
 
      
@@ -76,7 +75,7 @@ namespace RIPPEDD
 
         private void refreshList()
         {
-            //Session["pnlInjuryList"] = 
+           
             foreach (InjuryMiniPanel o in panelList)
             {
                 pnlInjuryList.Controls.Add(o);
@@ -115,11 +114,11 @@ namespace RIPPEDD
             if (!injurylist.Contains(imageMapClick))
             {
                 injurylist.Add(imageMapClick);
-                pnlTest = new InjuryMiniPanel(injuryCount, imageMapClick);
-                pnlTest.ID = "pnlInjury_" + injuryCount;
+                pnlTest = new InjuryMiniPanel((int)Session["Control_Increment"], imageMapClick);
+                pnlTest.ID = "pnlInjury_" + ((int)Session["Control_Increment"]);
                 panelList.Add(pnlTest);
-                injuryCount++;
-                //this.refreshList();
+                Session["Control_Increment"] = ((int) Session["Control_Increment"]) + 1;
+                
             }
             else
             {
@@ -130,8 +129,6 @@ namespace RIPPEDD
                     {
                         pnlInjuryList.Controls.Remove(o);
                         panelList.Remove(o);
-                        //injuryCount--;
-                        //this.Page_Load(sender, e);
                         break;
                     }
                 }

@@ -14,7 +14,8 @@ namespace RIPPEDD.Entities
         public Label lblInjury;
         public string Name;
         
-        
+      
+
         public InjuryMiniPanel(int index, string bodypart)
         {
             Name = bodypart;
