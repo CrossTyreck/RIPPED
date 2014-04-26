@@ -32,17 +32,18 @@ namespace RIPPEDD.Controllers
 
             try
             {
-                command = new SqlCommand("SELECT * from tblInjuryData where tblLoginID = " + loginID + "order by injury_date", d);
+                command = new SqlCommand("SELECT * from tblInjuryData where tblLoginID = " + loginID + " order by injury_date DESC", d);
 
                 command.Connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.Default);
                 int counter = 0;
 
-                while (reader.Read())
+                while (counter < 7 && reader.Read())
                 {
                     injuries[counter] = reader.GetString(3);
                     counter++;
                 }
+                
 
             }
             catch (SqlException e)

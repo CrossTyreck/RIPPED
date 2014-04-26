@@ -23,7 +23,15 @@ namespace RIPPEDD
             base.OnInit(e);
             //Needs to be in the login function
 
-            userID = ((SessionData)Session["User_Data"])._loginID;
+            try
+            {
+                userID = ((SessionData)Session["User_Data"])._loginID;
+            }
+            catch (NullReferenceException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Response.Redirect("Login.aspx");
+            }
 
         }
 
