@@ -20,19 +20,51 @@ namespace RIPPEDD
             NumberOfActivitesByDate.Series["ActivitiesSeries1"].YValueMembers = "# of Activities";
             NumberOfActivitesByDate.Series["ActivitiesSeries1"].XValueMember = "# of Weeks";
 
-
             try
             {
-                NumberOfActivitesByDate.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1);
+                NumberOfActivitesByDate.DataSource = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, 1);
+                DataTable BMITable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, 2);
+                //DataTable SittingHRTable = dbObject.GetData(((SessionData)Session["User_Data"])._loginID, 3);
+                foreach (DataRow row in BMITable.Rows)
+                {
+                    HealthIndicators.Series["IndicatorSeries1"].Points.AddY(row[0]);
+                }
+                //foreach (DataRow row in SittingHRTable.Rows)
+                //{
+                //    HealthIndicators.Series["IndicatorSeries2"].Points.AddY(row[0]);
+                //}
             }
             catch (NullReferenceException ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
                 Response.Redirect("Login.aspx");
             }
+
             NumberOfActivitesByDate.DataBind();
 
+            HealthIndicators.ChartAreas["IndicatorsChartArea"].Area3DStyle.Enable3D = true;
+            HealthIndicators.Series["IndicatorSeries1"].BorderWidth = 3;
+            HealthIndicators.Series["IndicatorSeries2"].BorderWidth = 3;
+
         }
+
+		#region Web Form Designer generated code
+		override protected void OnInit(EventArgs e)
+		{
+			InitializeComponent();
+			base.OnInit(e);
+		}
+		
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{    
+
+		}
+		#endregion
+
         protected void InputHealth_Click(object sender, EventArgs e)
         {
             Response.Redirect("HealthInput.aspx");

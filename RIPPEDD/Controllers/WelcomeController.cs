@@ -9,13 +9,14 @@ namespace RIPPEDD.Controllers
 {
     public class WelcomeController : DatabaseGateway
     {
-        enum TableType { Activity = 1 }
+        enum TableType { Activity = 1, BMI = 2, SittingHeartRate = 3, WorkingHeartRate = 4 }
 
         DataTable TableData = new DataTable();
+        Dictionary<String, String> WhereItems = new Dictionary<string, string>();
 
-        public DataTable GetActivityData(int userId, int tableType)
+        public DataTable GetData(int userId, int tableType)
         {
-            TableData = GetTableType(tableType);
+            TableData = GetTableType(userId, tableType);
             SelectTableData(userId);
             return TableData;
         }
@@ -31,12 +32,9 @@ namespace RIPPEDD.Controllers
             SqlCommand selectData = null;
             SqlDataReader reader = null;
 
-            Dictionary<String, String> WhereID = new Dictionary<string, string>();
-            WhereID.Add("tblLoginID", id.ToString());
-
             try
             {
-                string sSql = CreateSqlQuery("SELECT activityID, activity_data, activity_date", "tblHealthData", WhereID);
+                string sSql = CreateSqlQuery("SELECT activityID, activity_data, activity_date", "tblHealthData", WhereItems);
                 selectData = new SqlCommand(sSql, GetDBConnection());
                 selectData.Connection.Open();
                 reader = selectData.ExecuteReader();
@@ -68,20 +66,82 @@ namespace RIPPEDD.Controllers
             return -1;
         }
 
-        private DataTable GetTableType(int tableType)
+        private DataTable GetTableType(int userId, int tableType)
         {
             DataTable Table = new DataTable();
 
             switch (tableType)
             {
                 case (int)TableType.Activity:
+                    WhereItems.Clear();
                     Table.Columns.Add("# of Activities");
                     Table.Columns.Add("# of Weeks");
+                    WhereItems.Add("tblLoginID", userId.ToString());
                     break;
-            }
 
+                case(int)TableType.BMI:
+                    WhereItems.Clear();
+                    Table.Columns.Add("Activity");
+                    Table.Columns.Add("Value");
+                    WhereItems.Add("activityID", SelectActivityID("BMI").ToString());
+                    WhereItems.Add("tblLoginID", userId.ToString());
+                    break;
+
+                case(int)TableType.SittingHeartRate:
+                    WhereItems.Clear();
+                    Table.Columns.Add("Activity");
+                    Table.Columns.Add("Value");
+                    WhereItems.Add("activityID", SelectActivityID("Sitting Heart Rate").ToString());
+                    WhereItems.Add("tblLoginID", userId.ToString());
+                    break;
+
+                case (int)TableType.WorkingHeartRate:
+                    WhereItems.Clear();
+                    Table.Columns.Add("Activity");
+                    Table.Columns.Add("Value");
+                    WhereItems.Add("activityID", SelectActivityID("Working Heart Rate").ToString());
+                    WhereItems.Add("tblLoginID", userId.ToString());
+                    break;
+
+            }
             return Table;
         }
 
+        /// <summary>
+        /// Used in retrieving the Activity ID
+        /// </summary>
+        /// <returns>int Activity ID from tblActivities</returns>
+        private int SelectActivityID(string activityName)
+        {
+            SqlCommand selectData = null;
+            SqlDataReader reader = null;
+
+            Dictionary<String, String> Activity = new Dictionary<String, String>();
+            Activity.Add("activity", activityName);
+
+            try
+            {
+                string sSql = CreateSqlQuery("SELECT act_id", "tblActivities", Activity);
+                selectData = new SqlCommand(sSql, GetDBConnection());
+                selectData.Connection.Open();
+                reader = selectData.ExecuteReader(CommandBehavior.SingleResult);
+
+                if (reader.Read())
+                {
+                   return reader.GetInt32(0);
+                }
+            }
+
+            catch (SqlException e)
+            {
+                return e.ErrorCode;
+            }
+            catch (Exception e)
+            {
+                return e.HResult;
+            }
+
+            return -1;
+        }
     }
 }

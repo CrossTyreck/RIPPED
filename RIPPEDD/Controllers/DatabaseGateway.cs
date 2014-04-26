@@ -124,10 +124,13 @@ namespace RIPPEDD.Controllers
                     sSql = (sSql == null || sValue == null) ? null : sSqlFunct + " INTO " + table + " (" + sSql + ") VALUES (" + sValue + ")";
                     break;
 
+                    //not helpful for OR statements
+                   
                 case "SELECT":
+
                     foreach(KeyValuePair<String,String> pair in inputData)
                     {
-                        sSql = (sSql == null ? "" : sSql + " AND ") + pair.Key + " = '" + pair.Value + "'";
+                            sSql = (sSql == null ? "" : sSql + " AND ") + pair.Key + " = '" + pair.Value + "'";
                     }
                     sSql = sSqlFunct + " FROM " + table + (sSql == null ? "" : " WHERE " + sSql); 
                     
