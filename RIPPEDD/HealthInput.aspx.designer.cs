@@ -67,13 +67,13 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View Welcome;
         
         /// <summary>
-        /// Image1 control.
+        /// imgBaby control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image imgBaby;
         
         /// <summary>
         /// CardioWorkout control.
@@ -110,24 +110,6 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRoadRunning;
-        
-        /// <summary>
-        /// lblRoadRunningDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRoadRunningDescription;
-        
-        /// <summary>
-        /// txtRoadRunningDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRoadRunningDescription;
         
         /// <summary>
         /// pnlTreadmill control.
@@ -562,6 +544,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View HealthIndicators;
         
         /// <summary>
+        /// pnlWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlWeight;
+        
+        /// <summary>
         /// lblWeight control.
         /// </summary>
         /// <remarks>
@@ -578,6 +569,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWeight;
+        
+        /// <summary>
+        /// pnlBMI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlBMI;
         
         /// <summary>
         /// lblBMI control.
@@ -598,6 +598,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtBMI;
         
         /// <summary>
+        /// pnlSittingHeartRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSittingHeartRate;
+        
+        /// <summary>
         /// lblSittingHeartRate control.
         /// </summary>
         /// <remarks>
@@ -614,6 +623,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSittingHeartRate;
+        
+        /// <summary>
+        /// pnlWorkingHeartRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlWorkingHeartRate;
         
         /// <summary>
         /// lblWorkingHeartRate control.
@@ -634,6 +652,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtWorkingHeartRate;
         
         /// <summary>
+        /// pnlHeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlHeight;
+        
+        /// <summary>
         /// lblHeight control.
         /// </summary>
         /// <remarks>
@@ -650,6 +677,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHeight;
+        
+        /// <summary>
+        /// pnlSleep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSleep;
         
         /// <summary>
         /// lblSleep control.
@@ -679,6 +715,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View CouchPotato;
         
         /// <summary>
+        /// pnlComputerTimeHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlComputerTimeHome;
+        
+        /// <summary>
         /// lblComputerTimeHome control.
         /// </summary>
         /// <remarks>
@@ -697,6 +742,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtComputerTimeHome;
         
         /// <summary>
+        /// pnlTelevision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlTelevision;
+        
+        /// <summary>
         /// lblTelevision control.
         /// </summary>
         /// <remarks>
@@ -713,6 +767,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelevision;
+        
+        /// <summary>
+        /// pnlChores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlChores;
         
         /// <summary>
         /// lblChores control.

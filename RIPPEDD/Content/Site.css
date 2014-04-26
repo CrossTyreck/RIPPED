@@ -107,7 +107,8 @@ h5, h6 {
     width: 1024px;
     text-align: left;
     border: none;
-    margin-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
