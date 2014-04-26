@@ -17,7 +17,7 @@ namespace RIPPEDD
     {
         private int userID;
         HealthInputReportController dbObject = new HealthInputReportController();
-
+       
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -39,6 +39,19 @@ namespace RIPPEDD
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Chart.Series["Series1"].YValueMembers = "# of Activities";
+            Chart.Series["Series1"].XValueMember = "# of Weeks";
+            try
+            {
+                Chart.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1);
+            }
+            catch (NullReferenceException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Response.Redirect("Login.aspx");
+            }
+            Chart.DataBind();
+
             if (!IsPostBack)
             {
                 dictInjury.Add("Head", 0);
@@ -78,13 +91,22 @@ namespace RIPPEDD
 
         protected void btnTest_OnClick(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("working");
             HealthInputReportController controller = new HealthInputReportController(userID);
             string[] injuries = controller.ReturnInjuries();
             firstInjury.Text = injuries[0];
             secondInjury.Text = injuries[1];
             thirdInjury.Text = injuries[2];
             fourthInjury.Text = injuries[3];
+            fifthInjury.Text = injuries[4];
         }
+
+        protected void workoutSelect(object sender, EventArgs e)
+        {
+        var text = ddlist.SelectedItem.Text;
+            
+        }
+        
 
         protected void ChangeDoctor_Click(object sender, EventArgs e)
         {

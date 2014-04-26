@@ -22,64 +22,79 @@
         <asp:Label ID="Label1" runat="server" Font-Size="X-Large" ForeColor="Green" Text="Please give as much information as possible."></asp:Label>
         <br />
         
-        <asp:Button ID="btnClick" runat="server" OnClick="btnTest_OnClick" Text="Test" />
+        <asp:Label ID="Label4" runat="server" Text="Select Activity"></asp:Label>
+        
+       <asp:DropDownList Width="300px" ID="ddlist" runat="server"
+                AppendDataBoundItems="True" TabIndex="3" AutoPostBack="True" 
+                OnSelectedIndexChanged = "workoutSelect"  >
+            <asp:ListItem Value="">Select</asp:ListItem>
+            <asp:ListItem Value="CardioWorkout">CardioWorkout</asp:ListItem>
+            <asp:ListItem Value="StrengthWorkout">StrengthWorkout</asp:ListItem>
+            <asp:ListItem Value="WorkActivities">WorkActivities</asp:ListItem>
+            <asp:ListItem Value="HealthIndicators">HealthIndicators</asp:ListItem>
+            <asp:ListItem Value="CouchPotato">CouchPotato</asp:ListItem>
+        </asp:DropDownList>
+        
         <br />
         <asp:Panel ID="Panel1" runat="server" CssClass="floatRight" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
+            <asp:Button ID="btnClick" runat="server" OnClick="btnTest_OnClick" Text="List Current Injuries" />
             <br />
             <br />
-            <asp:Label ID="lblInjury0" runat="server" Text="Right Shoulder"></asp:Label>
+            <asp:TextBox ID="firstInjury" runat="server" Height="20px"></asp:TextBox>
             <br />
+            <asp:TextBox ID="secondInjury" runat="server" Height="20px"></asp:TextBox>
             &nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server" Height="67px" TextMode="MultiLine" Width="183px">It hurts alot when I rotate it around in front of me.</asp:TextBox>
             <br />
-            <asp:Label ID="lblInjury1" runat="server" Text="Neck"></asp:Label>
+            <asp:TextBox ID="thirdInjury" runat="server" Height="20px"></asp:TextBox>
             <br />
+            <asp:TextBox ID="fourthInjury" runat="server" Height="20px"></asp:TextBox>
             &nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Height="67px" TextMode="MultiLine" Width="183px">I think I have wiplash from a fender bender.</asp:TextBox>
             <br />
-            <asp:Label ID="lblInjury" runat="server" Text="Lumbar"></asp:Label>
+            <asp:TextBox ID="fifthInjury" runat="server" Height="20px"></asp:TextBox>
             <br />
-            &nbsp;&nbsp;
-            <asp:TextBox ID="TextBox3" runat="server" Height="67px" TextMode="MultiLine" Width="183px">My work requires that I sit down all day. My lower back has begun to hurt.</asp:TextBox>
         </asp:Panel>
-        <asp:Panel ID="Panel2" runat="server" CssClass="floatLeft" Width="309px" BorderStyle="Solid" BorderWidth="2px">
+        <asp:Panel ID="Panel2" runat="server" CssClass="floatLeft" Width="456px" BorderStyle="Solid" BorderWidth="2px" Height="511px">
             <asp:Label ID="Label3" runat="server" Font-Size="Large" Text="Health Stats" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
             <br />
+            <asp:CHART id="Chart" runat="server" Palette="BrightPastel" BackColor="#D3DFF0" ImageType="Png" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)" Width="446px" Height="380px" BorderlineDashStyle="Solid" BackGradientStyle="TopBottom" BorderWidth="2" BorderColor="26, 59, 105">
+							<Series>
+                                <asp:Series BorderColor="180, 26, 59, 105" ChartArea="ChartArea1" Color="220, 65, 140, 240" Legend="Default" Name="Series1">
+                                </asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea BackColor="64, 165, 191, 228" BackGradientStyle="TopBottom" BackSecondaryColor="Transparent" BorderColor="64, 64, 64, 64" Name="ChartArea1" ShadowColor="Transparent">
+                                    <AxisY LineColor="64, 64, 64, 64">
+                                        <MajorGrid LineColor="64, 64, 64, 64" />
+                                        <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                    </AxisY>
+                                    <AxisX LineColor="64, 64, 64, 64">
+                                        <MajorGrid LineColor="64, 64, 64, 64" />
+                                        <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                    </AxisX>
+                                    <Area3DStyle Enable3D="True" Inclination="15" IsRightAngleAxes="False" Perspective="10" Rotation="10" WallWidth="0" />
+                                </asp:ChartArea>
+                            </ChartAreas>
+							<legends>
+								<asp:Legend Enabled="False" IsTextAutoFit="False" Name="Default" BackColor="Transparent" Font="Trebuchet MS, 8.25pt, style=Bold"></asp:Legend>
+							</legends>
+							<Titles>
+                                <asp:Title Font="Trebuchet MS, 14.25pt, style=Bold" ForeColor="26, 59, 105" Name="Title1" ShadowColor="32, 0, 0, 0" ShadowOffset="3" Text="Health Progress">
+                                </asp:Title>
+                            </Titles>
+							<borderskin SkinStyle="Emboss"></borderskin>
+						</asp:CHART>
             <br />
-            <img alt="AvgBloodPressure" class="auto-style1" src="Images/2DFastLine.png" />
-            <img alt="StrengthTraining" class="auto-style2" src="Images/2DRadarArea.png" />
-            <img alt="CalorieByMeal" class="auto-style3" src="Images/3DPie2.png" />
+            &nbsp;&nbsp;
         </asp:Panel>
         
         <br />
         <br />
         <br />
-        <asp:TextBox ID="firstInjury" runat="server"></asp:TextBox>
-        <asp:TextBox ID="secondInjury" runat="server"></asp:TextBox>
-        <asp:TextBox ID="thirdInjury" runat="server"></asp:TextBox>
-        <asp:TextBox ID="fourthInjury" runat="server"></asp:TextBox>
     </div>
 
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Stylesheets">
     <link href="Content/Site.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style1 {
-            width: 194px;
-            height: 152px;
-        }
-
-        .auto-style2 {
-            width: 191px;
-            height: 145px;
-        }
-
-        .auto-style3 {
-            width: 195px;
-            height: 165px;
-        }
-    </style>
-</asp:Content>
+    </asp:Content>
 
