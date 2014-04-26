@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using System.Collections;
 using RIPPEDD.Health_Input;
 using RIPPEDD.Controllers;
 using RIPPEDD.Entities;
@@ -19,6 +20,8 @@ namespace RIPPEDD
         private static string[] injuryInputs;
         private static int injuryCount = 0;
         private Label lblTest;
+        private InjuryMiniPanel pnlTest;
+        private ArrayList injurylist = new ArrayList();
    
         private int userID;
 
@@ -65,17 +68,9 @@ namespace RIPPEDD
                 }
             }
 
-            //for (int i = 0; i < injuryCount; ++i)
-            //{
-                
-            //    Label lblTest = new Label();
-            //    lblTest.Width = 200;
-            //    lblTest.Height = 100;
-            //    lblTest.Attributes["runat"] = "server";
-            //   // lblTest.CssClass = .miniInjuryPanel;
-            //    lblTest.Text = injuryInputs[i];
-            //    Panel2.Controls.Add(lblTest);
-            //}
+            
+
+            
 
 
         }
@@ -107,10 +102,15 @@ namespace RIPPEDD
         {
 
             imageMapClick = e.PostBackValue;
-
-            injuryInputs[injuryCount] = e.PostBackValue;
+            InjuryMiniPanel temp = new InjuryMiniPanel(injuryCount, imageMapClick);
             injuryCount++;
-            for (int i = 1; i <= injuryCount; i++)
+            injurylist.Add(temp);
+            foreach (InjuryMiniPanel o in injurylist)
+            {
+                pnlInjuryList.Controls.Add(o);
+            }
+            
+            /*for (int i = 0; i < injurylist.Count; i++)
             {
                 lblTest = new Label();
                 // lblTest.Width = 200;
@@ -123,10 +123,17 @@ namespace RIPPEDD
                 this.pnlInjuryList.Controls.Add(lblTest);
                 this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
 
+                pnlTest = new InjuryMiniPanel(i, injurylist);
+                pnlTest.ID = "pnlTest_" + i;
+
+                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
+                this.pnlInjuryList.Controls.Add(pnlTest);
+                this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
+
 
                 System.Diagnostics.Debug.WriteLine("Count: " + injuryCount);
                 System.Diagnostics.Debug.WriteLine(imageMapClick);
-            }
+            }*/
            
 
         }

@@ -80,8 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DatabaseGateway.cs" />
+    <Compile Include="Controllers\HealthInputReportController.cs" />
     <Compile Include="Controllers\InjuryListController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
+    <Compile Include="Entities\InjuryMiniPanel.cs" />
     <Compile Include="Entities\SessionData.cs" />
     <Compile Include="Controllers\HealthInputController.cs" />
     <Compile Include="Entities\User.cs" />

@@ -464,7 +464,7 @@ namespace RIPPEDD.Controllers
             return true;
         }
 
-        public int getInjuryID(string bodyPart)
+        public static int getInjuryID(string bodyPart)
         {
             int result = 0;
 

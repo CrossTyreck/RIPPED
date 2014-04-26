@@ -144,7 +144,7 @@
                     </div>
                 </asp:Panel>
 --%>
-
+                <center>
                 <asp:Panel ID="pnlClimbing" CssClass="healthInputData" runat="server">
                       <div style="padding-bottom: 5px">
                         <div>
@@ -204,7 +204,7 @@
                     </div>
                 </asp:Panel>     
                    
-                
+                </center>
 
                
 
@@ -212,37 +212,107 @@
             </asp:View>
             <asp:View ID="WorkActivities" runat="server">
                 <%-- activities at work : computer use, exercise, etc --%>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblComputerTime" runat="server" Text="Computer Use Time(hours): "></asp:Label>
-                <asp:TextBox ID="txtComputerTime" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblBreaksPerHour" runat="server" Text="# of breaks(stretch, etc)(hourly): "></asp:Label>
-                <asp:TextBox ID="txtBreaksPerHour" runat="server" Width="118px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="lblLunchTime" runat="server" Text="Lunch Time length(minutes): "></asp:Label>
-                <asp:TextBox ID="txtLunchTime" runat="server" Width="118px"></asp:TextBox>
+               
+<%--                PANEL TEMPLATE
+                <asp:Panel ID="pnl" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            LABEL
+                        </div>
+                         <div> 
+                            TEXTBOX
+                         </div>
+                    </div>
+                </asp:Panel>
+--%>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <center>
 
-                     <asp:Label ID="lblWorkTime" runat="server" Text="Number of hours worked: "></asp:Label>
-                <asp:TextBox ID="txtWorkTime" runat="server" Width="118px"></asp:TextBox>
+                <asp:Panel ID="pnlComputerTimeWork" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                             <asp:Label ID="lblComputerTime" runat="server" Text="Computer Use Time(hours): "></asp:Label>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <br />
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+                         <div> 
+                             <asp:TextBox ID="txtComputerTime" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
 
-                     <asp:Label ID="lblMeetingTime" runat="server" Text="Meeting time(hours): "></asp:Label>
-                <asp:TextBox ID="txtMeetingTime" runat="server" Width="118px"></asp:TextBox>
+                <asp:Panel ID="pnlBreaksPerHour" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblBreaksPerHour" runat="server" Text="# of breaks(stretch, etc)(hourly): "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtBreaksPerHour" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
+               
+                <asp:Panel ID="pnlLunchTime" CssClass="healthInputData" runat="server">
+                        <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblLunchTime" runat="server" Text="Lunch Time length(minutes): "></asp:Label>
+                        </div>
+                            <div> 
+                            <asp:TextBox ID="txtLunchTime" runat="server" Width="118px"></asp:TextBox>
+                            </div>
+                    </div>
+                </asp:Panel>
+
+                     
+                <asp:Panel ID="pnlWorkTime" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblWorkTime" runat="server" Text="Number of hours worked: "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtWorkTime" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
+              
+
+                     
+                
+                <asp:Panel ID="pnlMeetingTime" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            <asp:Label ID="lblMeetingTime" runat="server" Text="Meeting time(hours): "></asp:Label>
+                        </div>
+                         <div> 
+                            <asp:TextBox ID="txtMeetingTime" runat="server" Width="118px"></asp:TextBox>
+                         </div>
+                    </div>
+                </asp:Panel>
+
+
+                
+                 </center>
+
+                     
+                
 
 
                 <br />
             </asp:View>
 
             <asp:View ID="HealthIndicators" runat="server">
+
+<%--                PANEL TEMPLATE
+                <asp:Panel ID="pnl" CssClass="healthInputData" runat="server">
+                      <div style="padding-bottom: 5px">
+                        <div>
+                            LABEL
+                        </div>
+                         <div> 
+                            TEXTBOX
+                         </div>
+                    </div>
+                </asp:Panel>
+--%>
 
                 <%-- bmi, heart rate, etc --%>
                 <br />
@@ -309,7 +379,7 @@
                
                     
                     
-                     <asp:Panel ID="pnlInjuryList" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
+                     <asp:Panel ID="pnlInjuryList" ScrollBars="Vertical" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="516px">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
          <%--   <br />

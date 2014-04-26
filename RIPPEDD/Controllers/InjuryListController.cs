@@ -8,9 +8,37 @@ using RIPPEDD.Entities;
 
 namespace RIPPEDD.Controllers
 {
-    public class InjuryListController
+    public class InjuryListController : DatabaseGateway
     {
-        public InjuryListController() {
+        Dictionary<string, string> injuryList;
+
+        public InjuryListController(Dictionary<string, string> pList) 
+        {
+
+            //copy the dictionary into new memory just in case
+            injuryList = new Dictionary<string, string>(pList);
+
+
+        }
+
+        public bool processInjuries(out string message)
+        {
+            bool result = true;
+            message = "";
+
+            foreach (KeyValuePair<string, string> entry in injuryList)
+            {
+
+            }
+
+
+            if (result == true)
+            {
+                message = "Sucess!";
+                //database call here
+            }
+
+            return result;
         }
              
 

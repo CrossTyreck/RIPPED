@@ -418,6 +418,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.View WorkActivities;
         
         /// <summary>
+        /// pnlComputerTimeWork control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlComputerTimeWork;
+        
+        /// <summary>
         /// lblComputerTime control.
         /// </summary>
         /// <remarks>
@@ -434,6 +443,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtComputerTime;
+        
+        /// <summary>
+        /// pnlBreaksPerHour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlBreaksPerHour;
         
         /// <summary>
         /// lblBreaksPerHour control.
@@ -454,6 +472,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtBreaksPerHour;
         
         /// <summary>
+        /// pnlLunchTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlLunchTime;
+        
+        /// <summary>
         /// lblLunchTime control.
         /// </summary>
         /// <remarks>
@@ -472,6 +499,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.TextBox txtLunchTime;
         
         /// <summary>
+        /// pnlWorkTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlWorkTime;
+        
+        /// <summary>
         /// lblWorkTime control.
         /// </summary>
         /// <remarks>
@@ -488,6 +524,15 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWorkTime;
+        
+        /// <summary>
+        /// pnlMeetingTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMeetingTime;
         
         /// <summary>
         /// lblMeetingTime control.
