@@ -86,10 +86,12 @@ h5, h6 {
     
     text-align: left;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 3%;
+    padding-right: 3%;
     box-shadow: 0px 0px 20px 0px #a8a8a8;
     border-radius: 4px;
     
@@ -145,8 +147,24 @@ h5, h6 {
 
 .healthInputDataRightMargin {
     float: right;
-    height: 472px;
-    width: 280px;
+    overflow: auto;
+    text-align: center;
+    border: none;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-shadow: 0px 0px 10px 0px #d3d3d3;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: large;
+}
+
+.healthInputDataRightMarginTextNormal {
+    float: right;
     text-align: left;
     border: none;
     margin-left: 10px;

@@ -437,19 +437,18 @@
               
                 <asp:Panel ID="Panel3" CssClass="healthInputDataLarge" runat="server">
                
-                    
-                    
-                     <asp:Panel ID="pnlInjuryList" ScrollBars="Vertical" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="472px">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True"></asp:Label>
-         </asp:Panel>
-                    
+                    <div id="divInjuryLst" style="float: right; text-align:center; width: 360px;">
+                        
+                    <asp:Label ID="Label3" runat="server" Text="Injury List" Font-Size="Large" Font-Bold="True"></asp:Label>
+                     <asp:Panel ID="pnlInjuryList" runat="server" CssClass="healthInputDataRightMargin" Width="280px" BorderStyle="Solid" BorderWidth="2px" Height="472px">
+       
+                     </asp:Panel>
+                    </div>
                     
                     <br />
                     <div id="imageMapDiv" style="margin-top: auto">
 
-                    
-                    
+
                      <asp:ImageMap ID="imgBodyDiagram" runat="server" HotSpotMode="PostBack" ImageUrl="~/Images/hurt-hs.jpg" OnClick="SetInjury">
             <asp:RectangleHotSpot AlternateText="Head" Bottom="53" HotSpotMode="PostBack" Left="68" PostBackValue="Head" Right="93" Top="27" />
             <asp:RectangleHotSpot AlternateText="Right Shoulder" Bottom="110" HotSpotMode="PostBack" Left="62" PostBackValue="Right Shoulder" Right="86" Top="87" />

@@ -49,14 +49,8 @@ namespace RIPPEDD
                 {
                     ddlWorkoutChoices.Items.Add(view.ID.ToString());
                 }
-            }
-
-            this.pnlInjuryList.Controls.Add(new LiteralControl("<br />"));
-         
+            }         
         }
-
-     
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
