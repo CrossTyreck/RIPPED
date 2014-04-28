@@ -12,7 +12,7 @@
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 450px; width: 75% }
+      #map-canvas { height: 450px; width: 850px }
     </style>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXfesKPhq6IBz0VwdZpebHiSiVvN4NtvQ&sensor=true">
@@ -36,6 +36,8 @@
 </asp:Content>
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
     <div>
+
+        <asp:Panel ID="pnlGoogleMapsQuery" CssClass="mapsPanel" runat="server" >
          <asp:Label ID="lblHealthBox" runat="server" Text="Enter following information to search for a health care provider!"></asp:Label>
         <br />
         <br />
@@ -59,9 +61,10 @@
         <br />
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_OnClick" Text="Submit" />
         <br />
-        <br />
+        </asp:Panel>
     </div>
-    
+     <br />
+     
     
     <div class="auto-style1">
      <center>

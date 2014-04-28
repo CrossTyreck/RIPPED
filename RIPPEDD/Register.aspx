@@ -3,6 +3,8 @@
 <asp:Content ContentPlaceHolderID="FeaturedContent" ID="FeaturedContent" runat="server" />
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
+
+    <asp:Panel ID="pnlRegister" runat="server" CssClass="registerPanel">
     <asp:TextBox ID="txtbxDataInserted" runat="server" BorderStyle="None" ForeColor="Red" ReadOnly="True" TextMode="MultiLine" Visible="False" Width="786px"></asp:TextBox>
     <br />
     <asp:Label ID="lblFirstName" runat="server" Text="First Name: "></asp:Label>
@@ -36,5 +38,7 @@
     <br />
     <br />
     <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+    <br />
+    </asp:Panel>
     <br />
 </asp:Content>

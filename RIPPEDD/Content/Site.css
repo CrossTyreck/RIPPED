@@ -97,6 +97,54 @@ h5, h6 {
     
 }
 
+.loginPanel {
+    width: 400px;
+    
+    border: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3%;   
+    box-shadow: 0px 0px 20px 0px #a8a8a8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: large;
+}
+
+.registerPanel {
+    width: 400px;
+    
+    border: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3%;   
+    box-shadow: 0px 0px 20px 0px #a8a8a8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: large;
+}
+
+.mapsPanel {
+    width: 800px;
+    
+    border: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3%;   
+    box-shadow: 0px 0px 20px 0px #a8a8a8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: large;
+}
+
 
 .healthInputData {
     width: 600px;
@@ -114,7 +162,7 @@ h5, h6 {
 }
 
 .healthInputDataLarge {
-    width: 925px;
+    width: 900px;
     text-align: left;
     border: none;
     margin-right: auto;

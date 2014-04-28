@@ -433,8 +433,22 @@
             </asp:View>
 
             <asp:View ID="Injuries" runat="server">
-
               
+                <%-- test printing here --%>
+                <script language="javascript" type="text/javascript">
+                    function CallPrint(printpage) {
+                        var headstr = "<html><head><title></title></head><body>";
+                        var footstr = "</body>";
+                        var newstr = document.all.item(printpage).innerHTML;
+                        var oldstr = document.body.innerHTML;
+                        document.body.innerHTML = headstr + newstr + footstr;
+                        window.print();
+                        document.body.innerHTML = oldstr;
+                        return false;
+                    }
+                </script>
+                
+                <div id="injurydiv">
                 <asp:Panel ID="Panel3" CssClass="healthInputDataLarge" runat="server">
                
                     <div id="divInjuryLst" style="float: right; text-align:center; width: 360px;">
@@ -479,13 +493,15 @@
 
                     </asp:Panel>
 
-
+</div>
 
             </asp:View>
         </asp:MultiView>
         </p>
     <p>
         <center>  <asp:Button ID="btnSubmitResults" runat="server" OnClick="btnSubmitResults_Click" Text="Submit Results!" />
+        <asp:Button ID="btnTestPrint" runat="server" Text="Test Print" onclientclick="javascript:CallPrint('injurydiv');" xmlns:asp="#unknown" />
+
 &nbsp;
         <asp:Label ID="lblSubmissionInfo" runat="server" Visible="False"></asp:Label>
     </p>

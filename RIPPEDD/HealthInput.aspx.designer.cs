@@ -850,6 +850,15 @@ namespace RIPPEDD {
         protected global::System.Web.UI.WebControls.Button btnSubmitResults;
         
         /// <summary>
+        /// btnTestPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTestPrint;
+        
+        /// <summary>
         /// lblSubmissionInfo control.
         /// </summary>
         /// <remarks>

@@ -131,21 +131,17 @@ namespace RIPPEDD
             this.Page_Load(sender, e);
         }
 
+        protected void btnTestPrint_Click(object sender, EventArgs e)
+        {
+            string script = "alert(\"Success!\");";
+            ScriptManager.RegisterStartupScript(this, GetType(),
+                                  "ServerControlScript", script, true);
+        }
+
+
         protected void btnSubmitResults_Click(object sender, EventArgs e)
         {
-            //http://stackoverflow.com/questions/13362904/convert-control-to-textbox-and-assign-it-a-value
-            //foreach (TextBox txtBox in this.Controls)
-            //{
-
-            //    if (txtBox.Visible && txtBox.Text.Length > 0)
-            //    {
-            //        float dControl;
-            //        float.TryParse(txtBox.Text, NumberStyles.Currency, NumberFormatInfo.InvariantInfo, out dControl);
-
-            //        HealthInputSessionVariables.Activity.Add(txtBox.ID.Remove(0, 3), dControl);
-            //    }
-            //}
-
+           
             System.Diagnostics.Debug.WriteLine("Click test");
             //System.Diagnostics.Debug.WriteLine(WorkoutChoices.GetActiveView().ToString());
 
