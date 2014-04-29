@@ -53,7 +53,11 @@ namespace RIPPEDD.Controllers
                 {
                     sSql = sSql + "and (activityID = 10 or activityID = 9 or activityID = 8 or activityID = 7)";
                 }
-                else 
+                else if (activity.Equals("sleep"))
+                {
+                    sSql = sSql + "and (activityID = 22 or activityID = 23 or activityID = 24)";
+                }
+                else
                 {
                     sSql = sSql + "and (activityID = 17 or activityID = 18 or activityID = 19 or activityID = 20)";
                 }
