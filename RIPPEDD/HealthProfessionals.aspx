@@ -8,36 +8,9 @@
     <div class="menubar">
   </div>
 
-      <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 450px; width: 850px }
-    </style>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXfesKPhq6IBz0VwdZpebHiSiVvN4NtvQ&sensor=true">
-    </script>
-    <script type="text/javascript">
-        function initialize() {
-            var mapOptions = {
-                center: new google.maps.LatLng(35.673343, 139.710388),
-                zoom: 13,
-                //mapTypeId: google.maps.MapTypeId.SATELLITE
-
-            };
-            var map = new google.maps.Map(document.getElementById("map-canvas"),
-                mapOptions);
-
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
-
 </asp:Content>
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
     <div>
-
-        <asp:Panel ID="pnlGoogleMapsQuery" CssClass="mapsPanel" runat="server" >
          <asp:Label ID="lblHealthBox" runat="server" Text="Enter following information to search for a health care provider!"></asp:Label>
         <br />
         <br />
@@ -61,20 +34,18 @@
         <br />
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_OnClick" Text="Submit" />
         <br />
-        </asp:Panel>
+        <br />
     </div>
-     <br />
-     
     
-    <div class="auto-style1">
-     <center>
-         <div id="map-canvas"/>
-     </center>  
+  <iframe id="gmap" runat="server"
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAmraGWkXFKyVgd_pna2BjAnlXJ_iRsOWo
+    &q=Lawson,Tokyo+Japan">
 
-        
-    </div>
-
-
+   </iframe>
+    
    </asp:Content>
 
 

@@ -13,15 +13,6 @@ namespace RIPPEDD {
     public partial class HealthProfessionals {
         
         /// <summary>
-        /// pnlGoogleMapsQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlGoogleMapsQuery;
-        
-        /// <summary>
         /// lblHealthBox control.
         /// </summary>
         /// <remarks>
@@ -110,5 +101,14 @@ namespace RIPPEDD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// gmap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe gmap;
     }
 }
