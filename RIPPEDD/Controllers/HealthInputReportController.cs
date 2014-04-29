@@ -26,14 +26,14 @@ namespace RIPPEDD.Controllers
 
         DataTable TableData = new DataTable();
 
-        public DataTable GetActivityData(int userId, int tableType)
+        public DataTable GetActivityData(int userId, int tableType, string activity)
         {
             TableData = GetTableType(tableType);
-            SelectTableData(userId);
+            SelectTableData(userId, activity);
             return TableData;
         }
 
-        public int SelectTableData(int id)
+        public int SelectTableData(int id, string activity)
         {
             SqlCommand selectData = null;
             SqlDataReader reader = null;
@@ -44,6 +44,19 @@ namespace RIPPEDD.Controllers
             try
             {
                 string sSql = CreateSqlQuery("SELECT activityID, activity_data, activity_date", "tblHealthData", WhereID);
+                System.Diagnostics.Debug.WriteLine(sSql);
+                if (activity.Equals("cardio"))
+                {
+                    sSql = sSql + "and (activityID = 1 or activityID = 2 or activityID = 3 or activityID = 4 or activityID = 5 or activityID = 6)";
+                }
+                else if (activity.Equals("strength"))
+                {
+                    sSql = sSql + "and (activityID = 10 or activityID = 9 or activityID = 8 or activityID = 7)";
+                }
+                else 
+                {
+                    sSql = sSql + "and (activityID = 17 or activityID = 18 or activityID = 19 or activityID = 20)";
+                }
                 selectData = new SqlCommand(sSql, GetDBConnection());
                 selectData.Connection.Open();
                 reader = selectData.ExecuteReader();
@@ -75,14 +88,14 @@ namespace RIPPEDD.Controllers
             return -1;
         }
 
-        public String[] ReturnInjuries()
+        public String[] ReturnInjuries(int number)
         {
             SqlConnection d = GetDBConnection();
             SqlCommand command = null;
             string[] injuries = new string[7];
             try
             {
-                command = new SqlCommand("SELECT top 7 * from tblInjuryData where tblLoginID = " + loginID + " order by injury_date DESC", d);
+                command = new SqlCommand("SELECT top " + number + " * from tblInjuryData where tblLoginID = " + loginID + " order by injury_date DESC", d);
                 command.Connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.Default);
                 int counter = 0;
@@ -105,6 +118,33 @@ namespace RIPPEDD.Controllers
                 { command.Connection.Close(); }
             }
             return injuries;
+        }
+
+        public string Returnworkout()
+        {
+            SqlConnection d = GetDBConnection();
+            SqlCommand command = null;
+            try
+            {
+                command = new SqlCommand("SELECT * from tblHealthData where tblLoginID = " + loginID + "and activityID = 11 order by activity_date DESC", d);
+                command.Connection.Open();
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.Default);
+                if (reader.Read())
+                {
+                    return reader.GetString(5);
+                }
+            }
+            catch (SqlException e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return "";
+            }
+            finally
+            {
+                if (command.Connection.State == ConnectionState.Open)
+                { command.Connection.Close(); }
+            }
+            return "";
         }
    
         private String returnInjury(int ID)

@@ -41,9 +41,15 @@ namespace RIPPEDD
         {
             Chart.Series["Series1"].YValueMembers = "# of Activities";
             Chart.Series["Series1"].XValueMember = "# of Weeks";
+            Chart1.Series["Series1"].YValueMembers = "# of Activities";
+            Chart1.Series["Series1"].XValueMember = "# of Weeks";
+            Chart2.Series["Series1"].YValueMembers = "# of Activities";
+            Chart2.Series["Series1"].XValueMember = "# of Weeks";
             try
             {
-                Chart.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1);
+                Chart.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "strength");
+                Chart1.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "cardio");
+                Chart2.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "health");
             }
             catch (NullReferenceException ex)
             {
@@ -51,6 +57,11 @@ namespace RIPPEDD
                 Response.Redirect("Login.aspx");
             }
             Chart.DataBind();
+            Chart1.DataBind();
+            Chart2.DataBind();
+
+            showInjuries();
+            showWorkout();
 
             if (!IsPostBack)
             {
@@ -89,11 +100,11 @@ namespace RIPPEDD
             }
         }
 
-        protected void btnTest_OnClick(object sender, EventArgs e)
+        protected void showInjuries()
         {
             System.Diagnostics.Debug.WriteLine("working");
             HealthInputReportController controller = new HealthInputReportController(userID);
-            string[] injuries = controller.ReturnInjuries();
+            string[] injuries = controller.ReturnInjuries(5);
             firstLabel.Text = firsthalf(injuries[0]);
             firstInjury.Text = lasthalf(injuries[0]);
             secondLabel.Text = firsthalf(injuries[1]);
@@ -106,6 +117,11 @@ namespace RIPPEDD
             fifthInjury.Text = lasthalf(injuries[4]);
             
             
+        }
+        protected void showWorkout()
+        {
+            HealthInputReportController controller = new HealthInputReportController(userID);
+            workout.Text = controller.Returnworkout();
         }
         public static string firsthalf(string s)
         {
@@ -131,14 +147,7 @@ namespace RIPPEDD
             return "";
 
         }
-
-        protected void workoutSelect(object sender, EventArgs e)
-        {
-        var text = ddlist.SelectedItem.Text;
-            
-        }
         
-
         protected void ChangeDoctor_Click(object sender, EventArgs e)
         {
             Response.Redirect("HealthProfessionals.aspx");
