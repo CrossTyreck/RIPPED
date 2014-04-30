@@ -167,7 +167,7 @@ namespace RIPPEDD
             //HttpCookie cookie = new HttpCookie("userID", userID.ToString());//kc testing
             //theDoc.HtmlOptions.HttpAdditionalHeaders = "Cookie: userID=" + userID;
             //theDoc.HtmlOptions.NoCookie = true;
-            theDoc.AddImageUrl("http://localhost:1298/PrintableReport.aspx?userID=" + userID);
+            theDoc.AddImageUrl("http://"+Request.Url.Authority+"/PrintableReport.aspx?userID=" + userID);
             byte[] theData = theDoc.GetData();
             Response.Clear();
             Response.ContentType = "application/pdf";
@@ -175,7 +175,6 @@ namespace RIPPEDD
             Response.AddHeader("content-length", theData.Length.ToString());
             Response.BinaryWrite(theData);
             Response.End();
-            
         }
     }
 }
