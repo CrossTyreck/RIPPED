@@ -5,3 +5,8 @@ C:\Users\Keegan\Documents\Ripped for pullwc\trunk\RIPPEDD\bin\Newtonsoft.Json.xm
 C:\Users\Keegan\Documents\Ripped for pullwc\trunk\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
 C:\Users\Keegan\Documents\Ripped for pullwc\trunk\RIPPEDD\obj\Debug\RIPPEDD.dll
 C:\Users\Keegan\Documents\Ripped for pullwc\trunk\RIPPEDD\obj\Debug\RIPPEDD.pdb
+C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\bin\RIPPEDD.dll
+C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\bin\RIPPEDD.pdb
+C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\obj\Debug\RIPPEDD.dll
+C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\obj\Debug\RIPPEDD.pdb
+C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache

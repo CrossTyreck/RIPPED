@@ -35,8 +35,8 @@ namespace RIPPEDD
             //userID = Convert.ToInt32(Request.Cookies.Get(0).Value);
             //userID = 1012;//kc testing
             userID = Convert.ToInt32(Request.QueryString["userID"]);
-            int count = Request.Cookies.Count;
-            fifthInjury.Text = "test" + userID + "-" + count;
+            //int count = Request.Cookies.Count;
+            //fifthInjury.Text = "test" + userID + "-" + count;
             Chart.Series["Series1"].YValueMembers = "# of Activities";
             Chart.Series["Series1"].XValueMember = "# of Weeks";
             Chart1.Series["Series1"].YValueMembers = "# of Activities";
@@ -89,7 +89,7 @@ namespace RIPPEDD
             dLabel.Text = firsthalf(injuries[3]);
             fourthInjury.Text = lasthalf(injuries[3]);
             eLabel.Text = firsthalf(injuries[4]);
-            //fifthInjury.Text = lasthalf(injuries[4]);
+            fifthInjury.Text = lasthalf(injuries[4]);
         }
         protected void showWorkout()
         {

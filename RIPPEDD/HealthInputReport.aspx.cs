@@ -167,7 +167,7 @@ namespace RIPPEDD
             //HttpCookie cookie = new HttpCookie("userID", userID.ToString());//kc testing
             //theDoc.HtmlOptions.HttpAdditionalHeaders = "Cookie: userID=" + userID;
             //theDoc.HtmlOptions.NoCookie = true;
-            theDoc.AddImageUrl("http://localhost:1298/PrintableReport.aspx?userID="+userID);
+            theDoc.AddImageUrl("http://localhost:1298/PrintableReport.aspx?userID=" + userID);
             byte[] theData = theDoc.GetData();
             Response.Clear();
             Response.ContentType = "application/pdf";
