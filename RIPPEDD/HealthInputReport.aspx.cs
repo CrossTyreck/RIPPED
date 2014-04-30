@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
@@ -16,6 +17,7 @@ namespace RIPPEDD
     public partial class HealthInputReport : System.Web.UI.Page
     {
         private int userID;
+       
         HealthInputReportController dbObject = new HealthInputReportController();
        
         protected override void OnInit(EventArgs e)
@@ -66,6 +68,8 @@ namespace RIPPEDD
 
             showInjuries();
             showWorkout();
+
+
 
             if (!IsPostBack)
             {
@@ -119,7 +123,7 @@ namespace RIPPEDD
             fourthInjury.Text = lasthalf(injuries[3]);
             eLabel.Text = firsthalf(injuries[4]);
             fifthInjury.Text = lasthalf(injuries[4]);
-            
+            //fifthInjury.Text = userID.ToString();//KC testing
             
         }
         protected void showWorkout()
@@ -160,10 +164,18 @@ namespace RIPPEDD
         protected void PrintReport_Click(object sender, EventArgs e)
         {
             Doc theDoc = new Doc();
-            theDoc.AddImageUrl(Server.MapPath("PrintableReport.aspx"));
-            theDoc.Save(Server.MapPath("docsave.pdf"));
-            Response.Redirect("docsave.pdf");
+            //HttpCookie cookie = new HttpCookie("userID", userID.ToString());//kc testing
+            //theDoc.HtmlOptions.HttpAdditionalHeaders = "Cookie: userID=" + userID;
+            //theDoc.HtmlOptions.NoCookie = true;
+            theDoc.AddImageUrl("http://localhost:1298/PrintableReport.aspx?userID="+userID);
+            byte[] theData = theDoc.GetData();
+            Response.Clear();
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "inline; filename=MyPDF.PDF");
+            Response.AddHeader("content-length", theData.Length.ToString());
+            Response.BinaryWrite(theData);
+            Response.End();
+            
         }
-
     }
 }
