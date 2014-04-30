@@ -51,7 +51,7 @@ namespace RIPPEDD
                 else
                 {
                     query = "https://www.google.com/maps/embed/v1/search?key=AIzaSyAmraGWkXFKyVgd_pna2BjAnlXJ_iRsOWo&q=";
-                    query = query + typeProvider + " " + location + "&zoom=13&maptype=roadmap";
+                    query = query + typeProvider + " " + location + "&zoom=10&maptype=roadmap";
                     gmap.Attributes.Add("src", query);
                 }
             }
