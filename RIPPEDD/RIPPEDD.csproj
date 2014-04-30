@@ -41,6 +41,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\Json60r3\Bin\Net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -83,6 +87,7 @@
     <Compile Include="Controllers\HealthInputReportController.cs" />
     <Compile Include="Controllers\InjuryListController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
+    <Compile Include="Entities\GooglePlacesParser.cs" />
     <Compile Include="Entities\InjuryMiniPanel.cs" />
     <Compile Include="Entities\SessionData.cs" />
     <Compile Include="Controllers\HealthInputController.cs" />

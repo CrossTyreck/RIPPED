@@ -32,22 +32,20 @@
         <asp:Label ID="lblZip" runat="server" Text="Zip code: "></asp:Label>
         <asp:TextBox ID="txtBoxZip" runat="server"></asp:TextBox>
         <br />
-        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_OnClick" Text="Submit" />
+        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_OnClick" OnClientClick="popMap()" Text="Submit" />
         <br />
         <br />
     </div>
     
   <iframe id="gmap" runat="server"
-  width="600"
-  height="450"
+  width="1000"
+  height="500"
   frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAmraGWkXFKyVgd_pna2BjAnlXJ_iRsOWo
-    &q=Lawson,Tokyo+Japan">
-
+  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAmraGWkXFKyVgd_pna2BjAnlXJ_iRsOWo
+    &center=33.4294,-111.9431&zoom=13&maptype=roadmap">
    </iframe>
     
    </asp:Content>
-
 
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
