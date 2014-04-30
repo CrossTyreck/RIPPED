@@ -79,6 +79,8 @@
     <Content Include="Images\hurt-hs.jpg" />
     <Content Include="Images\panel.jpg" />
     <Content Include="Libraries\ABCpdf.dll" />
+    <Content Include="Libraries\ABCpdf9-32.dll" />
+    <Content Include="Libraries\PrintHook32.dll" />
     <Content Include="Login.aspx" />
     <Content Include="PrintableReport.aspx" />
     <Content Include="Register.aspx" />

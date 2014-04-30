@@ -13,25 +13,30 @@ namespace RIPPEDD
 {
     public partial class PrintableReport : System.Web.UI.Page
     {
-        private int userID;
+        private int userID=-1;
         HealthInputReportController dbObject = new HealthInputReportController();
 
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
             //Needs to be in the login function
-            try
+            /*try
             {
                 userID = ((SessionData)Session["User_Data"])._loginID;
             }
             catch (NullReferenceException ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
-                Response.Redirect("Login.aspx");
-            }
+                //Response.Redirect("Login.aspx");
+            }*/
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //userID = Convert.ToInt32(Request.Cookies.Get(0).Value);
+            //userID = 1012;//kc testing
+            userID = Convert.ToInt32(Request.QueryString["userID"]);
+            int count = Request.Cookies.Count;
+            fifthInjury.Text = "test" + userID + "-" + count;
             Chart.Series["Series1"].YValueMembers = "# of Activities";
             Chart.Series["Series1"].XValueMember = "# of Weeks";
             Chart1.Series["Series1"].YValueMembers = "# of Activities";
@@ -42,10 +47,10 @@ namespace RIPPEDD
             Chart3.Series["Series1"].XValueMember = "# of Weeks";
             try
             {
-                Chart.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "strength");
-                Chart1.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "cardio");
-                Chart2.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "health");
-                Chart3.DataSource = dbObject.GetActivityData(((SessionData)Session["User_Data"])._loginID, 1, "sleep");
+                Chart.DataSource = dbObject.GetActivityData(userID, 1, "strength");
+                Chart1.DataSource = dbObject.GetActivityData(userID, 1, "cardio");
+                Chart2.DataSource = dbObject.GetActivityData(userID, 1, "health");
+                Chart3.DataSource = dbObject.GetActivityData(userID, 1, "sleep");
             }
             catch (NullReferenceException ex)
             {
@@ -84,7 +89,7 @@ namespace RIPPEDD
             dLabel.Text = firsthalf(injuries[3]);
             fourthInjury.Text = lasthalf(injuries[3]);
             eLabel.Text = firsthalf(injuries[4]);
-            fifthInjury.Text = lasthalf(injuries[4]);
+            //fifthInjury.Text = lasthalf(injuries[4]);
         }
         protected void showWorkout()
         {
