@@ -8,7 +8,7 @@ using System.Globalization;
 using RIPPEDD.Health_Input;
 using RIPPEDD.Controllers;
 using RIPPEDD.Entities;
-
+using WebSupergoo.ABCpdf9;
 
 
 namespace RIPPEDD
@@ -159,7 +159,10 @@ namespace RIPPEDD
 
         protected void PrintReport_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Welcome.aspx");
+            Doc theDoc = new Doc();
+            theDoc.AddImageUrl(Server.MapPath("PrintableReport.aspx"));
+            theDoc.Save(Server.MapPath("docsave.pdf"));
+            Response.Redirect("docsave.pdf");
         }
 
     }
