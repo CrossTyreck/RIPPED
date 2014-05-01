@@ -38,7 +38,7 @@ namespace RIPPEDD
             string jsonStr = wc.DownloadString("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + typeProvider + "in " + location + "&sensor=true&key=AIzaSyAmraGWkXFKyVgd_pna2BjAnlXJ_iRsOWo&q");
             GooglePlacesParser gpr = (GooglePlacesParser)JsonConvert.DeserializeObject<GooglePlacesParser>(jsonStr);
 
-            if (((CheckTypeProvider()) && (CheckCity()) && (CheckState())) || ((CheckTypeProvider()) && (CheckZip())))
+            if ((CheckTypeProvider()) && (CheckCity()) && (CheckState()) && (CheckZip()))
             {
                 if (gpr.status != "OK")
                 {
@@ -58,7 +58,7 @@ namespace RIPPEDD
             else
             {
                 // find out which one is empty and post appropriate message
-                string error = "Information was not entered correctly, please fill in information correctly to populate results.";
+                string error = "One or more fields are not properly filled in, please fill in all fields to view results.";
                 if ((!CheckTypeProvider()) || (!CheckCity()) || (!CheckState()) || (!CheckZip()))
                 {
                     MessageBox(error);

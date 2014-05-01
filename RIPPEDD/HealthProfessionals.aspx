@@ -13,6 +13,10 @@
     <div>
          <asp:Label ID="lblHealthBox" runat="server" Text="Enter following information to search for a health care provider!"></asp:Label>
         <br />
+        <asp:Label ID="lblDirections" runat="server" Text="All fields must be filled in correctly to view results."></asp:Label>
+        <br />
+        <asp:Label ID="lblDataTypes" runat="server" Text="City and State must be alphabetical characters, and Zip code must be numerical."></asp:Label>
+        <br />
         <br />
         <asp:Label ID="lblHealthCareType" runat="server" Text="Select the type of provider: "></asp:Label>
         <asp:DropDownList ID="dropDownListHealthCareType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dropDownListHC_SelectedIndexChanged">
