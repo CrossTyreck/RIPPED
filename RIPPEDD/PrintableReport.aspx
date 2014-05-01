@@ -135,7 +135,7 @@
     <br />
     <asp:Label ID="Label5" runat="server" Text="Latest Workout: "></asp:Label>
     <br />
-    <asp:TextBox ID="workout" runat="server" Width="316px"></asp:TextBox>
+    <asp:TextBox ID="workout" runat="server" TextMode="MultiLine" Width="316px" Height="150px"></asp:TextBox>
     <br />
     <asp:Label ID="Label4" runat="server" Text="Injuries"></asp:Label>
     <br />

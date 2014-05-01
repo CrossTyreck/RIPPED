@@ -10,3 +10,10 @@ C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\bin\RIPPEDD.pdb
 C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\obj\Debug\RIPPEDD.dll
 C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\obj\Debug\RIPPEDD.pdb
 C:\Users\Keegan\Documents\RIPPED repowc\trunk\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\bin\RIPPEDD.dll
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\bin\RIPPEDD.pdb
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\bin\Newtonsoft.Json.pdb
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\bin\Newtonsoft.Json.xml
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\obj\Debug\RIPPEDD.csprojResolveAssemblyReference.cache
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\obj\Debug\RIPPEDD.dll
+C:\Users\Nathaniel\RIPPED\trunk\RIPPEDD\obj\Debug\RIPPEDD.pdb

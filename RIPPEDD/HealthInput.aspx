@@ -500,7 +500,7 @@
         </p>
     <p>
         <center>  <asp:Button ID="btnSubmitResults" runat="server" OnClick="btnSubmitResults_Click" Text="Submit Results!" />
-        <asp:Button ID="btnTestPrint" runat="server" Text="Test Print" onclientclick="javascript:CallPrint('injurydiv');" xmlns:asp="#unknown" />
+       <%-- <asp:Button ID="btnTestPrint" runat="server" Text="Test Print" onclientclick="javascript:CallPrint('injurydiv');" xmlns:asp="#unknown" />--%>
 
 &nbsp;
         <asp:Label ID="lblSubmissionInfo" runat="server" Visible="False"></asp:Label>

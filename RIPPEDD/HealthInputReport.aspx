@@ -5,11 +5,24 @@
     <div class="menubar">
         <div class="table">
             <ul id="horizontal-list">
+
+                <script language="javascript" type="text/javascript">
+                    function CallPrint(strid) {
+                        var prtContent = document.getElementById(strid);
+                        var WinPrint =
+             window.open('', '', 'letf=0,top=0,toolbar=0,sta­tus=0');
+                        WinPrint.document.write(prtContent.innerHTML);
+                        WinPrint.document.close();
+                        WinPrint.focus();
+                        WinPrint.print();
+                    }
+                </script>
+
                 <li>
-                    <asp:LinkButton ID="ChangeDoctor" runat="server" Style="text-decoration: none" OnClick="ChangeDoctor_Click" ForeColor="Black">Change Primary Doctor</asp:LinkButton>
+                    <asp:LinkButton ID="ChangeDoctor" runat="server" Style="text-decoration: none" onclientclick="javascript:CallPrint('healthReport');" ForeColor="Black">Print Report to Doctor</asp:LinkButton>
                 </li>
                 <li>
-                    <asp:LinkButton ID="PrintReport" runat="server" Style="text-decoration: none" OnClick="PrintReport_Click" ForeColor="Black">Print Report to Doctor</asp:LinkButton>
+                    <asp:LinkButton ID="PrintReport" runat="server" Style="text-decoration: none" OnClick="PrintReport_Click" ForeColor="Black">Print Report to Doctor(PDF)</asp:LinkButton>
                 </li>
             </ul>
         </div>
@@ -19,6 +32,7 @@
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainContent" runat="server">
     <div style="text-align: center; height: 571px; width: 833px;">
 
+        <div id ="healthReport">
         <asp:Panel ID="Panel2" runat="server" CssClass="floatLeft" Width="630px" BorderStyle="None" BorderWidth="2px" Height="480px" HorizontalAlign="Center" Wrap="False">
             <br />
             &nbsp;
@@ -179,6 +193,8 @@
             <asp:TextBox ID="fifthInjury" runat="server" Height="20px" Width="300px"></asp:TextBox>
         </asp:Panel>
     </div>
+        
+        </div>
 
 
 </asp:Content>
