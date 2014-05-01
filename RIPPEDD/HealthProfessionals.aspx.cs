@@ -38,7 +38,7 @@ namespace RIPPEDD
             string jsonStr = wc.DownloadString("https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + typeProvider + "in " + location + "&sensor=true&key=AIzaSyAmraGWkXFKyVgd_pna2BjAnlXJ_iRsOWo&q");
             GooglePlacesParser gpr = (GooglePlacesParser)JsonConvert.DeserializeObject<GooglePlacesParser>(jsonStr);
 
-            if (((isTypeProviderEmpty()) && (isCityEmpty()) && (isStateEmpty())) || ((isTypeProviderEmpty()) && (isZipEmpty())))
+            if (((CheckTypeProvider()) && (CheckCity()) && (CheckState())) || ((CheckTypeProvider()) && (CheckZip())))
             {
                 if (gpr.status != "OK")
                 {
@@ -58,8 +58,13 @@ namespace RIPPEDD
             else
             {
                 // find out which one is empty and post appropriate message
-                // show default map
-                gmap.Attributes.Add("src", defaultSettings);
+                string error = "Information was not entered correctly, please fill in information correctly to populate results.";
+                if ((!CheckTypeProvider()) || (!CheckCity()) || (!CheckState()) || (!CheckZip()))
+                {
+                    MessageBox(error);
+                    // show default map
+                    gmap.Attributes.Add("src", defaultSettings);
+                }
             }
         }
 
@@ -78,33 +83,50 @@ namespace RIPPEDD
         {
             System.Diagnostics.Debug.WriteLine(query);
         }
-        private void TestGpr()
+
+
+        // checks if typeProvider is selected or not
+        private bool CheckTypeProvider()
         {
-            // test if gpr is retaining data  
-        }
-        private bool isTypeProviderEmpty()
-        {
-            if (typeProvider.Length != 0)
+            if (typeProvider != null)
                 return true;
             else
                 return false;
         }
-        private bool isCityEmpty()
-        {
-            if (city.Length != 0)
-                return true;
-            else
-                return false;
-        }
-        private bool isStateEmpty()
+
+        // checks if state is empty or not, also checks if only contains alphabetic characters
+        private bool CheckCity()
         {
             if (state.Length != 0)
+            {
+                foreach (char c in city)
+                {
+                    if (!Char.IsLetter(c))
+                        return false;
+                }
                 return true;
+            }
+            else
+                return false;
+        }
+
+        // checks if state is empty or not, also checks if only contains alphabetic characters
+        private bool CheckState()
+        {
+            if (state.Length != 0)
+            {
+                foreach (char c in state)
+                {
+                    if (!Char.IsLetter(c))
+                        return false;
+                }
+                return true;
+            }
             else
                 return false;
         }
         // checks if zipcode is empty or not, also checks if it is only numeric
-        private bool isZipEmpty()
+        private bool CheckZip()
         {
             if (zip.Length != 0)
             {
