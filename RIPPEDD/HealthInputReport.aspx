@@ -143,14 +143,19 @@
         </asp:Panel>
         
         <br />
-        <asp:Panel ID="Panel3" runat="server" Height="51px" Width="741px" HorizontalAlign="Left">
+        <asp:Panel ID="Panel3" runat="server" Height="199px" Width="741px" HorizontalAlign="Left">
             <br />
             <asp:Label ID="Label5" runat="server" Text="Latest Workout: "></asp:Label>
             <br />
-            <asp:TextBox ID="workout" runat="server" Width="316px"></asp:TextBox>
+
+            <asp:TextBox ID="workout" runat="server"  
+                                TextMode="multiline" Height="150px" Width="316px"></asp:TextBox>
+
+
+
         </asp:Panel>
         <br />
-        <asp:Panel ID="Panel5" runat="server" Height="177px" Width="741px" HorizontalAlign="Left">
+        <asp:Panel ID="Panel5" runat="server" Height="251px" Width="741px" HorizontalAlign="Left">
             <asp:Label ID="Label4" runat="server" Text="Injuries"></asp:Label>
             <br />
             <asp:Label ID="aLabel" runat="server" Text=""></asp:Label>
